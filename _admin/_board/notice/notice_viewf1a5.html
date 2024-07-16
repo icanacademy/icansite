@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"> 
+
+<!-- Mirrored from icanacademy.com/_admin/_board/notice/notice_view.asp?b_Seq=50&b_Board_id=board_notice by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Jun 2023 05:16:41 GMT -->
+<head>
+<title>게시판</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script type="text/javascript" src="../_js/common_Js.js"></script>
+<script type="text/javascript" src="../_js/board_Js.js"></script>
+<link type="text/css" href="../_css/style.css" rel="stylesheet">
+
+<script type="text/javascript" src="../../_SmartEditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="../css/ie6.css" media="screen" />
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="../css/ie7.css" media="screen" />
+<![endif]-->
+
+<script type="text/javascript">
+function notice_view(PageAction, b_Seq) {
+	
+	var PageAction = PageAction;
+	var schIcon = document.getElementById("schIcon").value;		
+	var schGubun = document.getElementById("schGubun").value;	
+	var schText = document.getElementById("schText").value;			
+	var b_Board_id = document.getElementById("b_Board_id").value;	
+	var pageNum = document.getElementById("pageNum").value;		
+	
+	if(PageAction=="Modify"){										
+		location.href="notice_regc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum+"&b_Seq="+b_Seq;
+	}else if(PageAction=="Del"){	
+		if (confirm("정말로 삭제 하시겠습니까?")) {				
+			location.href="notice_del_sqlc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum+"&b_Seq="+b_Seq+"&PageAction="+PageAction;
+		} else {		
+		}		
+	}else if(PageAction=="List"){	
+		location.href="notice_listc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum;
+	}	
+}
+
+</script>
+</head>
+<body class="bgAdmin">
+<form Method="post" id="notice_view" action="#">
+<input type="hidden" id="schIcon" name="schIcon" value="">
+<input type="hidden" id="schCategorySeq" name="schCategorySeq" value="">
+<input type="hidden" id="schGubun" name="schGubun" value="">
+<input type="hidden" id="schText" name="schText" value="">
+<input type="hidden" id="b_Board_id" name="b_Board_id" value="board_notice" >
+<input type="hidden" id="pageNum" name="pageNum" value="" >
+<input type="hidden" id="PageAction" name="PageAction" value="Modify">
+<input type="hidden" id="b_Seq" name="b_Seq" value="50">
+
+
+	<!-- wrap -->
+	<div id="wrap" style="width:100%">
+		<!-- cont -->
+		<div class="cont" style="width:100%">
+			<!-- write -->
+			
+			<table class="common_reg_table" style="width:100%">
+				<colgroup>
+					<col width="130px" />
+					<col width=""/>	
+					<col width="130px" />
+					<col width=""/>						
+				</colgroup>
+				<thead>
+					<tr>
+						<th width="130px"><img src="../image/t_icon.png" alt="" class="mr_5"/>작성자</th>					
+						<td width="">관리자</td>		
+						<th width="130px"><img src="../image/t_icon.png" alt="" class="mr_5"/>작성일</th>					
+						<td width="">2020-05-22 15:34:01</td>									
+					</tr>
+				</thead>			
+				<tbody>							
+				<tr>
+					<th><img src="../image/t_icon.png" alt="" class="mr_5"/>제목</th>
+					<td colspan="3">								
+							2020 05 22 SUMMER 온라인캠프 "스토리로 익히는 리딩스킬"
+						</a>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4" class="mincontents"><p><img src="../../../uploaded_files/board_files/File_KIS200522150908.jpg" title="File%5FKIS200522150908%2Ejpg"></p><p><span style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif; font-size: 12pt;"><i><b><br></b></i></span></p><p style="line-height: 2;"><i style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif; font-size: 12pt;"><b>스토리로 익히는 리딩스킬&nbsp;</b></i></p><p style="line-height: 2;"><span style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif;">정독수업의 중심은&nbsp; 단락별 중심기능을 잘 이해하고 그 기능에 반영된 의도를 디코딩하는 스킬을 잘 배우고 반영하여 빠르고 정확하게 작가의 의도를 알아차리는 것입니다. 정독을 인텐시브리딩이라고&nbsp; 하는 말뜻에서 신경을 쓰지 않고 읽으면 많은 부분을 놓칠 수 있다는 의미를 은연중에 알 수 있게 됩니다.&nbsp;</span></p><p style="line-height: 2;"><b style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif;">초등 고학년 학생중에 아직 리딩스킬이 붙지 않아 분석능력이 읽기속에 반영되지 않는 아이들은 이 수업이 매우 유익할 것입니다.&nbsp;</b></p><p style="line-height: 2;"><span style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif;">&nbsp;</span></p><p style="line-height: 2;"><span style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif; font-size: 12pt;"><b><i>리딩스킬 ; 의도를 파악하는 종합분석능력</i></b></span></p><p style="line-height: 2;"><span style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif;">아이캔에서는 이런 종합적 분석 능력을 지속적으로&nbsp; 글을 읽는 과정에서 익히도록 하여 읽기 습관이 되도록 하고 더불어 이를 역순으로&nbsp; 정리하고 써머리하는 리뷰를 프리 쓰기학습에 적용하여 글쓰는 데에도 큰 효과가 일어 날 수 있도록 하는 엑티브한 리딩을 매수업의 중심으로 삼고 있습니다.</span></p><p style="line-height: 2;"><span style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif;">&nbsp;</span></p><p style="line-height: 2;"><span style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif;">리딩 투 롸이팅코스에서는 진행하는 주요 학습서는 미국교과서입니다. 다양한 장르의 글을 쓴 작가의 의도에 따라서 글을 느끼고 이해하도록&nbsp; 그 연관 스킬을 가르칩니다.&nbsp;</span></p><p style="line-height: 2;"><span style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif;">이 과정을 아이캔에서는 주로 캠프 기간중에 진행하며&nbsp; &nbsp;개월, 2시간 과정으로 한학년 과정을 끝냅니다. 여기서 배우는 리딩스킬을 따로 뺴서 집중과정으로 조금 더 단단하게 완성시켜줍니다. 이스토리 리딩스킬 과정을 이번 온라인 캠프 과정에 진행할 예정입니다.&nbsp; 어려운 스킬을 재미있는 스토리로 배우고 익히는 과정속에 아이의 읽기 능력은 매우 빠르게&nbsp; 조직화되고 입체적으로 다면화되어 갑니다.</span></p><p style="line-height: 2;"><span style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif;">&nbsp;</span></p><p style="line-height: 2;"><span style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif;">&nbsp;</span></p><p><img src="../../../uploaded_files/board_files/File_IC9200522150926.jpg" title="File%5FIC9200522150926%2Ejpg"><br style="clear:both;">&nbsp;</p><div id="papago-trans" style="left: 888px; top: 613.889px; position: absolute !important;"><div class="papago-trans-icon" style="background-image:url(chrome-extension_/enddgifdbfoefnelepppgaabobdfbcpe/icons/papago19.html)"></div></div><div id="papago-trans" style="left: 507px; top: 568.889px; position: absolute !important;"><div class="papago-trans-icon" style="background-image:url(chrome-extension_/enddgifdbfoefnelepppgaabobdfbcpe/icons/papago19.html)"></div></div></td>
+				</tr>
+				</body>
+			</table>
+			
+			<!--// write -->
+
+			<div class="board_btn"  style="width:100%">
+			<p class="float_r">				
+						
+				<button title="리스트" class="btnIcon" type="button" onclick="notice_view('List',''); return false;">리스트</button>							
+			</p>			
+			</div>			
+			
+		</div>
+		<!--// cont -->
+	</div>
+	<!--// wrap -->
+	
+</form>
+</body>
+
+<!-- Mirrored from icanacademy.com/_admin/_board/notice/notice_view.asp?b_Seq=50&b_Board_id=board_notice by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Jun 2023 05:16:58 GMT -->
+</html>

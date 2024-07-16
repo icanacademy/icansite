@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"> 
+
+<!-- Mirrored from icanacademy.com/_admin/_board/notice/notice_view.asp?b_Seq=46&b_Board_id=board_notice by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Jun 2023 05:17:06 GMT -->
+<head>
+<title>게시판</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script type="text/javascript" src="../_js/common_Js.js"></script>
+<script type="text/javascript" src="../_js/board_Js.js"></script>
+<link type="text/css" href="../_css/style.css" rel="stylesheet">
+
+<script type="text/javascript" src="../../_SmartEditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="../css/ie6.css" media="screen" />
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="../css/ie7.css" media="screen" />
+<![endif]-->
+
+<script type="text/javascript">
+function notice_view(PageAction, b_Seq) {
+	
+	var PageAction = PageAction;
+	var schIcon = document.getElementById("schIcon").value;		
+	var schGubun = document.getElementById("schGubun").value;	
+	var schText = document.getElementById("schText").value;			
+	var b_Board_id = document.getElementById("b_Board_id").value;	
+	var pageNum = document.getElementById("pageNum").value;		
+	
+	if(PageAction=="Modify"){										
+		location.href="notice_regc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum+"&b_Seq="+b_Seq;
+	}else if(PageAction=="Del"){	
+		if (confirm("정말로 삭제 하시겠습니까?")) {				
+			location.href="notice_del_sqlc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum+"&b_Seq="+b_Seq+"&PageAction="+PageAction;
+		} else {		
+		}		
+	}else if(PageAction=="List"){	
+		location.href="notice_listc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum;
+	}	
+}
+
+</script>
+</head>
+<body class="bgAdmin">
+<form Method="post" id="notice_view" action="#">
+<input type="hidden" id="schIcon" name="schIcon" value="">
+<input type="hidden" id="schCategorySeq" name="schCategorySeq" value="">
+<input type="hidden" id="schGubun" name="schGubun" value="">
+<input type="hidden" id="schText" name="schText" value="">
+<input type="hidden" id="b_Board_id" name="b_Board_id" value="board_notice" >
+<input type="hidden" id="pageNum" name="pageNum" value="" >
+<input type="hidden" id="PageAction" name="PageAction" value="Modify">
+<input type="hidden" id="b_Seq" name="b_Seq" value="46">
+
+
+	<!-- wrap -->
+	<div id="wrap" style="width:100%">
+		<!-- cont -->
+		<div class="cont" style="width:100%">
+			<!-- write -->
+			
+			<table class="common_reg_table" style="width:100%">
+				<colgroup>
+					<col width="130px" />
+					<col width=""/>	
+					<col width="130px" />
+					<col width=""/>						
+				</colgroup>
+				<thead>
+					<tr>
+						<th width="130px"><img src="../image/t_icon.png" alt="" class="mr_5"/>작성자</th>					
+						<td width="">관리자</td>		
+						<th width="130px"><img src="../image/t_icon.png" alt="" class="mr_5"/>작성일</th>					
+						<td width="">2020-05-13 07:44:30</td>									
+					</tr>
+				</thead>			
+				<tbody>							
+				<tr>
+					<th><img src="../image/t_icon.png" alt="" class="mr_5"/>제목</th>
+					<td colspan="3">								
+							판데믹이후 세상이 어찌 변할지 들어보고 계십니까?
+						</a>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4" class="mincontents"><p style="line-height: 1.8;"><span style="font-family: 나눔고딕, NanumGothic, sans-serif; font-size: 10pt;"><b><i><br></i></b></span></p><p style="line-height: 1.8;"><span style="font-family: 나눔고딕, NanumGothic, sans-serif; font-size: 10pt;"><b><i>◈ 판데믹이후 함께 잘 살아온 세상이 변한다고 합니다.&nbsp;</i></b></span></p><p style="line-height: 1.8;"><span style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif;"></span><font face="나눔고딕코딩, NanumGothicCoding, sans-serif"><span style="font-family: 나눔고딕, NanumGothic, sans-serif;">많은 변화를 다루는 영상들이 있으나 가장 쉽게 이해할 수 있는 전문교수님들의 이야기를 통해 변화로 다가올 세상을 잠시 엽봅니다 .&nbsp;</span></font></p><p style="line-height: 1.8;"><font face="나눔고딕코딩, NanumGothicCoding, sans-serif"><span style="font-family: 나눔고딕, NanumGothic, sans-serif;">&nbsp; 1)&nbsp;</span><a href="https://www.youtube.com/watch?v=DwJc40JXQZg&amp;feature=share" target="_self"><span style="font-family: 나눔고딕, NanumGothic, sans-serif;">https://www.youtube.com/watch?v=DwJc40JXQZg&amp;feature=share</span></a><span style="font-family: 나눔고딕, NanumGothic, sans-serif;">&nbsp; &nbsp;</span></font></p><p style="line-height: 1.8;"><font face="나눔고딕코딩, NanumGothicCoding, sans-serif"><span style="font-family: 나눔고딕, NanumGothic, sans-serif;">&nbsp; 2)&nbsp;</span><a href="https://www.youtube.com/watch?v=RKqb1M5d-io&amp;feature=share" target="_self"><span style="font-family: 나눔고딕, NanumGothic, sans-serif;">https://www.youtube.com/watch?v=RKqb1M5d-io&amp;feature=share</span></a></font></p><p style="line-height: 1.5;">&nbsp;</p><p style="line-height: 1.5;"><span style="font-family: 나눔고딕, NanumGothic, sans-serif;"><i><b>21세기의 주역은 누구?</b></i></span></p><p style="line-height: 2;"><span style="font-family: 나눔고딕, NanumGothic, sans-serif;">역사적인 흐름으로 지금까지 우리는 20세기에 살아왔고 코로나로 인해 그동안 오지 않았던 21세기가 이제야 압축된 것을 쏟아내듯이 2배속으로 다가오고 있다고 합니다.&nbsp; &nbsp;2차 세계 대전후에 전세계에 미국이 중심되는 팍스아메리카나가 온 것처럼 이제 이한번도 경험해 본적이 없었던 엄청난 전파력의 전염병이 세상을 지구화 , 금융화 , 자유화의 물결에서 언컨텍의 개인지향의 미니멀사회로 점점 가속화되고 있다고 합니다.&nbsp;</span></p><p style="line-height: 2;"><span style="font-family: 나눔고딕, NanumGothic, sans-serif;">&nbsp;</span></p><p style="line-height: 2;"><span style="font-family: 나눔고딕, NanumGothic, sans-serif;">2차세계대전후에는 미국의 주인공이었으나 이 코로나로 인해 중국과 한국이 새로운 주역으로 주역을 경쟁하고 있는 양상입니다. 스탠다드를 새롭게 만들어 내는 일, 이것이 새로운 지구의 영웅이 시대를 호령하는 듯 멋지게 보이기는 하나 한 작은 개인으로서는 이시대가 두렵하기만 합니다. 그동안의 해 온 습관을 버리고 이제 정해진 물리적 공간안에서 디지털 놀이터를 정해야 할 듯한 세계 , 비즈니스 또한 예전으로 돌아가기는 어려워 보입니다. 이 코로나가 2년이상 전문가들 예측처럼 우리안에 우리의 삶과 한다면 그 뉴노멀이 노멀을 만들어 지금까지 와는 다른 세계의 표준대로 살아 가지 않을까 합니다.&nbsp;</span></p><p><span style="font-family: 나눔고딕, NanumGothic, sans-serif;">&nbsp;</span></p><p style="line-height: 2;"><font face="나눔고딕, NanumGothic, sans-serif"><b><i>아이들은 어떤 준비를 해야 할까요?</i></b></font></p><p style="line-height: 2;"><span style="font-family: 나눔고딕, NanumGothic, sans-serif;">공부또한 제도권교육이 무너지고 AI러닝을 통해 필요한 학습을 받고 모르는 부분을 더 반복하여 내게 딱 맞추어진 커스마이징된 수업이 진행될 수 있도록 고안되는 교육시스템이 중상류층을 대상으로 시작될 것이고 많은 교육영상들을 마음만 먹으면 쉽게 쉐어하면 얻을 수 있는 교육환경이 이제 이루어지지 않을 까 싶습니다. 그러한 상황에서 이제 일반적 지식의 습득과 평가는 앞으로의 아이들 세대에는&nbsp; 더 이상 가치가 없는 쓸모없는 것이 되지 않을 까 합니다. 그런 맥락에서 아이캔은 쓸모 있는 러닝을 인풋수업에서 더욱 강조하고 체득하여 테드와 에세이클리닉을 통해 말과 글의 쓰임새를 실전수준으로 끌어 올리고자 합니다.</span></p></td>
+				</tr>
+				</body>
+			</table>
+			
+			<!--// write -->
+
+			<div class="board_btn"  style="width:100%">
+			<p class="float_r">				
+						
+				<button title="리스트" class="btnIcon" type="button" onclick="notice_view('List',''); return false;">리스트</button>							
+			</p>			
+			</div>			
+			
+		</div>
+		<!--// cont -->
+	</div>
+	<!--// wrap -->
+	
+</form>
+</body>
+
+<!-- Mirrored from icanacademy.com/_admin/_board/notice/notice_view.asp?b_Seq=46&b_Board_id=board_notice by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Jun 2023 05:17:06 GMT -->
+</html>

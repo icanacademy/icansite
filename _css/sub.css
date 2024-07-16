@@ -1,0 +1,23 @@
+﻿
+/*** Sub Common ***/
+.sub_wrap {padding:0 0 100px;background-color:#fff;display:table;;border:0px solid #ed5f00;width:1200px;margin:-1px auto;}
+
+.content_subwrap{width:1200px;margin: auto;}
+
+.sub_wrap .sub_sec {margin:0 auto;border:solid 1px #cdcdcd;background-color:#fff;padding:60px;}
+
+/**
+.sub_top{position:relative;width:100%;display:inline-block;}
+.sub_menu{position:relative;float:left;width:100%;border-bottom:1px solid #eeeeee;display:inline-block;}
+.sub_menu li{float:left;height:35px;line-height:35px;margin-right:5px;padding:0 20px 0 10px;border:1px solid #eeeeee;margin-bottom:10px}
+.sub_menu .left_on {color:#fff;background:#6297d8;float:left;height:35px;line-height:35px;margin-right:5px;padding:0 20px 0 20px;border:1px solid #eeeeee;}
+
+**/
+.sub_top{position:relative;width:100%;display:inline-block;}
+.sub_menu{position:relative;float:left;width:100%;border-bottom:1px solid #eeeeee;display:inline-block;}
+.sub_menu li{float:left;height:35px;line-height:35px;margin-right:5px;padding:0 20px 0 10px;border:1px solid #eeeeee;margin-bottom:10px}
+.sub_menu .left_on {color:#fff;background:#6297d8;float:left;height:35px;line-height:35px;margin-right:5px;padding:0 20px 0 20px;border:1px solid #eeeeee;}
+
+
+
+.subcontent{position:relative;width:100%;min-height:500px;text-align:left;border:0px solid #ff0000;margin-top:40px;}

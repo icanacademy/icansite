@@ -1,0 +1,353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"> 
+
+<!-- Mirrored from icanacademy.com/_admin/_board/faq_list/faq_list.asp?b_Board_id=board_faq by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Jun 2023 05:09:39 GMT -->
+<head>
+<title>게시판</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script type="text/javascript" src="../_js/common_Js.js"></script>
+<script type="text/javascript" src="../_js/board_Js.js"></script>
+<link type="text/css" href="../_css/style.css" rel="stylesheet">
+
+<script type="text/javascript" src="../../_SmartEditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="../css/ie6.css" media="screen" />
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="../css/ie7.css" media="screen" />
+<![endif]-->
+
+
+<script type="text/javascript">
+function faq_list(gubun, b_Seq) {
+
+	var schIcon = document.getElementById("schIcon").value;
+	var schGubun = document.getElementById("schGubun").value;
+	var schText = document.getElementById("schText").value;
+	var b_Board_id = document.getElementById("b_Board_id").value;
+	var pageNum = document.getElementById("pageNum").value;
+
+
+	if(gubun=="Reg"){
+		location.href="faq_list_regc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum;
+	}else if(gubun=="View"){
+		location.href="faq_list_view7fbb.html?b_Seq="+b_Seq+"&schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum;
+	}
+}
+
+function faq_list_sch(){
+	var f=document.getElementById("faq_list");
+	f.schGubun.className = "";
+	f.schText.className = "";
+
+	var schIcon = document.getElementById("schIcon").value;
+	var schGubun = document.getElementById("schGubun").value;
+	var schText = document.getElementById("schText").value;
+	var b_Board_id = document.getElementById("b_Board_id").value;
+	var pageNum = document.getElementById("pageNum").value;
+
+  if(schGubun==""){
+  	alert("[검색항목]을 선택해주세요.");
+  	f.schGubun.className = "emptyfield";
+		f.schGubun.focus();
+		return;
+	}
+
+  if(schText==""){
+  	alert("[검색단어]를 입력해주세요.");
+  	f.schText.className = "emptyfield";
+		f.schText.focus();
+		return;
+	}
+
+	document.getElementById("faq_list").method="post";
+	document.getElementById("faq_list").action="faq_listc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum;
+	document.getElementById("faq_list").submit();
+
+}
+function faq_list_Open(Num){
+
+	var IE = /*@cc_on!@*/false;
+	var Num = Num;
+	var Tr_Status = document.getElementById("Tr_Status"+Num).value;
+
+	if(Tr_Status =="OPEN"){
+
+	  if (IE) {
+			document.getElementById("Tr_Div1"+Num).style.display = "inline";
+	  } else {
+			document.getElementById("Tr_Div1"+Num).style.display = "table-row";
+	  }
+		document.getElementById("Tr_Status"+Num).value = "CLOSE"
+
+	}else if(Tr_Status =="CLOSE"){
+		document.getElementById("Tr_Div1"+Num).style.display = "none";
+		document.getElementById("Tr_Status"+Num).value = "OPEN"
+	}
+
+}
+function faq_view(PageAction, b_Seq) {
+
+	var PageAction = PageAction;
+	var schIcon = document.getElementById("schIcon").value;
+	var schGubun = document.getElementById("schGubun").value;
+	var schText = document.getElementById("schText").value;
+	var b_Board_id = document.getElementById("b_Board_id").value;
+	var pageNum = document.getElementById("pageNum").value;
+
+	if(PageAction=="Modify"){
+		location.href="faq_list_regc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum+"&b_Seq="+b_Seq;
+	}else if(PageAction=="Del"){
+		if (confirm("정말로 삭제 하시겠습니까?")) {
+			location.href="faq_list_del_sqlc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum+"&b_Seq="+b_Seq+"&PageAction="+PageAction;
+		} else {
+		}
+	}else if(PageAction=="List"){
+		location.href="faq_listc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum;
+	}
+}
+
+</script>
+</head>
+<body class="bgAdmin">
+<form Method="Post" id="faq_list" action="#">
+<input type="hidden" id="schIcon" name="schIcon" value="schIcon">
+<input type="hidden" id="b_Board_id" name="b_Board_id" value="board_faq">
+<input type="hidden" id="pageNum" name="pageNum" value="">
+	<!-- wrap -->
+	<div id="wrap" style="width:100%">
+		<!-- cont -->
+		<div class="cont" style="width:100%">
+			<!-- sch -->
+
+				<div class="categorydiv" style="width:100%">				
+				<a href="faq_listcc48.html?b_Board_id=board_faq&amp;schIcon=schIcon&amp;schCategorySeq=TOTAL">
+					<li class="categorydiv_on">
+						전체
+					</li>
+				</a>																	
+				
+				</div>
+
+				<table  summary="검색" class="common_sch">
+					<caption></caption>
+					<colgroup>
+						<col width="120" />
+						<col width="" />
+					</colgroup>
+					<!--검색부분 //-->
+					<tbody>
+						<tr>
+							<td>
+								<select id="schGubun"  name="schGubun" class="NSelect25" onkeypress="if(event.keyCode==13) faq_list_sch();">
+									<option value="">선택</option>
+									<option value="schTitle" >질문</option>
+									<option value="schContents" >답변</option>
+								</select>
+								<input type="text" id="schText" value="" class="Input20" style="width:194px;"  onkeypress="if(event.keyCode==13) faq_list_sch();" />
+								<button title="검색" class="btnSch" type="button" onclick="faq_list_sch(); return false;"></button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<!--검색부분 //-->
+
+				<table summary="리스트." class="common_list_table" style="width:100%">
+					<tbody>
+							
+					<input type="hidden" id="Tr_Status11" value="OPEN"/>
+					<tr>
+						<td class="align_l" style="height:30px">
+							<img src="../image/icon_q.png" alt="question">
+							<a href="#" onclick="faq_list_Open('11'); return false;"> 수업 피드백은 어떻게 진행되나요?</a>
+							
+						</td>
+					</tr>
+					<tr id="Tr_Div111" style="display:none;background-color:#f9f9f9">
+						<td class="align_l">
+							<div class="float_l ml_10" ><img src="../image/icon_a.png" alt="anwser"></div>
+							<div class="float_l ml_5" ><p>수업시작과 동시에 담당교사, 학생, 학부모 학습매니저간 그룹 메신저가 만들어지며 메신저안에서 데일리평가서, 써머리동영상 업로드, 숙제체크등&nbsp;꼼꼼한 학습관리가 이루어 집니다.&nbsp;</p></div>
+						</td>
+					</tr>
+							
+					<input type="hidden" id="Tr_Status10" value="OPEN"/>
+					<tr>
+						<td class="align_l" style="height:30px">
+							<img src="../image/icon_q.png" alt="question">
+							<a href="#" onclick="faq_list_Open('10'); return false;"> 수강신청 후 수업을 바로 진행할 수 있나요?</a>
+							
+						</td>
+					</tr>
+					<tr id="Tr_Div110" style="display:none;background-color:#f9f9f9">
+						<td class="align_l">
+							<div class="float_l ml_10" ><img src="../image/icon_a.png" alt="anwser"></div>
+							<div class="float_l ml_5" ><p>테스트와 체험수업이 끝난 후 수업시작을 원하시면 전체 수업 스케쥴 확인후 3일 이내에 수업이 시작될 수 있도록 안내해드립니다&nbsp;</p></div>
+						</td>
+					</tr>
+							
+					<input type="hidden" id="Tr_Status9" value="OPEN"/>
+					<tr>
+						<td class="align_l" style="height:30px">
+							<img src="../image/icon_q.png" alt="question">
+							<a href="#" onclick="faq_list_Open('9'); return false;"> 장기 수업연기도 가능한가요?</a>
+							
+						</td>
+					</tr>
+					<tr id="Tr_Div19" style="display:none;background-color:#f9f9f9">
+						<td class="align_l">
+							<div class="float_l ml_10" ><img src="../image/icon_a.png" alt="anwser"></div>
+							<div class="float_l ml_5" ><p>연수, 출장, 휴가등으로 인해 장기간 결석을 하게 될 경우엔 미리 연락을 주시면 남은 횟수만큼 연장해 드립니다.&nbsp;</p></div>
+						</td>
+					</tr>
+							
+					<input type="hidden" id="Tr_Status8" value="OPEN"/>
+					<tr>
+						<td class="align_l" style="height:30px">
+							<img src="../image/icon_q.png" alt="question">
+							<a href="#" onclick="faq_list_Open('8'); return false;"> 화상영어 체험수업은 어떻게 진행하나요?</a>
+							
+						</td>
+					</tr>
+					<tr id="Tr_Div18" style="display:none;background-color:#f9f9f9">
+						<td class="align_l">
+							<div class="float_l ml_10" ><img src="../image/icon_a.png" alt="anwser"></div>
+							<div class="float_l ml_5" ><p>체험수업을 원하실 경우 학습매니저에게 연락주시면, 날짜와 시간을 정해서 빠른 시일내 진행해드립니다&nbsp;</p></div>
+						</td>
+					</tr>
+							
+					<input type="hidden" id="Tr_Status7" value="OPEN"/>
+					<tr>
+						<td class="align_l" style="height:30px">
+							<img src="../image/icon_q.png" alt="question">
+							<a href="#" onclick="faq_list_Open('7'); return false;"> 개인 사정으로 인해 결석할 경우엔 어떻게 하나요?</a>
+							
+						</td>
+					</tr>
+					<tr id="Tr_Div17" style="display:none;background-color:#f9f9f9">
+						<td class="align_l">
+							<div class="float_l ml_10" ><img src="../image/icon_a.png" alt="anwser"></div>
+							<div class="float_l ml_5" ><p>부득이하게 결석을 하게 될 경우, 학습 매니저에게 미리 연락을 주시면 월 2회에 한해, 연장 혹은 보충이 가능합니다.&nbsp;&nbsp;&nbsp;</p></div>
+						</td>
+					</tr>
+							
+					<input type="hidden" id="Tr_Status6" value="OPEN"/>
+					<tr>
+						<td class="align_l" style="height:30px">
+							<img src="../image/icon_q.png" alt="question">
+							<a href="#" onclick="faq_list_Open('6'); return false;"> 공휴일도 수업이 진행되나요?</a>
+							
+						</td>
+					</tr>
+					<tr id="Tr_Div16" style="display:none;background-color:#f9f9f9">
+						<td class="align_l">
+							<div class="float_l ml_10" ><img src="../image/icon_a.png" alt="anwser"></div>
+							<div class="float_l ml_5" ><p>공휴일 휴강은 필리핀의 공휴일을 따르며 보강혹은 연장으로 대체됩니다. 필리핀 공휴일 휴강시 미리 안내문자를 보내드리며, 한국의 공휴일은 정상수업으로 진행합니다.&nbsp;</p></div>
+						</td>
+					</tr>
+							
+					<input type="hidden" id="Tr_Status5" value="OPEN"/>
+					<tr>
+						<td class="align_l" style="height:30px">
+							<img src="../image/icon_q.png" alt="question">
+							<a href="#" onclick="faq_list_Open('5'); return false;"> 교사나 시간을 교체할 수 있나요?</a>
+							
+						</td>
+					</tr>
+					<tr id="Tr_Div15" style="display:none;background-color:#f9f9f9">
+						<td class="align_l">
+							<div class="float_l ml_10" ><img src="../image/icon_a.png" alt="anwser"></div>
+							<div class="float_l ml_5" ><p>강사의 교체를 원하시는 경우는 학습매니저와 상담후 월 1회에 한해 가능합니다. 또한 수업시간 변경 역시 상담후 가능한 시간으로 재배정해 드리며 월 1회에 한해 가능합니다.&nbsp;</p></div>
+						</td>
+					</tr>
+							
+					<input type="hidden" id="Tr_Status4" value="OPEN"/>
+					<tr>
+						<td class="align_l" style="height:30px">
+							<img src="../image/icon_q.png" alt="question">
+							<a href="#" onclick="faq_list_Open('4'); return false;"> 교사가 결근한 경우엔 어떻게 진행되나요?</a>
+							
+						</td>
+					</tr>
+					<tr id="Tr_Div14" style="display:none;background-color:#f9f9f9">
+						<td class="align_l">
+							<div class="float_l ml_10" ><img src="../image/icon_a.png" alt="anwser"></div>
+							<div class="float_l ml_5" ><p>정기휴가나 병가등에 의해 선생님들의 결근이 있을시 대체 선생님이 수업을 진행합니다. 선생님 결근시 해당 학생에 대한 수업 준비가 미리 이루어지므로&nbsp;대체수업에는 큰 문제가 없습니다.&nbsp;</p></div>
+						</td>
+					</tr>
+							
+					<input type="hidden" id="Tr_Status3" value="OPEN"/>
+					<tr>
+						<td class="align_l" style="height:30px">
+							<img src="../image/icon_q.png" alt="question">
+							<a href="#" onclick="faq_list_Open('3'); return false;"> 화상영어 교재는 무엇인가요?</a>
+							
+						</td>
+					</tr>
+					<tr id="Tr_Div13" style="display:none;background-color:#f9f9f9">
+						<td class="align_l">
+							<div class="float_l ml_10" ><img src="../image/icon_a.png" alt="anwser"></div>
+							<div class="float_l ml_5" ><p>교재는 파트별로 다양하게 사용되며, 아이캔아카데미 커리큘럼과 동일하게 진행됩니다. 레벨테스트와 체험수업이 끝난 후 학습매니저와 상담시 수업과 교재에 대해&nbsp;자세히 상담해 드립니다.&nbsp;</p></div>
+						</td>
+					</tr>
+							
+					<input type="hidden" id="Tr_Status2" value="OPEN"/>
+					<tr>
+						<td class="align_l" style="height:30px">
+							<img src="../image/icon_q.png" alt="question">
+							<a href="#" onclick="faq_list_Open('2'); return false;"> Q 아이캔 온라인 클래스는 어떻게 다른가요?</a>
+							
+						</td>
+					</tr>
+					<tr id="Tr_Div12" style="display:none;background-color:#f9f9f9">
+						<td class="align_l">
+							<div class="float_l ml_10" ><img src="../image/icon_a.png" alt="anwser"></div>
+							<div class="float_l ml_5" ><p>A 일반 화상사이트와는 다르게 학원에서 다년간 근무한 전문 강사들이 직접 수업합니다. 이미 필리핀 연수를 통해 소문난 인기강사들이 아이캔온라인 클래스를 통해&nbsp;한국의 학생들과도 쉽게 만날 수 있습니다.&nbsp; 기본 ESL에서 부터 토플, 테드, SAT 수업에 이르기까지 수준높은 클래스가 완벽하게 준비되어 있습니다.&nbsp;</p></div>
+						</td>
+					</tr>
+							
+					<input type="hidden" id="Tr_Status1" value="OPEN"/>
+					<tr>
+						<td class="align_l" style="height:30px">
+							<img src="../image/icon_q.png" alt="question">
+							<a href="#" onclick="faq_list_Open('1'); return false;"> 영어회화를 해본 적이 없는 경우에는 어떻게 합니까?</a>
+							
+						</td>
+					</tr>
+					<tr id="Tr_Div11" style="display:none;background-color:#f9f9f9">
+						<td class="align_l">
+							<div class="float_l ml_10" ><img src="../image/icon_a.png" alt="anwser"></div>
+							<div class="float_l ml_5" ><p><span style="color: rgb(87, 87, 87); font-family: 돋움; font-size: 10pt;">걱정할 필요가 없습니다.</span></p><span style="color: rgb(87, 87, 87); font-family: 돋움; font-size: 10pt;">강사는 대화를 통하여 수강자의 능력을 파악하고</span><br style="color: rgb(87, 87, 87); font-family: 돋움;"><span style="color: rgb(87, 87, 87); font-family: 돋움; font-size: 10pt;">그 수준에 맞게 대화를 진행해 나갑니다.</span><br style="color: rgb(87, 87, 87); font-family: 돋움;"><span style="color: rgb(87, 87, 87); font-family: 돋움; font-size: 10pt;">말을 잘 못할지라도 단어와 기본 문법만 알고 있다며 수업을 충분히</span><br style="color: rgb(87, 87, 87); font-family: 돋움;"><p><span style="color: rgb(87, 87, 87); font-family: 돋움; font-size: 10pt;">소화 해 나갈 수 있습니다.</span>&nbsp;</p></div>
+						</td>
+					</tr>
+					
+					</tbody>
+				</table>
+
+				<div class="board_btn" style="width:100%">
+				<p class="float_r">
+					
+				</p>
+				</div>
+
+		</div>
+
+		
+
+
+		</div>
+		<!--// cont -->
+
+	</div>
+	<!--// wrap -->
+
+</form>
+</body>
+
+<!-- Mirrored from icanacademy.com/_admin/_board/faq_list/faq_list.asp?b_Board_id=board_faq by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Jun 2023 05:09:55 GMT -->
+</html>

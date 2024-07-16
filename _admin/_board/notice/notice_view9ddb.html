@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"> 
+
+<!-- Mirrored from icanacademy.com/_admin/_board/notice/notice_view.asp?b_Seq=51&b_Board_id=board_notice by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Jun 2023 05:16:11 GMT -->
+<head>
+<title>게시판</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script type="text/javascript" src="../_js/common_Js.js"></script>
+<script type="text/javascript" src="../_js/board_Js.js"></script>
+<link type="text/css" href="../_css/style.css" rel="stylesheet">
+
+<script type="text/javascript" src="../../_SmartEditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="../css/ie6.css" media="screen" />
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="../css/ie7.css" media="screen" />
+<![endif]-->
+
+<script type="text/javascript">
+function notice_view(PageAction, b_Seq) {
+	
+	var PageAction = PageAction;
+	var schIcon = document.getElementById("schIcon").value;		
+	var schGubun = document.getElementById("schGubun").value;	
+	var schText = document.getElementById("schText").value;			
+	var b_Board_id = document.getElementById("b_Board_id").value;	
+	var pageNum = document.getElementById("pageNum").value;		
+	
+	if(PageAction=="Modify"){										
+		location.href="notice_regc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum+"&b_Seq="+b_Seq;
+	}else if(PageAction=="Del"){	
+		if (confirm("정말로 삭제 하시겠습니까?")) {				
+			location.href="notice_del_sqlc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum+"&b_Seq="+b_Seq+"&PageAction="+PageAction;
+		} else {		
+		}		
+	}else if(PageAction=="List"){	
+		location.href="notice_listc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum;
+	}	
+}
+
+</script>
+</head>
+<body class="bgAdmin">
+<form Method="post" id="notice_view" action="#">
+<input type="hidden" id="schIcon" name="schIcon" value="">
+<input type="hidden" id="schCategorySeq" name="schCategorySeq" value="">
+<input type="hidden" id="schGubun" name="schGubun" value="">
+<input type="hidden" id="schText" name="schText" value="">
+<input type="hidden" id="b_Board_id" name="b_Board_id" value="board_notice" >
+<input type="hidden" id="pageNum" name="pageNum" value="" >
+<input type="hidden" id="PageAction" name="PageAction" value="Modify">
+<input type="hidden" id="b_Seq" name="b_Seq" value="51">
+
+
+	<!-- wrap -->
+	<div id="wrap" style="width:100%">
+		<!-- cont -->
+		<div class="cont" style="width:100%">
+			<!-- write -->
+			
+			<table class="common_reg_table" style="width:100%">
+				<colgroup>
+					<col width="130px" />
+					<col width=""/>	
+					<col width="130px" />
+					<col width=""/>						
+				</colgroup>
+				<thead>
+					<tr>
+						<th width="130px"><img src="../image/t_icon.png" alt="" class="mr_5"/>작성자</th>					
+						<td width="">관리자</td>		
+						<th width="130px"><img src="../image/t_icon.png" alt="" class="mr_5"/>작성일</th>					
+						<td width="">2020-05-24 08:58:29</td>									
+					</tr>
+				</thead>			
+				<tbody>							
+				<tr>
+					<th><img src="../image/t_icon.png" alt="" class="mr_5"/>제목</th>
+					<td colspan="3">								
+							유치와 초등저학년떄 "비쥬얼라이징"과 "써머라이징"이 왜 중요할까요?
+						</a>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4" class="mincontents"><p style="line-height: 2;">유치시절에 드로잉, 정확히는 속성을 이해하고 이를 그림으로 그릴 수 있는 능력을 배우고 익히는 것이 매우 중요한 이유가 이 영상에 담겨 있습니다. 시간을 내어서 꼭 끝까지 봐주시기 바랍니다.&nbsp;&nbsp;</p><p style="line-height: 2;"><a href="https://youtu.be/hntHGr8JR7o" target="_self">https://youtu.be/hntHGr8JR7o</a>&nbsp;</p><p style="line-height: 2;">&nbsp;</p><p style="line-height: 2;"><a href="https://www.youtube.com/watch?v=hntHGr8JR7o&amp;feature=youtu.be" target="_self"><img src="../../../uploaded_files/board_files/File_4AE200524090257.jpg" title="File%5F4AE200524090257%2Ejpg">&nbsp;</a></p><p style="line-height: 2;">우리가 한국문화속에서 쓰는 언어체계는 머릿속에 있는 컨텐츠를 언어로 코딩하여 글이나 말로 전달하는 과정이라 볼 수 있습니다. 자신의 생각을 얼마나 잘 전달하느냐는 이 촌각을 다투며 새로운 디지털 기술혁명과 컨텐츠가 쏟아지는 이시대에 매우 중요한 뇌기능이라 할 수 있습니다.</p><p style="line-height: 2;">&nbsp;</p><p style="line-height: 2;">그런데 저마다 이 기능이 다름을 우리는 압니다 . 어떤 아이는 어릴적부터 선천적으로 훌륭한 그리기 기능을 물려받은 아이들이 있고 또 어떤 아이는 미세근육이 약해 어릴적부터 선이난 면을 잘 표현하지 못하는 아이들이 있습니다 . 그러나&nbsp; 미국이나 유럽의 교육을 자세히 살펴보면 이는 학습과 훈련에서 극복될 수 있음을 알 수 있습니다. 학습을 통해 무엇을 얻는 것을 중요하게 여기느냐에 교육커리큘럼의 선택이 있음을 알 수 있지요.</p><p style="line-height: 2;">&nbsp;</p><p style="line-height: 2;">상상력과 디자인은 언어로만 표현하기에는 한계가 있습니다. ​아이의 이미지속 세상에 그의 크리에이티브가 숨어 있기 때문입니다. 그러하기 떄문에 학습의 기초단계에서 유창한 어휘를 쓰는 아이들처럼 그리기도 잘 훈련받아야 하며&nbsp; 언어처럼 학습되지 않으면 머릿속에 영상을 그려내는 기능이 잘 움직이지 않을 수 있습니다. 이로 인해&nbsp; 또 다른 소통의 장애를 겪을 수 있음을 우리는 이 새로운 시대를 살아가는 부모로서 잘 이해해야 합니다.&nbsp;</p><p style="line-height: 2;">&nbsp;</p><p style="line-height: 2;">음을 이해하여 그의 생각을 곡으로 표현할 수 있고 자신의 생각이 그림속 세상에서 추상과 관념으로도 표현되는 것을 배워야 합니다. 국어시간에 우리가 고전하던 고전문학과 현대문학처럼 이해하기 어려운 작가의 느낌과 생각을 이시대는 그림과 소리 , 언어를 하나로 묶어 컨버지하는 문화를 만들어 내고 있습니다.&nbsp; 그 소통을 돕고 만들어 가고 있는 도우미가 바로 AI (인공지능)입니다. 이것의 도움으로 우리 아이들은 새로운 문화의 주체가 되어가고 있는 것이지요.</p><p>&nbsp;</p><p style="line-height: 2;"> 그러나 우리는 그림을 그리지 못한다고 해서 장애가 있다고 말하지 않습니다. 지금까지는 문자로 소통을 하는 데 집중했기 때문이지요. 그러나 시대는 지금 문자와 이미지가 서로 컨버지되어서 소통되는 시대로 나아가고 있습니다. 실제로 자신의 생각을 그림으로 그려내는 아이들, 이를 글과 말로 잘 바꾸어 표현하는 아이들 , 커뮤니케이션기능이 뛰어난 아이들이 문화의 주역이 되고 있음을 우리는 조금만 시야를 넓히면 파악할 수 있습니다 . 우리 아이들이 이러한 기능을&nbsp; 균형있게 잘 유지하고 발전시켜 나아가게 되면 인풋과 아웃풋이 동시에 진행되는 새로운 시대가 요구하는 필수기능들을 잘 갖추게 될 것이라 봅니다.&nbsp; 이미지로 그들의 생각을 그리고 언어로 표현하는 비쥬얼라이징과 써머라이징을 아이캔에서 중요하게 생각하는 이유입니다.</p><p>&nbsp;</p><div id="papago-trans" style="left: 450px; top: 916px; position: absolute !important;"><div class="papago-trans-icon" style="background-image:url(chrome-extension_/enddgifdbfoefnelepppgaabobdfbcpe/icons/papago19.html)"></div></div></td>
+				</tr>
+				</body>
+			</table>
+			
+			<!--// write -->
+
+			<div class="board_btn"  style="width:100%">
+			<p class="float_r">				
+						
+				<button title="리스트" class="btnIcon" type="button" onclick="notice_view('List',''); return false;">리스트</button>							
+			</p>			
+			</div>			
+			
+		</div>
+		<!--// cont -->
+	</div>
+	<!--// wrap -->
+	
+</form>
+</body>
+
+<!-- Mirrored from icanacademy.com/_admin/_board/notice/notice_view.asp?b_Seq=51&b_Board_id=board_notice by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Jun 2023 05:16:41 GMT -->
+</html>

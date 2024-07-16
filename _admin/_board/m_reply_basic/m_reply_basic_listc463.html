@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"> 
+
+<!-- Mirrored from icanacademy.com/_admin/_board/m_reply_basic/m_reply_basic_list.asp?schIcon= by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Jun 2023 05:20:42 GMT -->
+<head>
+<title>게시판</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script type="text/javascript" src="../_js/common_Js.js"></script>
+<script type="text/javascript" src="../_js/board_Js.js"></script>
+<link type="text/css" href="../_css/style.css" rel="stylesheet">
+
+<script type="text/javascript" src="../../_SmartEditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="../css/ie6.css" media="screen" />
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="../css/ie7.css" media="screen" />
+<![endif]-->
+
+
+<script type="text/javascript">
+function m_reply_basic_list(gubun, b_Seq) {
+
+	var schIcon = document.getElementById("schIcon").value;
+	var schGubun = document.getElementById("schGubun").value;
+	var schText = document.getElementById("schText").value;
+	var b_Board_id = document.getElementById("b_Board_id").value;
+	var pageNum = document.getElementById("pageNum").value;
+
+
+	if(gubun=="Reg"){
+		location.href="m_reply_basic_regc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum;
+	}else if(gubun=="View"){
+		location.href="m_reply_basic_view7fbb.html?b_Seq="+b_Seq+"&schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum;
+	}
+}
+
+function m_reply_basic_list_sch(){
+	var f=document.getElementById("m_reply_basic_list");
+	f.schGubun.className = "";
+	f.schText.className = "";
+
+	var schIcon = document.getElementById("schIcon").value;
+	var schGubun = document.getElementById("schGubun").value;
+	var schText = document.getElementById("schText").value;
+	var b_Board_id = document.getElementById("b_Board_id").value;
+	var pageNum = document.getElementById("pageNum").value;
+
+  if(schGubun==""){
+  	alert("[검색항목]을 선택해주세요.");
+  	f.schGubun.className = "emptyfield";
+		f.schGubun.focus();
+		return;
+	}
+
+  if(schText==""){
+  	alert("[검색단어]를 입력해주세요.");
+  	f.schText.className = "emptyfield";
+		f.schText.focus();
+		return;
+	}
+
+	document.getElementById("m_reply_basic_list").method="post";
+	document.getElementById("m_reply_basic_list").action="m_reply_basic_listc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum;
+	document.getElementById("m_reply_basic_list").submit();
+
+}
+</script>
+</head>
+<body class="bgAdmin">
+<form Method="Post" id="m_reply_basic_list" action="#">
+<input type="hidden" id="schIcon" name="schIcon" value="schIcon">
+<input type="hidden" id="b_Board_id" name="b_Board_id" value="">
+<input type="hidden" id="pageNum" name="pageNum" value="">
+	<!-- wrap -->
+	<div id="wrap" style="width:100%">
+		<!-- cont -->
+		<div class="cont" style="width:100%">
+			<!-- sch -->
+
+				<table  summary="검색" class="common_sch">
+					<caption></caption>
+					<colgroup>
+						<col width="120" />
+						<col width="" />
+					</colgroup>
+					<!--검색부분 //-->
+					<tbody>
+						<tr>
+							<td>
+
+								<select id="schGubun"  name="schGubun" class="NSelect25" onkeypress="if(event.keyCode==13) m_reply_basic_list_sch();">
+									<option value="">선택</option>
+									<option value="schTitle" >제목</option>
+									<option value="schContents" >내용</option>
+									<option value="schRegMemName" >작성자</option>
+								</select>
+
+								<input type="text" id="schText" value="" class="Input20" style="width:194px;"  onkeypress="if(event.keyCode==13) m_reply_basic_list_sch();" />
+								<button title="검색" class="btnSch" type="button" onclick="m_reply_basic_list_sch(); return false;"></button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<!--검색부분 //-->
+
+				<table summary="리스트." class="common_list_table" style="width:100%">
+					<colgroup>
+						<col width="100%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th width="100%"></th>
+						</tr>
+					</thead>
+					<tbody>
+					<!------------------------------------------------------- 공지글 --------------------------------------------------->
+					
+					<!------------------------------------------------------- 공지글 --------------------------------------------------->
+
+					
+					<tr>
+					  <td height=30 colspan="5" align="center">등록된 리스트가 없습니다.</td>
+					</tr>
+					
+					</tbody>
+				</table>
+
+				<div class="board_btn" style="width:100%">
+				<p class="float_r">
+					
+				</p>
+				</div>
+
+		</div>
+					
+		
+
+
+		</div>
+		<!--// cont -->
+
+	</div>
+	<!--// wrap -->
+
+</form>
+</body>
+
+<!-- Mirrored from icanacademy.com/_admin/_board/m_reply_basic/m_reply_basic_list.asp?schIcon= by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Jun 2023 05:20:42 GMT -->
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"> 
+
+<!-- Mirrored from icanacademy.com/_admin/_board/m_notice/m_notice_view.asp?b_Seq=88&b_Board_id=board_notice by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Jun 2023 05:19:13 GMT -->
+<head>
+<title>게시판</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script type="text/javascript" src="../_js/common_Js.js"></script>
+<script type="text/javascript" src="../_js/board_Js.js"></script>
+<link type="text/css" href="../_css/style.css" rel="stylesheet">
+
+<script type="text/javascript" src="../../_SmartEditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="../css/ie6.css" media="screen" />
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="../css/ie7.css" media="screen" />
+<![endif]-->
+
+<script type="text/javascript">
+function m_notice_view(PageAction, b_Seq) {
+	var PageAction = PageAction;
+	var schIcon = document.getElementById("schIcon").value;		
+	var schGubun = document.getElementById("schGubun").value;	
+	var schText = document.getElementById("schText").value;			
+	var b_Board_id = document.getElementById("b_Board_id").value;	
+	var pageNum = document.getElementById("pageNum").value;		
+	
+	if(PageAction=="Modify"){										
+		location.href="m_notice_regc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum+"&b_Seq="+b_Seq;
+	}else if(PageAction=="Del"){	
+		if (confirm("정말로 삭제 하시겠습니까?")) {				
+			location.href="m_notice_del_sqlc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum+"&b_Seq="+b_Seq+"&PageAction="+PageAction;
+		} else {		
+		}		
+	}else if(PageAction=="List"){	
+		location.href="m_notice_listc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum;
+	}	
+}
+
+</script>
+</head>
+<body class="bgAdmin">
+<form Method="post" id="m_notice_view" action="#">
+<input type="hidden" id="schIcon" name="schIcon" value="">
+<input type="hidden" id="schCategorySeq" name="schCategorySeq" value="">
+<input type="hidden" id="schGubun" name="schGubun" value="">
+<input type="hidden" id="schText" name="schText" value="">
+<input type="hidden" id="b_Board_id" name="b_Board_id" value="board_notice" >
+<input type="hidden" id="pageNum" name="pageNum" value="" >
+<input type="hidden" id="PageAction" name="PageAction" value="Modify">
+<input type="hidden" id="b_Seq" name="b_Seq" value="88">
+
+
+	<!-- wrap -->
+	<div id="wrap" style="width:100%">
+		<!-- cont -->
+		<div class="cont" style="width:100%">
+			<!-- write -->
+			
+			<table class="common_reg_table" style="width:100%">
+				<colgroup>
+					<col width="100%" />									
+				</colgroup>			
+				<thead>
+					<tr>
+						<th width="100%">
+						<strong>2020 크리스마스 / 2021 새해 휴강 안내</strong>
+							
+						<br /> 
+						<img src="../image/icon_person01.png">&nbsp;관리자&nbsp;&nbsp;<img src="../image/icon_watch02.png">&nbsp;2020-12-23													
+						</td>									
+					</tr>	
+				</thead>			
+				<tbody>											
+				<tr>
+					<td class="mincontents"><p>안녕하세요.<br>참으로 힘들었던 2020년 이였지만, 어김없이 연말은 돌아오네요.</p><p>올 한해 다들 너무나 애쓰셨어요. 학부모님들의 응원과 격려로 저희 아이캔 아카데미도 이 힘든시기 잘 이겨내고 있답니다.</p><p>항상 감사드려요​.<br><br><2020년 12월, 2021년 1월 휴강 안내></p><p>&nbsp;</p><p>📌​12월24일 (목)&nbsp;휴강​</p><p>📌​12월25일 (금)&nbsp;휴강​</p><p>📌​12월30일 (수) 정상수업</p><p>📌​12월31일 (목) 휴강</p><p>📌​1월1일 (금)&nbsp;휴강​</p><p>&nbsp;</p><p>&nbsp;</p><p>📌공휴일 휴강은 연장됩니다.</p><p>&nbsp;</p><p>힘든 시기이지만 우리모두 잘 이겨내어서</p><p>마음만은 따뜻한 연말 연초 되세요.</p><p>감사합니다!​&nbsp;</p></td>
+				</tr>
+				</body>
+			</table>
+			
+			<!--// write -->
+
+			<div class="board_btn"  style="width:100%">
+			<p class="float_r">				
+						
+				<button title="리스트" class="btnIcon" type="button" onclick="m_notice_view('List',''); return false;">리스트</button>							
+			</p>			
+			</div>			
+			
+		</div>
+		<!--// cont -->
+	</div>
+	<!--// wrap -->
+	
+</form>
+</body>
+
+<!-- Mirrored from icanacademy.com/_admin/_board/m_notice/m_notice_view.asp?b_Seq=88&b_Board_id=board_notice by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Jun 2023 05:19:13 GMT -->
+</html>

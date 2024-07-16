@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"> 
+
+<!-- Mirrored from icanacademy.com/_admin/_board/notice/notice_view.asp?b_Seq=43&b_Board_id=board_notice by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Jun 2023 05:18:05 GMT -->
+<head>
+<title>게시판</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script type="text/javascript" src="../_js/common_Js.js"></script>
+<script type="text/javascript" src="../_js/board_Js.js"></script>
+<link type="text/css" href="../_css/style.css" rel="stylesheet">
+
+<script type="text/javascript" src="../../_SmartEditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="../css/ie6.css" media="screen" />
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="../css/ie7.css" media="screen" />
+<![endif]-->
+
+<script type="text/javascript">
+function notice_view(PageAction, b_Seq) {
+	
+	var PageAction = PageAction;
+	var schIcon = document.getElementById("schIcon").value;		
+	var schGubun = document.getElementById("schGubun").value;	
+	var schText = document.getElementById("schText").value;			
+	var b_Board_id = document.getElementById("b_Board_id").value;	
+	var pageNum = document.getElementById("pageNum").value;		
+	
+	if(PageAction=="Modify"){										
+		location.href="notice_regc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum+"&b_Seq="+b_Seq;
+	}else if(PageAction=="Del"){	
+		if (confirm("정말로 삭제 하시겠습니까?")) {				
+			location.href="notice_del_sqlc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum+"&b_Seq="+b_Seq+"&PageAction="+PageAction;
+		} else {		
+		}		
+	}else if(PageAction=="List"){	
+		location.href="notice_listc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum;
+	}	
+}
+
+</script>
+</head>
+<body class="bgAdmin">
+<form Method="post" id="notice_view" action="#">
+<input type="hidden" id="schIcon" name="schIcon" value="">
+<input type="hidden" id="schCategorySeq" name="schCategorySeq" value="">
+<input type="hidden" id="schGubun" name="schGubun" value="">
+<input type="hidden" id="schText" name="schText" value="">
+<input type="hidden" id="b_Board_id" name="b_Board_id" value="board_notice" >
+<input type="hidden" id="pageNum" name="pageNum" value="" >
+<input type="hidden" id="PageAction" name="PageAction" value="Modify">
+<input type="hidden" id="b_Seq" name="b_Seq" value="43">
+
+
+	<!-- wrap -->
+	<div id="wrap" style="width:100%">
+		<!-- cont -->
+		<div class="cont" style="width:100%">
+			<!-- write -->
+			
+			<table class="common_reg_table" style="width:100%">
+				<colgroup>
+					<col width="130px" />
+					<col width=""/>	
+					<col width="130px" />
+					<col width=""/>						
+				</colgroup>
+				<thead>
+					<tr>
+						<th width="130px"><img src="../image/t_icon.png" alt="" class="mr_5"/>작성자</th>					
+						<td width="">관리자</td>		
+						<th width="130px"><img src="../image/t_icon.png" alt="" class="mr_5"/>작성일</th>					
+						<td width="">2020-05-11 15:48:22</td>									
+					</tr>
+				</thead>			
+				<tbody>							
+				<tr>
+					<th><img src="../image/t_icon.png" alt="" class="mr_5"/>제목</th>
+					<td colspan="3">								
+							아이캔 유튜브채널에 가보시면 올려진 영상의 숫자에 놀라실거에요.
+						</a>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4" class="mincontents"><p><span style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif;"></span></p><p><font face="나눔고딕코딩, NanumGothicCoding, sans-serif">아이캔 유튜브채널&nbsp;&nbsp;</font><a href="https://www.youtube.com/channel/UCEPggfyLCcIbppQPO2ZKWzQ/videos?view=0&amp;sort=dd&amp;shelf_id=1">https://www.youtube.com/channel/UCEPggfyLCcIbppQPO2ZKWzQ/videos?view=0&amp;sort=dd&amp;shelf_id=1</a><span style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif;">​</span></p><p><span style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif;">그동안 많은 아이들이 아이캔에서 공부하면, 정말 무언가 될 것 같은 작은 소망을 품고 왔어요. 잔뜩 긴장하고 공부에 대한 부담감과 압박감으로 하루,이틀 보내지만 생활해보니 이곳에서의 수업은 상상했던 것과는 달리 너무 재미있고, 흥미롭게 수업이 진행되는 거에요.</span></p><p><span style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif;">&nbsp;</span></p><p><span style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif;">수업은 아이들이 궁금해 하는 포인트에 맞추어 그 방향으로&nbsp; 선생님들이 관심을 갖고 그들의 호기심을 더욱 자극해 주고&nbsp; 사고의 확장을 깊고 넓게 할 수 있도록 도와주지요,&nbsp; 그러면서 공부를 한다기 보다 아이들이 알고 싶어하는 것을 코칭샘들이 가이드해주셔서 더욱 깊고 쉽게 터득하도록 도와주신다는 말이 맞을 것 같아요.&nbsp;</span></p><p><span style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif;">&nbsp;</span></p><p><span style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif;">거기다가 오늘 학습한 내용을 비디오 써머리로 담아 내는 일상의 훈련을 통해 카메라앞에서 생각하면서 말하는 자연스러움과 용기를 갖게 해주었지요.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;테드같은 수업에서는 3분 이상의 원고를 머릿속에서 꺼내어 발표해야 하는데 내용이 조직화되어 기억되어 있지 않으면 쉽게 스토리텔링하듯이 지식형스피치를 해낼수가 없답니다.&nbsp;&nbsp;</span></p><p><span style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif;">&nbsp;</span></p><span style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif;">이러한 일련의 과정을 훌륭한 선생님들의 코칭과 가이드를 통해 평가단 스텝들과 카메라앞에서 이루어내는 아이들을 보면 무척 대견스러웠어요.&nbsp;</span>&nbsp;</td>
+				</tr>
+				</body>
+			</table>
+			
+			<!--// write -->
+
+			<div class="board_btn"  style="width:100%">
+			<p class="float_r">				
+						
+				<button title="리스트" class="btnIcon" type="button" onclick="notice_view('List',''); return false;">리스트</button>							
+			</p>			
+			</div>			
+			
+		</div>
+		<!--// cont -->
+	</div>
+	<!--// wrap -->
+	
+</form>
+</body>
+
+<!-- Mirrored from icanacademy.com/_admin/_board/notice/notice_view.asp?b_Seq=43&b_Board_id=board_notice by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Jun 2023 05:18:05 GMT -->
+</html>

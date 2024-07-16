@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"> 
+
+<!-- Mirrored from icanacademy.com/_admin/_board/faq_list/faq_list.asp?b_Board_id=&schIcon=schIcon&schCategorySeq=TOTAL by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Jun 2023 05:20:46 GMT -->
+<head>
+<title>게시판</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script type="text/javascript" src="../_js/common_Js.js"></script>
+<script type="text/javascript" src="../_js/board_Js.js"></script>
+<link type="text/css" href="../_css/style.css" rel="stylesheet">
+
+<script type="text/javascript" src="../../_SmartEditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="../css/ie6.css" media="screen" />
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="../css/ie7.css" media="screen" />
+<![endif]-->
+
+
+<script type="text/javascript">
+function faq_list(gubun, b_Seq) {
+
+	var schIcon = document.getElementById("schIcon").value;
+	var schGubun = document.getElementById("schGubun").value;
+	var schText = document.getElementById("schText").value;
+	var b_Board_id = document.getElementById("b_Board_id").value;
+	var pageNum = document.getElementById("pageNum").value;
+
+
+	if(gubun=="Reg"){
+		location.href="faq_list_regc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum;
+	}else if(gubun=="View"){
+		location.href="faq_list_view7fbb.html?b_Seq="+b_Seq+"&schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum;
+	}
+}
+
+function faq_list_sch(){
+	var f=document.getElementById("faq_list");
+	f.schGubun.className = "";
+	f.schText.className = "";
+
+	var schIcon = document.getElementById("schIcon").value;
+	var schGubun = document.getElementById("schGubun").value;
+	var schText = document.getElementById("schText").value;
+	var b_Board_id = document.getElementById("b_Board_id").value;
+	var pageNum = document.getElementById("pageNum").value;
+
+  if(schGubun==""){
+  	alert("[검색항목]을 선택해주세요.");
+  	f.schGubun.className = "emptyfield";
+		f.schGubun.focus();
+		return;
+	}
+
+  if(schText==""){
+  	alert("[검색단어]를 입력해주세요.");
+  	f.schText.className = "emptyfield";
+		f.schText.focus();
+		return;
+	}
+
+	document.getElementById("faq_list").method="post";
+	document.getElementById("faq_list").action="faq_listc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum;
+	document.getElementById("faq_list").submit();
+
+}
+function faq_list_Open(Num){
+
+	var IE = /*@cc_on!@*/false;
+	var Num = Num;
+	var Tr_Status = document.getElementById("Tr_Status"+Num).value;
+
+	if(Tr_Status =="OPEN"){
+
+	  if (IE) {
+			document.getElementById("Tr_Div1"+Num).style.display = "inline";
+	  } else {
+			document.getElementById("Tr_Div1"+Num).style.display = "table-row";
+	  }
+		document.getElementById("Tr_Status"+Num).value = "CLOSE"
+
+	}else if(Tr_Status =="CLOSE"){
+		document.getElementById("Tr_Div1"+Num).style.display = "none";
+		document.getElementById("Tr_Status"+Num).value = "OPEN"
+	}
+
+}
+function faq_view(PageAction, b_Seq) {
+
+	var PageAction = PageAction;
+	var schIcon = document.getElementById("schIcon").value;
+	var schGubun = document.getElementById("schGubun").value;
+	var schText = document.getElementById("schText").value;
+	var b_Board_id = document.getElementById("b_Board_id").value;
+	var pageNum = document.getElementById("pageNum").value;
+
+	if(PageAction=="Modify"){
+		location.href="faq_list_regc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum+"&b_Seq="+b_Seq;
+	}else if(PageAction=="Del"){
+		if (confirm("정말로 삭제 하시겠습니까?")) {
+			location.href="faq_list_del_sqlc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum+"&b_Seq="+b_Seq+"&PageAction="+PageAction;
+		} else {
+		}
+	}else if(PageAction=="List"){
+		location.href="faq_listc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum;
+	}
+}
+
+</script>
+</head>
+<body class="bgAdmin">
+<form Method="Post" id="faq_list" action="#">
+<input type="hidden" id="schIcon" name="schIcon" value="schIcon">
+<input type="hidden" id="b_Board_id" name="b_Board_id" value="">
+<input type="hidden" id="pageNum" name="pageNum" value="">
+	<!-- wrap -->
+	<div id="wrap" style="width:100%">
+		<!-- cont -->
+		<div class="cont" style="width:100%">
+			<!-- sch -->
+
+				<div class="categorydiv" style="width:100%">				
+				<a href="faq_listc474.html?b_Board_id=&amp;schIcon=schIcon&amp;schCategorySeq=TOTAL">
+					<li class="categorydiv_on">
+						전체
+					</li>
+				</a>																	
+				
+				</div>
+
+				<table  summary="검색" class="common_sch">
+					<caption></caption>
+					<colgroup>
+						<col width="120" />
+						<col width="" />
+					</colgroup>
+					<!--검색부분 //-->
+					<tbody>
+						<tr>
+							<td>
+								<select id="schGubun"  name="schGubun" class="NSelect25" onkeypress="if(event.keyCode==13) faq_list_sch();">
+									<option value="">선택</option>
+									<option value="schTitle" >질문</option>
+									<option value="schContents" >답변</option>
+								</select>
+								<input type="text" id="schText" value="" class="Input20" style="width:194px;"  onkeypress="if(event.keyCode==13) faq_list_sch();" />
+								<button title="검색" class="btnSch" type="button" onclick="faq_list_sch(); return false;"></button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<!--검색부분 //-->
+
+				<table summary="리스트." class="common_list_table" style="width:100%">
+					<tbody>
+					
+					<tr>
+					  <td height=30 align="center">등록된 리스트가 없습니다.</td>
+					</tr>
+					
+					</tbody>
+				</table>
+
+				<div class="board_btn" style="width:100%">
+				<p class="float_r">
+					
+				</p>
+				</div>
+
+		</div>
+
+		
+
+
+		</div>
+		<!--// cont -->
+
+	</div>
+	<!--// wrap -->
+
+</form>
+</body>
+
+<!-- Mirrored from icanacademy.com/_admin/_board/faq_list/faq_list.asp?b_Board_id=&schIcon=schIcon&schCategorySeq=TOTAL by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Jun 2023 05:20:46 GMT -->
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"> 
+
+<!-- Mirrored from icanacademy.com/_admin/_board/notice/notice_view.asp?b_Seq=47&b_Board_id=board_notice by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Jun 2023 05:16:58 GMT -->
+<head>
+<title>게시판</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script type="text/javascript" src="../_js/common_Js.js"></script>
+<script type="text/javascript" src="../_js/board_Js.js"></script>
+<link type="text/css" href="../_css/style.css" rel="stylesheet">
+
+<script type="text/javascript" src="../../_SmartEditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="../css/ie6.css" media="screen" />
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="../css/ie7.css" media="screen" />
+<![endif]-->
+
+<script type="text/javascript">
+function notice_view(PageAction, b_Seq) {
+	
+	var PageAction = PageAction;
+	var schIcon = document.getElementById("schIcon").value;		
+	var schGubun = document.getElementById("schGubun").value;	
+	var schText = document.getElementById("schText").value;			
+	var b_Board_id = document.getElementById("b_Board_id").value;	
+	var pageNum = document.getElementById("pageNum").value;		
+	
+	if(PageAction=="Modify"){										
+		location.href="notice_regc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum+"&b_Seq="+b_Seq;
+	}else if(PageAction=="Del"){	
+		if (confirm("정말로 삭제 하시겠습니까?")) {				
+			location.href="notice_del_sqlc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum+"&b_Seq="+b_Seq+"&PageAction="+PageAction;
+		} else {		
+		}		
+	}else if(PageAction=="List"){	
+		location.href="notice_listc463.html?schIcon="+schIcon+"&schGubun="+schGubun+"&schText="+escape(schText)+"&b_Board_id="+b_Board_id+"&pageNum="+pageNum;
+	}	
+}
+
+</script>
+</head>
+<body class="bgAdmin">
+<form Method="post" id="notice_view" action="#">
+<input type="hidden" id="schIcon" name="schIcon" value="">
+<input type="hidden" id="schCategorySeq" name="schCategorySeq" value="">
+<input type="hidden" id="schGubun" name="schGubun" value="">
+<input type="hidden" id="schText" name="schText" value="">
+<input type="hidden" id="b_Board_id" name="b_Board_id" value="board_notice" >
+<input type="hidden" id="pageNum" name="pageNum" value="" >
+<input type="hidden" id="PageAction" name="PageAction" value="Modify">
+<input type="hidden" id="b_Seq" name="b_Seq" value="47">
+
+
+	<!-- wrap -->
+	<div id="wrap" style="width:100%">
+		<!-- cont -->
+		<div class="cont" style="width:100%">
+			<!-- write -->
+			
+			<table class="common_reg_table" style="width:100%">
+				<colgroup>
+					<col width="130px" />
+					<col width=""/>	
+					<col width="130px" />
+					<col width=""/>						
+				</colgroup>
+				<thead>
+					<tr>
+						<th width="130px"><img src="../image/t_icon.png" alt="" class="mr_5"/>작성자</th>					
+						<td width="">관리자</td>		
+						<th width="130px"><img src="../image/t_icon.png" alt="" class="mr_5"/>작성일</th>					
+						<td width="">2020-05-15 14:24:31</td>									
+					</tr>
+				</thead>			
+				<tbody>							
+				<tr>
+					<th><img src="../image/t_icon.png" alt="" class="mr_5"/>제목</th>
+					<td colspan="3">								
+							아이캔에서 넉픽션학습의 근간  포커너스 수업을 탄탄하게 하는 이유?
+						</a>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4" class="mincontents"><p style="line-height: 2;"><font face="나눔고딕, NanumGothic, sans-serif"><span style="font-size: 10pt;">초등저학년 이제 자연과 세상에 대해서 호기심과 질문이 많아질 때에 누군가로 부터 들은 설명과 이야기는 매우 오래 기억이 되고 그들의 머릿속에 남아있게 됩니다.</span></font></p><p style="line-height: 2;"><font face="나눔고딕, NanumGothic, sans-serif"><span style="font-size: 10pt;">그래서 이때에 지칭어휘의 의미와 정의를 머릿속에 잘 넣은 아이들은 이 표준을 잘 이해하고 다른 이들에게 그들이 배운대로 동일한 의미를 그의 언어로 설명할 수 있게 되지요.(유태인교육&nbsp;<a href="https://youtu.be/XFFKr1XTygY" target="_self">https://youtu.be/XFFKr1XTygY</a>&nbsp;)</span></font></p><p style="line-height: 2;"><font face="나눔고딕, NanumGothic, sans-serif"><span style="font-size: 10pt;"><br></span></font></p><p style="line-height: 2;"><font face="나눔고딕, NanumGothic, sans-serif"><span style="font-size: 10pt;">그 이해와 적용을 충분히 훈련받지 못한 아이들은 무엇인지 알기는 아나 설명을 못해내는 불완전한 이해의 상태에 있습니다. 이바탕위에 또다른 지식이 쌓이고 아이는 반쯤 이해된 상태에서 다른 새로운 어휘와 정보를 쌓게 되기 떄문에 그위에 쌓인 스키마의 기능이 떨어질 수 밖에 없습니다. 아이가 몰입하여 스스로 읽는 다독의 힘 아이들을 변화시키는 것이지 엄마에 의해서 읽혀지는 책의 숫자는 어쩌면 방금 설명한 불완전한 이해속에 계속 부어 넣기만 하는 깨진 항아리에 물붓기가 아닐 수 없습니다.&nbsp;</span></font></p><p style="line-height: 2;"><font face="나눔고딕, NanumGothic, sans-serif"><span style="font-size: 10pt;"><br></span></font></p><p style="line-height: 2;"><font face="나눔고딕, NanumGothic, sans-serif"><span style="font-size: 10pt;">아이캔에서는 초등저학년의 첫 넌픽션학습을&nbsp; 매우 중요하게 생각하고 여기에 많은 힘을 기울이고 있습니다. 이해하고 기억하고 설명할 수&nbsp; 있는 기초어휘위에 쌓인 지식이 그아이의 미래를 좌우합니다. 천천히 ,재미있게, 오감을 활용하여 수업해야 하는 이유입니다.&nbsp;&nbsp;</span></font></p><p><font face="나눔고딕, NanumGothic, sans-serif"><br></font></p><p><span style="font-family: 나눔고딕, NanumGothic, sans-serif;">​</span><img src="../../../uploaded_files/board_files/File_XS5200515142430.jpg" title="File%5FXS5200515142430%2Ejpg"><br style="clear:both;">&nbsp;</p></td>
+				</tr>
+				</body>
+			</table>
+			
+			<!--// write -->
+
+			<div class="board_btn"  style="width:100%">
+			<p class="float_r">				
+						
+				<button title="리스트" class="btnIcon" type="button" onclick="notice_view('List',''); return false;">리스트</button>							
+			</p>			
+			</div>			
+			
+		</div>
+		<!--// cont -->
+	</div>
+	<!--// wrap -->
+	
+</form>
+</body>
+
+<!-- Mirrored from icanacademy.com/_admin/_board/notice/notice_view.asp?b_Seq=47&b_Board_id=board_notice by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Jun 2023 05:17:06 GMT -->
+</html>
