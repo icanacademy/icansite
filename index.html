@@ -22,7 +22,15 @@
 							<img src="images/logo.png" alt="ICAN Academy Logo" style="height: 40px; vertical-align: middle; margin-right: 10px;">
 							ICAN Academy
 						</h1>
-					  
+
+					<!-- Pop-up Modal -->
+						<div id="popupModal" class="popup-modal">
+							<div class="popup-content">
+								<img src="images/popup1.jpg" alt="Pop-up Image" id="popupImage">
+								<button id="closePopup" class="close-btn">X</button>
+							</div>
+						</div>
+
 
 					<!-- Nav -->
 						<nav id="nav">
@@ -94,10 +102,10 @@
 							</div>
 							<footer>
 								<ul class="actions">
-									<li><a href="#" class="button large">Get Started</a></li>
-									<li><a href="#" class="button alt large">Learn More</a></li>
+									<li><a href="https://www.youtube.com/@ICanBroadcast" class="button large" target="_blank">ICAN Youtube</a></li>
+									<li><a href="https://icanlanguage.com" class="button alt large" target="_blank">ICAN Official</a></li>
 								</ul>
-							</footer>
+							</footer>							
 						</section>
 
 				</section>
@@ -391,6 +399,19 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				// Show the pop-up modal when the page loads
+				window.onload = function() {
+					document.getElementById('popupModal').style.display = 'flex';
+				}
+			
+				// Close the pop-up when the close button is clicked
+				document.getElementById('closePopup').onclick = function() {
+					document.getElementById('popupModal').style.display = 'none';
+				}
+			</script>
+			
+
 
 	</body>
 </html>
