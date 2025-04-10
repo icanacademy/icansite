@@ -204,7 +204,7 @@ input, select, textarea {
 /* Image inside the pop-up */
 #popupImage {
     width: auto;
-    height: auto; /* Automatically adjust to resolution */
+    height: 100%; /* Automatically adjust to resolution */
     border-radius: 10px;
 }
 
