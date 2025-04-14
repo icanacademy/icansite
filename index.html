@@ -16,7 +16,8 @@
 
 			<!-- Header -->
 				<section id="header">
-
+						<div id="header-placeholder"></div>
+					
 					<!-- Logo -->
 						<h1>
 							<img src="images/logo.gif" alt="ICAN Academy Logo" style="height: 40px; vertical-align: middle; margin-right: 10px;">
@@ -419,7 +420,13 @@
 					document.getElementById('popupModal').style.display = 'none';
 				}
 			</script>
-			
+			<script>
+				fetch("header.html")
+					.then(response => response.text())
+					.then(data => {
+						document.getElementById("header-placeholder").innerHTML = data;
+					});
+			</script>
 
 
 	</body>
