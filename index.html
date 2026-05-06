@@ -7,7 +7,86 @@
 		<title>ICAN Academy</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			.tour360 {
+				padding: 72px 0 20px;
+				background: linear-gradient(180deg, #f4f8ff 0%, #ffffff 100%);
+			}
+			.tour360 .container {
+				max-width: 1180px;
+			}
+			.tour360__heading {
+				text-align: center;
+				margin-bottom: 28px;
+			}
+			.tour360__eyebrow {
+				display: inline-block;
+				margin-bottom: 10px;
+				padding: 6px 14px;
+				border-radius: 999px;
+				background: #163a7a;
+				color: #fff;
+				font-size: 0.82rem;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+			}
+			.tour360__heading h2 {
+				margin: 0 0 8px;
+			}
+			.tour360__heading p {
+				margin: 0;
+			}
+			.tour360__tabs {
+				display: flex;
+				justify-content: center;
+				gap: 12px;
+				flex-wrap: wrap;
+				margin-bottom: 20px;
+			}
+			.tab-btn {
+				border: 0;
+				border-radius: 999px;
+				padding: 0.85em 1.4em;
+				background: #dfe8f7;
+				color: #163a7a;
+				font-weight: 700;
+				cursor: pointer;
+				transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
+			}
+			.tab-btn:hover,
+			.tab-btn.active {
+				background: #163a7a;
+				color: #fff;
+				transform: translateY(-1px);
+			}
+			.viewer-wrap {
+				position: relative;
+				border-radius: 20px;
+				overflow: hidden;
+				box-shadow: 0 20px 60px rgba(22, 58, 122, 0.18);
+				background: #0d1630;
+			}
+			#panorama {
+				width: 100%;
+				height: 560px;
+			}
+			.viewer-caption {
+				margin: 14px 0 0;
+				text-align: center;
+				color: #44516b;
+				font-size: 0.92rem;
+			}
+			@media screen and (max-width: 736px) {
+				.tour360 {
+					padding: 56px 0 10px;
+				}
+				#panorama {
+					height: 360px;
+				}
+			}
+		</style>
 	</head>
 	<body class="homepage is-preload">
 		<div id="page-wrapper">
@@ -260,11 +339,31 @@
 											</section>
 										</div>
 									</div>
-								</section>
+				</section>
 								
 
 							</div>
 						</div>
+					</div>
+				</section>
+
+				<section class="tour360">
+					<div class="container">
+						<header class="tour360__heading">
+							<p class="tour360__eyebrow">ICAN Virtual Tour</p>
+							<h2>ICAN 공간을 360&deg;로 둘러보세요</h2>
+							<p>드래그 또는 스와이프로 11F와 16F를 탐색할 수 있습니다.</p>
+						</header>
+
+						<div class="tour360__tabs">
+							<button class="tab-btn active" type="button" data-scene="floor11">11F</button>
+							<button class="tab-btn" type="button" data-scene="floor16">16F</button>
+						</div>
+
+						<div class="viewer-wrap">
+							<div id="panorama"></div>
+						</div>
+						<p class="viewer-caption">마우스 드래그 또는 터치로 회전하고 스크롤로 확대할 수 있습니다.</p>
 					</div>
 				</section>
 
@@ -400,6 +499,7 @@
 		</div>
 
 		<!-- Scripts -->
+			<script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.dropotron.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
@@ -407,6 +507,53 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script>
+				const scenes = {
+					floor11: {
+						src: 'images/360-classroom.jpg',
+					},
+					floor16: {
+						src: 'images/360-lobby.jpg',
+					},
+				};
+
+				let viewer = pannellum.viewer('panorama', {
+					type: 'equirectangular',
+					panorama: scenes.floor11.src,
+					autoLoad: true,
+					autoRotate: -2,
+					compass: false,
+					showZoomCtrl: true,
+					showFullscreenCtrl: true,
+					hfov: 100,
+					pitch: 0,
+					yaw: 0,
+				});
+
+				function loadScene(key) {
+					const scene = scenes[key];
+					viewer.destroy();
+					viewer = pannellum.viewer('panorama', {
+						type: 'equirectangular',
+						panorama: scene.src,
+						autoLoad: true,
+						autoRotate: -2,
+						compass: false,
+						showZoomCtrl: true,
+						showFullscreenCtrl: true,
+						hfov: 100,
+					});
+
+					document.querySelectorAll('.tour360 .tab-btn').forEach(button => {
+						button.classList.toggle('active', button.dataset.scene === key);
+					});
+				}
+
+				document.querySelectorAll('.tour360 .tab-btn').forEach(button => {
+					button.addEventListener('click', function () {
+						loadScene(this.dataset.scene);
+					});
+				});
+
 				// Show the pop-up modal when the page loads
 				window.onload = function() {
 					document.getElementById('popupModal').style.display = 'flex';

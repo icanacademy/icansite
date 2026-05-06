@@ -526,8 +526,8 @@
   </div>
 
   <div class="tour360__tabs">
-    <button class="tab-btn active" onclick="loadScene('classroom')">🚀 EduSpace 교실</button>
-    <button class="tab-btn" onclick="loadScene('lobby')">🏫 센터 로비</button>
+    <button class="tab-btn active" onclick="loadScene('floor11')">🚀 11F</button>
+    <button class="tab-btn" onclick="loadScene('floor16')">🏫 16F</button>
   </div>
 
   <div class="viewer-wrap">
@@ -540,19 +540,19 @@
 <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 <script>
   const scenes = {
-    classroom: {
+    floor11: {
       src: 'images/360-classroom.jpg',
-      title: 'EduSpace 교실',
+      title: '11F',
     },
-    lobby: {
+    floor16: {
       src: 'images/360-lobby.jpg',
-      title: '센터 로비',
+      title: '16F',
     },
   };
 
   let viewer = pannellum.viewer('panorama', {
     type: 'equirectangular',
-    panorama: scenes.classroom.src,
+    panorama: scenes.floor11.src,
     autoLoad: true,
     autoRotate: -2,
     compass: false,
@@ -578,7 +578,7 @@
     });
 
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    event.target.classList.add('active');
+    document.querySelector(`.tab-btn[onclick=\"loadScene('${key}')\"]`).classList.add('active');
   }
 </script>
 </body>
