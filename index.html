@@ -1,577 +1,853 @@
-<!DOCTYPE HTML>
-<!--
-	Dopetrope by HTML5 UP
--->
-<html>
-	<head>
-		<title>ICAN Academy</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<style>
-			.tour360 {
-				padding: 72px 0 20px;
-				background: linear-gradient(180deg, #f4f8ff 0%, #ffffff 100%);
-			}
-			.tour360 .container {
-				max-width: 1180px;
-			}
-			.tour360__heading {
-				text-align: center;
-				margin-bottom: 28px;
-			}
-			.tour360__eyebrow {
-				display: inline-block;
-				margin-bottom: 10px;
-				padding: 6px 14px;
-				border-radius: 999px;
-				background: #163a7a;
-				color: #fff;
-				font-size: 0.82rem;
-				letter-spacing: 0.12em;
-				text-transform: uppercase;
-			}
-			.tour360__heading h2 {
-				margin: 0 0 8px;
-			}
-			.tour360__heading p {
-				margin: 0;
-			}
-			.tour360__tabs {
-				display: flex;
-				justify-content: center;
-				gap: 12px;
-				flex-wrap: wrap;
-				margin-bottom: 20px;
-			}
-			.tab-btn {
-				border: 0;
-				border-radius: 999px;
-				padding: 0.85em 1.4em;
-				background: #dfe8f7;
-				color: #163a7a;
-				font-weight: 700;
-				cursor: pointer;
-				transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
-			}
-			.tab-btn:hover,
-			.tab-btn.active {
-				background: #163a7a;
-				color: #fff;
-				transform: translateY(-1px);
-			}
-			.viewer-wrap {
-				position: relative;
-				border-radius: 20px;
-				overflow: hidden;
-				box-shadow: 0 20px 60px rgba(22, 58, 122, 0.18);
-				background: #0d1630;
-			}
-			#panorama {
-				width: 100%;
-				height: 560px;
-			}
-			.viewer-caption {
-				margin: 14px 0 0;
-				text-align: center;
-				color: #44516b;
-				font-size: 0.92rem;
-			}
-			@media screen and (max-width: 736px) {
-				.tour360 {
-					padding: 56px 0 10px;
-				}
-				#panorama {
-					height: 360px;
-				}
-			}
-		</style>
-	</head>
-	<body class="homepage is-preload">
-		<div id="page-wrapper">
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PERS ACADEMY | 퍼스 아카데미</title>
+    <meta
+      name="description"
+      content="초등 저학년 영어 북클럽, 파닉스 플루언씨, 스토리텔링, 학습상담과 레벨테스트가 연결되는 PERS ACADEMY 공식 홈페이지"
+    />
+    <style>
+      :root {
+        --ink: #243028;
+        --muted: #627064;
+        --sage: #6f8569;
+        --leaf: #425843;
+        --cream: #f7f3eb;
+        --paper: #fffaf1;
+        --oak: #c69b69;
+        --clay: #a95d3b;
+        --line: rgba(36, 48, 40, 0.16);
+        --shadow: 0 24px 70px rgba(32, 42, 35, 0.18);
+      }
 
-			<!-- Header -->
-				<section id="header">
-					
-					<!-- Logo -->
-						<h1>
-							<img src="images/logo.gif" alt="ICAN Academy Logo" style="height: 40px; vertical-align: middle; margin-right: 10px;">
-							ICAN Academy
-						</h1>
+      * {
+        box-sizing: border-box;
+      }
 
-					<!-- Pop-up Modal -->
-						<div id="popupModal" class="popup-modal">
-							<div class="popup-content">
-								<img src="images/popup1.jpg" alt="Pop-up Image" id="popupImage">
-								<button id="closePopup" class="close-btn">X</button>
-								<br>
-								<a href="https://icanacademy.github.io/icanclassic/" target="_blank" class="button alt" style="margin-top: 10px; display: inline-block; text-align: center;">Previous ICAN Site</a>
-							</div>
-						</div>
+      html {
+        scroll-behavior: smooth;
+      }
 
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: Inter, Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--cream);
+        line-height: 1.65;
+      }
 
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li class="current"><a href="index.html">Home</a></li>
-								<li>
-								<a href="#">아이캔 커리큘럼</a>
-									<ul>
-										<li><a href="bookclub.html">Book Club</a></li>
-										<li><a href="#">Magna phasellus</a></li>
-										<li><a href="#">Etiam dolore nisl</a></li>
-										<li>
-											<a href="#">Phasellus consequat</a>
-											<ul>
-												<li><a href="#">Magna phasellus</a></li>
-												<li><a href="#">Etiam dolore nisl</a></li>
-												<li><a href="#">Veroeros feugiat</a></li>
-												<li><a href="#">Nisl sed aliquam</a></li>
-												<li><a href="#">Dolore adipiscing</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Veroeros feugiat</a></li>
-									</ul>
-								</li>
-								<li><a href="left-sidebar.html">Left Sidebar</a></li>
-								<li><a href="right-sidebar.html">Right Sidebar</a></li>
-								<li><a href="aboutus.html">About Us</a></li>
-							</ul>
-						</nav>
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
 
-					<!-- Banner -->
-						<section id="banner">
-							<header>
-								<h2>Dr. ICAN-powered Education</h2>
-								<p>Artificial Intelligence has arrived!</p>
-							</header>
-						</section>
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+      }
 
-					<!-- Intro -->
-						<section id="intro" class="container">
-							<div class="row">
-								<div class="col-4 col-12-medium">
-									<section class="first">
-										<i class="icon solid featured fa-cog"></i>
-										<header>
-											<h2>Innovative Learning Tools</h2>
-										</header>
-										<p>Empowering students with cutting-edge educational technology for hands-on success.</p>
-									</section>
-								</div>
-								<div class="col-4 col-12-medium">
-									<section class="middle">
-										<i class="icon solid featured alt fa-bolt"></i>
-										<header>
-											<h2>Fast-Track Growth</h2>
-										</header>
-										<p>Accelerated learning programs designed to spark curiosity and fuel rapid progress.</p>
-									</section>
-								</div>
-								<div class="col-4 col-12-medium">
-									<section class="last">
-										<i class="icon solid featured alt2 fa-star"></i>
-										<header>
-											<h2>Excellence Unlocked</h2>
-										</header>
-										<p>Nurturing top-tier talents through personalized guidance and world-class content.</p>
-									</section>
-								</div>
-							</div>
-							<footer>
-								<ul class="actions">
-									<li><a href="https://www.youtube.com/@ICanBroadcast" class="button large" target="_blank">ICAN Youtube</a></li>
-									<li><a href="https://icanlanguage.com" class="button alt large" target="_blank">ICAN Official</a></li>
-								</ul>
-							</footer>							
-						</section>
+      .site-nav {
+        position: fixed;
+        z-index: 20;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 18px clamp(18px, 4vw, 56px);
+        color: #fff;
+        background: linear-gradient(180deg, rgba(19, 25, 21, 0.74), rgba(19, 25, 21, 0));
+      }
 
-				</section>
+      .brand {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 170px;
+      }
 
-			<!-- Main -->
-				<section id="main">
-					<div class="container">
-						<div class="row">
-							<div class="col-12">
+      .brand strong {
+        font-size: 1rem;
+        letter-spacing: 0.12em;
+      }
 
-								<!-- Portfolio -->
-									<section>
-										<header class="major">
-											<h2>World-class Programs</h2>
-										</header>
-										<div class="row">
-											<div class="col-4 col-6-medium col-12-small">
-												<section class="box">
-													<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-													<header>
-														<h3>EduSpace</h3>
-													</header>
-													<p>A hands-on program where students explore space science and technology, developing problem-solving and teamwork skills while diving into real-world space missions.</p>
-													<footer>
-														<ul class="actions">
-															<li><a href="#" class="button alt">Find out more</a></li>
-														</ul>
-													</footer>
-												</section>
-											</div>
-											<div class="col-4 col-6-medium col-12-small">
-												<section class="box">
-													<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-													<header>
-														<h3>TED Class</h3>
-													</header>
-													<p>An interactive class that builds communication skills through speeches, presentations, and storytelling, helping students express themselves confidently.</p>
-													<footer>
-														<ul class="actions">
-															<li><a href="#" class="button alt">Find out more</a></li>
-														</ul>
-													</footer>
-												</section>
-											</div>
-											<div class="col-4 col-6-medium col-12-small">
-												<section class="box">
-													<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-													<header>
-														<h3>Book Club</h3>
-													</header>
-													<p>A program where students engage with diverse books, enhancing their reading and analytical skills through discussions and activities.</p>
-													<footer>
-														<ul class="actions">
-															<li><a href="#" class="button alt">Find out more</a></li>
-														</ul>
-													</footer>
-												</section>
-											</div>
-											<div class="col-4 col-6-medium col-12-small">
-												<section class="box">
-													<a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
-													<header>
-														<h3>ESL Programs</h3>
-													</header>
-													<p>An all-in-one language program focusing on writing, reading, speaking, and listening to help ESL students become fluent and confident in English.</p>
-													<footer>
-														<ul class="actions">
-															<li><a href="#" class="button alt">Find out more</a></li>
-														</ul>
-													</footer>
-												</section>
-											</div>
-											<div class="col-4 col-6-medium col-12-small">
-												<section class="box">
-													<a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
-													<header>
-														<h3>Academic Support</h3>
-													</header>
-													<p>Personalized tutorials for all subjects, offering one-on-one help to ensure academic success and understanding in various areas of study.</p>
-													<footer>
-														<ul class="actions">
-															<li><a href="#" class="button alt">Find out more</a></li>
-														</ul>
-													</footer>
-												</section>
-											</div>
-											<div class="col-4 col-6-medium col-12-small">
-												<section class="box">
-													<a href="#" class="image featured"><img src="images/pic07.jpg" alt="" /></a>
-													<header>
-														<h3> TOEFL, SAT, and AP Tests</h3>
-													</header>
-													<p>Focused coaching for TOEFL, SAT, and AP exams, helping students improve test-taking strategies and boost their scores for future academic goals.</p>
-													<footer>
-														<ul class="actions">
-															<li><a href="#" class="button alt">Find out more</a></li>
-														</ul>
-													</footer>
-												</section>
-											</div>
-										</div>
-									</section>
+      .brand span,
+      .nav-links a {
+        font-size: 0.82rem;
+      }
 
-							</div>
-							<div class="col-12">
+      .nav-links {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
 
-								<!-- Blog -->
-								<section>
-									<header class="major">
-										<h2>World-Class Content</h2>
-									</header>
-									<div class="row">
-										<div class="col-6 col-12-small">
-											<section class="box">
-												<a href="#" class="image featured">
-													<div align="center">
-														<iframe width="560" height="315" src="https://www.youtube.com/embed/-jW3CZP2N9s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-													</div>
-												</a>
-												<header>
-													<h3>EduSpace Conference</h3>
-													<p>By: Dr ICAN</p>
-												</header>
-												<p>The EduSpace Conference on its first day introduces an innovative teaching approach focusing on Earth and Space, emphasizing flexibility, technical skills, and creative student presentations, tailored for grades 4 and up.</p>
-												<footer>
-													<ul class="actions">
-														<li><a href="https://www.icanlanguage.com/eduspacemap" class="button icon solid fa-file-alt">Learn about</a></li>
-														<li><a href="https://www.youtube.com/watch?v=-jW3CZP2N9s" class="button alt icon solid fa-comment">Go to YT</a></li>
+      .nav-links a {
+        color: rgba(255, 255, 255, 0.88);
+      }
 
-													</ul>
-												</footer>
-											</section>
-										</div>
-										<div class="col-6 col-12-small">
-											<section class="box">
-												<a href="#" class="image featured">
-													<div align="center">
-														<iframe width="560" height="315" src="https://www.youtube.com/embed/2RtDqiyxp5g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-													</div>
-												</a>
-												<header>
-													<h3>TED Talk: Poverty to Superstar</h3>
-													<p>By: Cho Hang Gyeol</p>
-												</header>
-												<p>The speaker shares how Cristiano Ronaldo's journey from poverty to global football stardom inspires perseverance, hard work, and giving back, highlighting his dedication, achievements, and charitable acts.
-													<footer>
-													<ul class="actions">
-														<li><a href="https://www.icanlanguage.com/ted" class="button icon solid fa-file-alt">Learn about</a></li>
-														<li><a href="https://www.youtube.com/watch?v=2RtDqiyxp5g" class="button alt icon solid fa-comment">Go to YT</a></li>
-													</ul>
-												</footer>
-											</section>
-										</div>
-									</div>
-				</section>
-								
+      .nav-cta,
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border: 1px solid transparent;
+        border-radius: 6px;
+        font-weight: 800;
+        cursor: pointer;
+      }
 
-							</div>
-						</div>
-					</div>
-				</section>
+      .nav-cta {
+        color: var(--ink);
+        background: #fff;
+      }
 
-				<section class="tour360">
-					<div class="container">
-						<header class="tour360__heading">
-							<p class="tour360__eyebrow">ICAN Virtual Tour</p>
-							<h2>ICAN 공간을 360&deg;로 둘러보세요</h2>
-							<p>드래그 또는 스와이프로 11F와 16F를 탐색할 수 있습니다.</p>
-						</header>
+      .hero {
+        position: relative;
+        min-height: 94vh;
+        display: grid;
+        align-items: end;
+        overflow: hidden;
+        background: #162018;
+      }
 
-						<div class="tour360__tabs">
-							<button class="tab-btn active" type="button" data-scene="floor11">11F</button>
-							<button class="tab-btn" type="button" data-scene="floor16">16F</button>
-						</div>
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(18, 25, 20, 0.82) 0%, rgba(18, 25, 20, 0.42) 42%, rgba(18, 25, 20, 0.04) 100%),
+          linear-gradient(0deg, rgba(18, 25, 20, 0.62) 0%, rgba(18, 25, 20, 0.08) 40%),
+          url("images/pers-academy-hero.png") center / cover no-repeat;
+        transform: scale(1.012);
+      }
 
-						<div class="viewer-wrap">
-							<div id="panorama"></div>
-						</div>
-						<p class="viewer-caption">마우스 드래그 또는 터치로 회전하고 스크롤로 확대할 수 있습니다.</p>
-					</div>
-				</section>
+      .hero-inner {
+        position: relative;
+        width: min(1180px, calc(100% - 36px));
+        margin: 0 auto;
+        padding: 132px 0 58px;
+      }
 
-			<!-- Footer -->
-				<section id="footer">
-					<div class="container">
-						<div class="row">
-							<div class="col-8 col-12-medium">
-								<section>
-									<header>
-										<h2>Important Events</h2>
-									</header>
-										<ul class="dates">
-											<ul class="dates">
-												<li>
-													<span class="date">May <strong>1</strong></span>
-													<h3><a href="#">Labor Day</a></h3>
-													<p>A celebration honoring the contributions of workers to the nation's development. A public holiday observed nationwide.</p>
-												</li>
-												<li>
-													<span class="date">Jun <strong>12</strong></span>
-													<h3><a href="#">Independence Day</a></h3>
-													<p>Commemorates the Philippine Declaration of Independence from Spain in 1898. Celebrated with parades and ceremonies.</p>
-												</li>
-												<li>
-													<span class="date">Nov <strong>1</strong></span>
-													<h3><a href="#">All Saints' Day</a></h3>
-													<p>A day for honoring and remembering deceased loved ones by visiting cemeteries and offering prayers.</p>
-												</li>
-												<li>
-													<span class="date">Dec <strong>8</strong></span>
-													<h3><a href="#">Immaculate Conception Day</a></h3>
-													<p>A religious holiday celebrating the Virgin Mary's conception without original sin. A national holiday in the Philippines.</p>
-												</li>
-												<li>
-													<span class="date">Dec <strong>25</strong></span>
-													<h3><a href="#">Christmas Day</a></h3>
-													<p>The most celebrated holiday in the Philippines, marking the birth of Jesus Christ. Families gather for feasts and gift-giving.</p>
-												</li>
-											</ul>
-										</section>
-							</div>
-							<div class="col-4 col-12-medium">
-								<section>
-									<header>
-										<h2>Welcome to EDUSPACE!</h2>
-									</header>
-									<a href="#" class="image featured"><img src="images/pict11.JPG" alt="" /></a>
-									<p>
-										ICAN EduSpace Hub is a dynamic space dedicated to fostering learning in AI, children’s speeches, and creative storytelling. Our mission is to inspire young minds and empower individuals to explore the limitless possibilities of technology and communication. Whether you're delving into the world of artificial intelligence or honing your public speaking skills, ICAN EduSpace Hub is here to guide you every step of the way. Join us in shaping the future, one idea at a time!</p>
-									<footer>
-										<ul class="actions">
-											<li><a href="https://www.youtube.com/shorts/V7NOEYW5MaA" class="button">See it in action</a></li>
-										</ul>
-									</footer>
-								</section>
-							</div>
-							<div class="col-4 col-6-medium col-12-small">
-								<section>
-									<header>
-										<h2>AI in Education News</h2>
-									</header>
-									<ul class="divided">
-										<li><a href="https://blog.google/outreach-initiatives/education/ai-literacy-day-2025/">5 new AI education initiatives from Google</a></li>
-										<li><a href="https://www.anthropic.com/news/introducing-claude-for-education">Introducing Claude for education</a></li>
-										<li><a href="https://www.cnbc.com/2025/03/13/what-a-gutted-department-of-education-means-for-future-of-ai-in-school.html">What a gutted Department of Education means for the future of AI in schools</a></li>
-										<li><a href="https://acceleratelearning.stanford.edu/story/the-future-is-already-here-ai-and-education-in-2025/">The future is already here: AI and education in 2025</a></li>
-										<li><a href="https://www.asugsvsummit.com/show">The AI Show @ ASU+GSV — AI Revolution in Education</a></li>
-										<li><a href="https://www.educateventures.com/the-skinny-14-april-2025">The Skinny on AI for Education #14</a></li>
-									</ul>
-								</section>
-							</div>
-							<div class="col-4 col-6-medium col-12-small">
-								<section>
-									<header>
-										<h2>AI WatchList</h2>
-									</header>
-									<ul class="divided">
-										<li><a href="https://www.youtube.com/watch?v=-2tRBIzn07Y">The Current State of AI Video Generation 2025</a></li>
-										<li><a href="https://www.youtube.com/watch?v=TZe5UqlUg0c&t=329">7 Best AI Tools You NEED to Try in 2025 (Free & Powerful!)</a></li>
-										<li><a href="https://www.youtube.com/watch?v=2ePf9rue1Ao">The Rise of AI: How It’s Changing the World</a></li>
-										<li><a href="https://www.youtube.com/watch?v=kWmX3pd1f10">AI in Education: Revolutionizing Learning</a></li>
-										<li><a href="https://www.youtube.com/watch?v=R9vdD8cAPuM">Top 10 AI Innovations of 2025</a></li>
-										<li><a href="https://www.youtube.com/watch?v=3G5zGzZ7lEw">How ChatGPT and Generative AI Work</a></li>
-									</ul>
-								</section>
-							</div>
-							<div class="col-4 col-12-medium">
-								<section>
-									<header>
-										<h2>SNS</h2>
-									</header>
-									<ul class="social">
-										<li><a class="icon brands fa-facebook-f" href="https://www.facebook.com/ICANORTIGAS/"><span class="label">Facebook</span></a></li>
-										<li><a class="fas fa-comment" href="https://pf.kakao.com/_jMuBxb"></a></li>
-										<li><a class="icon brands fa-instagram" href="https://www.instagram.com/ican.academy/"><span class="label">Instagram</span></a></li>
-										<li><a class="icon brands fa-youtube" href="https://www.youtube.com/@ICanBroadcast"><span class="label">LinkedIn</span></a></li>
-									</ul>
-									<ul class="contact">
-										<li>
-											<h3>Address</h3>
-											<p>
-												I Can Language Center, Inc.<br />
-												16F Strata 100, Emerald Ave.,<br />
-												Ortigas Center, Pasig City, Philippines
-											</p>
-										</li>
-										<li>
-											<h3>Contact</h3>
-											<p>070-7014-2233 / icanacademy@naver.com</p>
-										</li>
-										<li>
-											<h3>Business Info</h3>
-											<p>ICAN Academy - Lee Hyun-soo - Corporate Registration Number Business Permit No: SER-06348 </p>
-										</li>
-									</ul>
-								</section>
-							</div>
-							<div class="col-12">
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 18px;
+        color: #f6e6c9;
+        font-size: 0.84rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
 
-								<!-- Copyright -->
-									<div id="copyright">
-										<ul class="links">
-											<li>&copy; 2025 Dr. ICAN. All rights reserved.</li><li>Design: <a href="http://icanlanguage.com">ICAN Media Team</a></li>
-										</ul>
-									</div>
+      .eyebrow::before {
+        content: "";
+        width: 34px;
+        height: 1px;
+        background: currentColor;
+      }
 
-							</div>
-						</div>
-					</div>
-				</section>
+      h1 {
+        max-width: 780px;
+        margin: 0;
+        color: #fff;
+        font-size: clamp(2.7rem, 7vw, 6.6rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
 
-		</div>
+      .hero-copy {
+        max-width: 660px;
+        margin: 24px 0 30px;
+        color: rgba(255, 255, 255, 0.86);
+        font-size: clamp(1.03rem, 2vw, 1.24rem);
+        word-break: keep-all;
+      }
 
-		<!-- Scripts -->
-			<script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script>
-				const scenes = {
-					floor11: {
-						src: 'images/360-classroom.jpg',
-					},
-					floor16: {
-						src: 'images/360-lobby.jpg',
-					},
-				};
+      .hero-actions,
+      .app-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
 
-				let viewer = pannellum.viewer('panorama', {
-					type: 'equirectangular',
-					panorama: scenes.floor11.src,
-					autoLoad: true,
-					autoRotate: -2,
-					compass: false,
-					showZoomCtrl: true,
-					showFullscreenCtrl: true,
-					hfov: 100,
-					pitch: 0,
-					yaw: 0,
-				});
+      .btn-primary {
+        color: #fff;
+        background: var(--leaf);
+      }
 
-				function loadScene(key) {
-					const scene = scenes[key];
-					viewer.destroy();
-					viewer = pannellum.viewer('panorama', {
-						type: 'equirectangular',
-						panorama: scene.src,
-						autoLoad: true,
-						autoRotate: -2,
-						compass: false,
-						showZoomCtrl: true,
-						showFullscreenCtrl: true,
-						hfov: 100,
-					});
+      .btn-secondary {
+        color: var(--ink);
+        background: #fff;
+        border-color: rgba(255, 255, 255, 0.64);
+      }
 
-					document.querySelectorAll('.tour360 .tab-btn').forEach(button => {
-						button.classList.toggle('active', button.dataset.scene === key);
-					});
-				}
+      .btn-line {
+        color: var(--leaf);
+        background: transparent;
+        border-color: rgba(66, 88, 67, 0.35);
+      }
 
-				document.querySelectorAll('.tour360 .tab-btn').forEach(button => {
-					button.addEventListener('click', function () {
-						loadScene(this.dataset.scene);
-					});
-				});
+      .hero-strip {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        width: min(1180px, calc(100% - 36px));
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.18);
+      }
 
-				// Show the pop-up modal when the page loads
-				window.onload = function() {
-					document.getElementById('popupModal').style.display = 'flex';
-				}
-			
-				// Close the pop-up when the close button is clicked
-				document.getElementById('closePopup').onclick = function() {
-					document.getElementById('popupModal').style.display = 'none';
-				}
-			</script>
-			<script>
-				fetch("header.html")
-					.then(response => response.text())
-					.then(data => {
-						document.getElementById("header-placeholder").innerHTML = data;
-					});
-			</script>
+      .hero-strip div {
+        min-height: 96px;
+        padding: 18px;
+        color: #fff;
+        background: rgba(22, 31, 25, 0.54);
+        backdrop-filter: blur(10px);
+      }
 
+      .hero-strip strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 0.94rem;
+      }
 
-	</body>
+      .hero-strip span {
+        color: rgba(255, 255, 255, 0.76);
+        font-size: 0.84rem;
+      }
+
+      main {
+        background: linear-gradient(180deg, var(--cream), #fff 38%, #f6f7f1);
+      }
+
+      .section {
+        padding: clamp(58px, 8vw, 108px) clamp(18px, 4vw, 56px);
+      }
+
+      .section-inner {
+        width: min(1180px, 100%);
+        margin: 0 auto;
+      }
+
+      .section-kicker {
+        margin: 0 0 10px;
+        color: var(--clay);
+        font-size: 0.82rem;
+        font-weight: 900;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        max-width: 840px;
+        margin: 0 0 18px;
+        font-size: clamp(2rem, 4vw, 3.8rem);
+        line-height: 1.08;
+        letter-spacing: 0;
+        word-break: keep-all;
+      }
+
+      .lead {
+        max-width: 790px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.08rem;
+        word-break: keep-all;
+      }
+
+      .feature-grid,
+      .process-grid,
+      .app-grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 34px;
+      }
+
+      .feature,
+      .process-card,
+      .app-panel,
+      .form-panel {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.74);
+        box-shadow: 0 12px 34px rgba(32, 42, 35, 0.08);
+      }
+
+      .feature,
+      .process-card {
+        padding: 24px;
+      }
+
+      .feature b {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        margin-bottom: 16px;
+        border-radius: 50%;
+        color: #fff;
+        background: var(--sage);
+      }
+
+      h3 {
+        margin: 0 0 10px;
+        font-size: 1.22rem;
+        line-height: 1.25;
+      }
+
+      p {
+        word-break: keep-all;
+      }
+
+      .feature p,
+      .process-card p,
+      .app-panel p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .flow {
+        background: #243028;
+        color: #fff;
+      }
+
+      .flow .section-kicker {
+        color: #f0bd86;
+      }
+
+      .flow .lead {
+        color: rgba(255, 255, 255, 0.74);
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(5, 1fr);
+        margin-top: 34px;
+      }
+
+      .process-card {
+        min-height: 220px;
+        color: var(--ink);
+      }
+
+      .step {
+        display: inline-block;
+        margin-bottom: 20px;
+        color: var(--clay);
+        font-weight: 900;
+        letter-spacing: 0.08em;
+      }
+
+      .apps {
+        background:
+          linear-gradient(180deg, rgba(247, 243, 235, 0.7), rgba(255, 255, 255, 0.94)),
+          radial-gradient(circle at 12% 10%, rgba(111, 133, 105, 0.18), transparent 26%);
+      }
+
+      .app-grid {
+        grid-template-columns: 1.05fr 0.95fr;
+        margin-top: 34px;
+        align-items: stretch;
+      }
+
+      .app-panel {
+        padding: 28px;
+      }
+
+      .app-panel.dark {
+        color: #fff;
+        background: var(--leaf);
+        border-color: rgba(255, 255, 255, 0.12);
+      }
+
+      .app-panel.dark p {
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .app-frame {
+        width: 100%;
+        height: 520px;
+        margin-top: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .placeholder-list {
+        display: grid;
+        gap: 12px;
+        margin-top: 22px;
+      }
+
+      .placeholder-list div {
+        padding: 14px 16px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid var(--line);
+      }
+
+      .consult {
+        background: #fff;
+      }
+
+      .consult-layout {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 24px;
+        align-items: start;
+        margin-top: 34px;
+      }
+
+      .form-panel {
+        padding: 28px;
+      }
+
+      .fields {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      label {
+        display: grid;
+        gap: 7px;
+        color: var(--leaf);
+        font-size: 0.84rem;
+        font-weight: 800;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        border: 1px solid rgba(36, 48, 40, 0.18);
+        border-radius: 6px;
+        padding: 12px 13px;
+        color: var(--ink);
+        background: #fff;
+      }
+
+      textarea {
+        min-height: 104px;
+        resize: vertical;
+      }
+
+      .span-2 {
+        grid-column: span 2;
+      }
+
+      .privacy-note {
+        margin: 14px 0 20px;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      .result-box {
+        display: none;
+        margin-top: 16px;
+        padding: 16px;
+        border-radius: 8px;
+        color: var(--leaf);
+        background: #eef4e8;
+        border: 1px solid rgba(66, 88, 67, 0.18);
+      }
+
+      .timeline {
+        display: grid;
+        gap: 12px;
+      }
+
+      .timeline article {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 16px;
+        padding: 18px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .timeline strong {
+        color: var(--clay);
+      }
+
+      .timeline h3 {
+        margin-bottom: 4px;
+      }
+
+      .final-cta {
+        color: #fff;
+        background: var(--ink);
+      }
+
+      .final-cta .section-inner {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        align-items: center;
+      }
+
+      .final-cta p {
+        max-width: 720px;
+        color: rgba(255, 255, 255, 0.76);
+      }
+
+      footer {
+        padding: 28px clamp(18px, 4vw, 56px);
+        color: rgba(255, 255, 255, 0.72);
+        background: #151d18;
+      }
+
+      footer .section-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 980px) {
+        .nav-links a:not(.nav-cta) {
+          display: none;
+        }
+
+        .hero-strip,
+        .feature-grid,
+        .process-grid,
+        .app-grid,
+        .consult-layout,
+        .final-cta .section-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .process-card {
+          min-height: auto;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .site-nav {
+          padding: 14px 16px;
+        }
+
+        .brand strong {
+          font-size: 0.9rem;
+        }
+
+        .hero {
+          min-height: 88vh;
+        }
+
+        .hero-inner {
+          padding-top: 112px;
+        }
+
+        .fields {
+          grid-template-columns: 1fr;
+        }
+
+        .span-2 {
+          grid-column: auto;
+        }
+
+        .timeline article {
+          grid-template-columns: 1fr;
+        }
+
+        .app-frame {
+          height: 620px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a class="brand" href="#top" aria-label="PERS ACADEMY 홈">
+        <strong>PERS ACADEMY</strong>
+        <span>퍼스 아카데미</span>
+      </a>
+      <div class="nav-links">
+        <a href="#bookclub">북클럽</a>
+        <a href="#process">상담 프로세스</a>
+        <a href="#apps">앱 연결</a>
+        <a href="#consult" class="nav-cta">상담 신청</a>
+      </div>
+    </nav>
+
+    <header class="hero" id="top">
+      <div class="hero-inner">
+        <span class="eyebrow">Elementary English Book Club</span>
+        <h1>소리와 문자가 만나 이야기가 되는 영어공간</h1>
+        <p class="hero-copy">
+          PERS ACADEMY는 초등 저학년 아이들이 파닉스, 리딩 플루언씨, 스토리텔링을 통해
+          영어 커뮤니케이션의 기초를 단단히 세우는 북클럽형 영어학원입니다.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#consult">등원상담 시작하기</a>
+          <a class="btn btn-secondary" href="#apps">상담앱 보기</a>
+        </div>
+      </div>
+      <div class="hero-strip" aria-label="핵심 프로그램">
+        <div><strong>Phonics Fluency</strong><span>소리와 문자 연결</span></div>
+        <div><strong>Storytelling</strong><span>이야기로 사고 확장</span></div>
+        <div><strong>AI Speaking</strong><span>말하기와 피드백</span></div>
+        <div><strong>Learning Report</strong><span>상담 분석 리포트</span></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section" id="bookclub">
+        <div class="section-inner">
+          <p class="section-kicker">Book Club Foundation</p>
+          <h2>초등 저학년에게 필요한 것은 더 많은 문제풀이가 아니라, 영어가 입과 눈과 생각으로 연결되는 경험입니다.</h2>
+          <p class="lead">
+            퍼스 아카데미는 북클럽을 중심으로 듣기, 따라 읽기, 소리 인식, 짧은 말하기, 그림 읽기,
+            역할극을 한 흐름으로 묶습니다. 아이는 책을 통해 영어를 만나고, 선생님은 상담 데이터를 통해
+            아이에게 맞는 시작점을 찾습니다.
+          </p>
+          <div class="feature-grid">
+            <article class="feature">
+              <b>1</b>
+              <h3>소리와 문자</h3>
+              <p>파닉스와 사이트워드를 읽기 전 단계가 아니라 fluency의 출발점으로 다룹니다.</p>
+            </article>
+            <article class="feature">
+              <b>2</b>
+              <h3>이야기와 표현</h3>
+              <p>그림책, picture talk, one-minute speaking으로 말할 이유가 있는 영어를 만듭니다.</p>
+            </article>
+            <article class="feature">
+              <b>3</b>
+              <h3>상담과 분석</h3>
+              <p>학습유형, 페르소나, 레벨테스트를 합쳐 학부모가 이해할 수 있는 리포트로 제공합니다.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section flow" id="process">
+        <div class="section-inner">
+          <p class="section-kicker">Admission Counseling Flow</p>
+          <h2>상담 신청부터 등원 결정까지, 홈페이지 안에서 하나의 흐름으로 이어집니다.</h2>
+          <p class="lead">
+            1차 상담은 학부모 설문, 학습유형 설문, 페르소나 설문을 바탕으로 진행하고,
+            학생은 별도 레벨테스트를 통해 현재 영어 사용 레벨을 확인합니다.
+          </p>
+          <div class="process-grid">
+            <article class="process-card">
+              <span class="step">01</span>
+              <h3>상담 신청</h3>
+              <p>학부모가 홈페이지에서 등원상담을 신청하고 기본 정보를 제출합니다.</p>
+            </article>
+            <article class="process-card">
+              <span class="step">02</span>
+              <h3>설문 세트</h3>
+              <p>기본 설문, 학습유형, 페르소나 유형 조사가 하나의 세트로 이어집니다.</p>
+            </article>
+            <article class="process-card">
+              <span class="step">03</span>
+              <h3>원장 상담</h3>
+              <p>원장님이 1차 분석을 바탕으로 아이의 학습 방향과 등원 적합성을 상담합니다.</p>
+            </article>
+            <article class="process-card">
+              <span class="step">04</span>
+              <h3>레벨테스트</h3>
+              <p>학생은 별도로 파닉스, 리딩, 말하기 중심의 레벨테스트를 진행합니다.</p>
+            </article>
+            <article class="process-card">
+              <span class="step">05</span>
+              <h3>통합 리포트</h3>
+              <p>학습유형, 성격유형, 영어 레벨을 합쳐 학부모용 상담 리포트를 제공합니다.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section apps" id="apps">
+        <div class="section-inner">
+          <p class="section-kicker">Connected Apps</p>
+          <h2>상담앱은 먼저 연결했고, 파닉스 플루언씨 앱은 바로 붙여 넣을 수 있는 자리를 열어두었습니다.</h2>
+          <p class="lead">
+            아래 상담앱은 학생/학부모 기본 정보, 학습상담, 학습유형, 페르소나 유형, 관리자 확인 흐름을 시작할 수 있는 콘솔입니다.
+            실제 운영 전에는 Firebase 또는 별도 DB 보안 설정을 확정해야 합니다.
+          </p>
+          <div class="app-grid">
+            <article class="app-panel dark">
+              <h3>등원상담 및 학습상담 앱</h3>
+              <p>홈페이지에서 바로 열 수 있도록 `/consulting-app/`에 연결했습니다.</p>
+              <div class="app-actions" style="margin-top: 18px">
+                <a class="btn btn-secondary" href="consulting-app/" target="_blank" rel="noreferrer">상담앱 새 창으로 열기</a>
+                <a class="btn btn-line" style="color: #fff; border-color: rgba(255,255,255,.38)" href="consulting-app/admin/" target="_blank" rel="noreferrer">관리자 화면</a>
+              </div>
+              <iframe class="app-frame" src="consulting-app/" title="PERS ACADEMY 상담앱 미리보기"></iframe>
+            </article>
+            <article class="app-panel">
+              <h3>파닉스 플루언씨 앱 슬롯</h3>
+              <p>
+                레벨테스트와 연결될 파닉스, 사이트워드, read-aloud feedback, vocabulary drill 앱이 들어갈 자리입니다.
+              </p>
+              <div class="placeholder-list">
+                <div><strong>Phonics Check</strong><br />알파벳 소리, CVC, blending, decoding</div>
+                <div><strong>Fluency Read-Aloud</strong><br />속도, 정확도, 억양, 다시 읽기 피드백</div>
+                <div><strong>Beginner Level Report</strong><br />레벨테스트 결과를 상담 리포트로 연결</div>
+              </div>
+              <div class="app-actions" style="margin-top: 18px">
+                <a class="btn btn-primary" href="phonics-fluency-app/">파닉스 앱 슬롯 열기</a>
+                <a class="btn btn-line" href="#consult">상담 신청과 연결</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section consult" id="consult">
+        <div class="section-inner">
+          <p class="section-kicker">Counseling Request</p>
+          <h2>학부모가 홈페이지에서 상담을 신청하면, 설문 세트와 레벨테스트로 이어집니다.</h2>
+          <p class="lead">
+            이 첫 버전은 홈페이지 안에서 상담 신청 흐름을 보여주는 프론트엔드 시작점입니다.
+            제출 내용은 현재 브라우저에만 임시 저장됩니다.
+          </p>
+          <div class="consult-layout">
+            <div class="timeline">
+              <article>
+                <strong>0~5분</strong>
+                <div>
+                  <h3>상담 신청</h3>
+                  <p>학부모 연락처와 아이의 현재 영어 경험을 확인합니다.</p>
+                </div>
+              </article>
+              <article>
+                <strong>1차</strong>
+                <div>
+                  <h3>학습유형 + 페르소나 분석</h3>
+                  <p>원장 상담 전에 아이의 학습 반응과 성향을 먼저 읽습니다.</p>
+                </div>
+              </article>
+              <article>
+                <strong>2차</strong>
+                <div>
+                  <h3>레벨테스트</h3>
+                  <p>학생의 실제 영어 사용 수준을 Beginner, Foundation, Developing 단계로 확인합니다.</p>
+                </div>
+              </article>
+            </div>
+
+            <form class="form-panel" id="consultForm">
+              <div class="fields">
+                <label>
+                  학부모 이름
+                  <input name="parentName" autocomplete="name" required />
+                </label>
+                <label>
+                  연락처
+                  <input name="phone" autocomplete="tel" required />
+                </label>
+                <label>
+                  학생 이름
+                  <input name="studentName" required />
+                </label>
+                <label>
+                  학년
+                  <select name="grade" required>
+                    <option value="">선택</option>
+                    <option>예비초</option>
+                    <option>초1</option>
+                    <option>초2</option>
+                    <option>초3</option>
+                    <option>초4</option>
+                  </select>
+                </label>
+                <label>
+                  현재 영어 경험
+                  <select name="experience" required>
+                    <option value="">선택</option>
+                    <option>처음 시작</option>
+                    <option>알파벳/파닉스 단계</option>
+                    <option>쉬운 문장 읽기 가능</option>
+                    <option>영어학원 경험 있음</option>
+                  </select>
+                </label>
+                <label>
+                  상담 희망 시간
+                  <select name="time" required>
+                    <option value="">선택</option>
+                    <option>평일 오후</option>
+                    <option>평일 저녁</option>
+                    <option>토요일</option>
+                    <option>협의 필요</option>
+                  </select>
+                </label>
+                <label class="span-2">
+                  상담에서 꼭 알고 싶은 점
+                  <textarea name="message" placeholder="예: 파닉스가 약해요, 영어 말하기를 부끄러워해요, 책 읽는 습관을 만들고 싶어요."></textarea>
+                </label>
+              </div>
+              <p class="privacy-note">
+                학생과 학부모 정보는 상담 목적의 보호 데이터입니다. 실제 운영 DB 연결 전에는 접근 권한, 보관 기간, 삭제 요청 절차를 먼저 확정해야 합니다.
+              </p>
+              <button class="btn btn-primary" type="submit">상담 신청 임시 저장</button>
+              <a class="btn btn-line" href="consulting-app/" target="_blank" rel="noreferrer">전체 설문 세트로 이동</a>
+              <div class="result-box" id="resultBox"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section final-cta">
+        <div class="section-inner">
+          <div>
+            <p class="section-kicker">PERS ACADEMY Begins</p>
+            <h2>소미샘의 학원 홈페이지는 상담, 분석, 수업, 리포트가 연결되는 운영 시스템으로 시작합니다.</h2>
+            <p>
+              다음 단계는 실제 DB 연결, 설문 문항 확정, 파닉스 플루언씨 앱 본 기능 연결,
+              학부모 리포트 자동 생성입니다.
+            </p>
+          </div>
+          <a class="btn btn-secondary" href="#consult">첫 상담 흐름 테스트</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="section-inner">
+        <span>PERS ACADEMY / 퍼스 아카데미</span>
+        <span>Find Your Voice. Shape Your Thoughts.</span>
+      </div>
+    </footer>
+
+    <script>
+      const form = document.getElementById("consultForm");
+      const resultBox = document.getElementById("resultBox");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const data = Object.fromEntries(new FormData(form).entries());
+        const record = {
+          ...data,
+          submittedAt: new Date().toISOString(),
+          nextSteps: ["학습유형 설문", "페르소나 유형 설문", "원장 학습상담", "레벨테스트"],
+        };
+        const saved = JSON.parse(localStorage.getItem("pers.homepage.consultRequests") || "[]");
+        saved.unshift(record);
+        localStorage.setItem("pers.homepage.consultRequests", JSON.stringify(saved.slice(0, 20)));
+        resultBox.style.display = "block";
+        resultBox.innerHTML = `<strong>${data.studentName} 학생 상담 신청이 임시 저장되었습니다.</strong><br />다음 단계: 학습유형 설문, 페르소나 유형 설문, 원장 학습상담, 레벨테스트`;
+        form.reset();
+      });
+    </script>
+  </body>
 </html>
