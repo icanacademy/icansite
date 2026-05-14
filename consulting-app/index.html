@@ -1,14 +1,1867 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/consulting-app/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pers-app</title>
-    <script type="module" crossorigin src="/consulting-app/assets/index-5mAKnxX1.js"></script>
-    <link rel="stylesheet" crossorigin href="/consulting-app/assets/index-CjDi_Zj5.css">
+    <title>Education Shared Office | 교육공유오피스</title>
+    <meta
+      name="description"
+      content="Education Shared Office by ICAN connects place-use customers, AI classes, personal business consulting, Korean TESTA vocational training, and app build requests."
+    />
+    <link rel="icon" type="image/svg+xml" href="/consulting-app/favicon.svg" />
+    <style>
+      :root {
+        --navy: #17245d;
+        --ink: #101827;
+        --muted: #5a6578;
+        --line: rgba(16, 24, 39, 0.13);
+        --paper: #f7f9fb;
+        --white: #ffffff;
+        --cyan: #3eb7d9;
+        --mint: #81c8b3;
+        --gold: #f0b84f;
+        --coral: #e87052;
+        --shadow: 0 24px 70px rgba(18, 31, 80, 0.18);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: Inter, Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--paper);
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+
+      .nav {
+        position: fixed;
+        z-index: 20;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 18px clamp(18px, 4vw, 54px);
+        color: #fff;
+        background: linear-gradient(180deg, rgba(10, 18, 50, 0.78), rgba(10, 18, 50, 0));
+      }
+
+      .brand {
+        display: grid;
+        gap: 1px;
+      }
+
+      .brand strong {
+        font-size: 1rem;
+        letter-spacing: 0.12em;
+      }
+
+      .brand span {
+        color: rgba(255, 255, 255, 0.76);
+        font-size: 0.78rem;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 18px;
+        font-size: 0.86rem;
+        font-weight: 750;
+      }
+
+      .nav-links a {
+        color: rgba(255, 255, 255, 0.84);
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 46px;
+        padding: 0 18px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        font-weight: 850;
+        cursor: pointer;
+      }
+
+      .button.primary {
+        color: #fff;
+        background: var(--navy);
+      }
+
+      .button.accent {
+        color: #111827;
+        background: var(--gold);
+      }
+
+      .button.light {
+        color: var(--navy);
+        background: #fff;
+      }
+
+      .button.ghost {
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.45);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .button.lang-toggle {
+        min-width: 54px;
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.42);
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      .hero {
+        position: relative;
+        min-height: 92vh;
+        display: grid;
+        align-items: end;
+        overflow: hidden;
+        background: #111b3f;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(9, 17, 47, 0.9) 0%, rgba(9, 17, 47, 0.58) 42%, rgba(9, 17, 47, 0.08) 100%),
+          linear-gradient(0deg, rgba(9, 17, 47, 0.76) 0%, rgba(9, 17, 47, 0.04) 44%),
+          url("/consulting-app/media/ican-eduspace-ai-hub.png") center / cover no-repeat;
+        transform: scale(1.01);
+      }
+
+      .hero-inner {
+        position: relative;
+        width: min(1180px, calc(100% - 36px));
+        margin: 0 auto;
+        padding: 132px 0 38px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+        color: #bcecf7;
+        font-size: 0.82rem;
+        font-weight: 900;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 34px;
+        height: 2px;
+        background: currentColor;
+      }
+
+      h1 {
+        max-width: 780px;
+        margin: 0;
+        color: #fff;
+        font-size: clamp(2.6rem, 6.8vw, 6.4rem);
+        line-height: 1.02;
+        letter-spacing: 0;
+        word-break: keep-all;
+      }
+
+      .hero-copy {
+        max-width: 690px;
+        margin: 24px 0 30px;
+        color: rgba(255, 255, 255, 0.86);
+        font-size: clamp(1.02rem, 1.8vw, 1.22rem);
+        word-break: keep-all;
+      }
+
+      .hero-actions,
+      .quick-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .hero-strip {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        width: min(1180px, calc(100% - 36px));
+        margin: 36px auto 0;
+        background: rgba(255, 255, 255, 0.18);
+      }
+
+      .hero-strip div {
+        min-height: 104px;
+        padding: 18px;
+        color: #fff;
+        background: rgba(15, 28, 75, 0.62);
+        backdrop-filter: blur(12px);
+      }
+
+      .hero-strip strong {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 0.95rem;
+      }
+
+      .hero-strip span {
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 0.84rem;
+      }
+
+      main {
+        background: linear-gradient(180deg, #f7fbfd, #fff 38%, #f2f6fb);
+      }
+
+      .section {
+        padding: clamp(58px, 7vw, 96px) clamp(18px, 4vw, 54px);
+      }
+
+      .section-inner {
+        width: min(1180px, 100%);
+        margin: 0 auto;
+      }
+
+      .kicker {
+        margin: 0 0 10px;
+        color: var(--coral);
+        font-size: 0.78rem;
+        font-weight: 950;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        max-width: 820px;
+        margin: 0 0 16px;
+        font-size: clamp(2rem, 4vw, 3.7rem);
+        line-height: 1.08;
+        letter-spacing: 0;
+        word-break: keep-all;
+      }
+
+      .lead {
+        max-width: 760px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.04rem;
+        word-break: keep-all;
+      }
+
+      .booking {
+        margin-top: -38px;
+        position: relative;
+        z-index: 3;
+        padding-top: 0;
+      }
+
+      .booking-panel {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr 0.8fr 0.8fr auto;
+        gap: 10px;
+        padding: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: var(--shadow);
+      }
+
+      .field {
+        display: grid;
+        gap: 5px;
+        min-width: 0;
+      }
+
+      .field label {
+        color: var(--muted);
+        font-size: 0.76rem;
+        font-weight: 850;
+      }
+
+      .field input,
+      .field select,
+      .field textarea {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 0 12px;
+        color: var(--ink);
+        background: #fff;
+      }
+
+      .field input,
+      .field select {
+        min-height: 46px;
+      }
+
+      .field textarea {
+        min-height: 116px;
+        padding: 12px;
+        resize: vertical;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 34px;
+      }
+
+      .space-card {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 14px 38px rgba(18, 31, 80, 0.08);
+      }
+
+      .space-card img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        display: block;
+      }
+
+      .space-card .body {
+        padding: 20px;
+      }
+
+      .space-card h3,
+      .program h3,
+      .included h3 {
+        margin: 0 0 8px;
+        font-size: 1.18rem;
+        line-height: 1.22;
+        word-break: keep-all;
+      }
+
+      .space-card p,
+      .program p,
+      .included p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.94rem;
+        word-break: keep-all;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-top: 16px;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 0 10px;
+        border-radius: 999px;
+        color: #233152;
+        background: #eef5f8;
+        font-size: 0.76rem;
+        font-weight: 850;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: clamp(26px, 5vw, 64px);
+        align-items: center;
+      }
+
+      .image-stack {
+        display: grid;
+        grid-template-columns: 1fr 0.72fr;
+        gap: 14px;
+        align-items: end;
+      }
+
+      .image-stack img {
+        width: 100%;
+        display: block;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        object-fit: cover;
+      }
+
+      .image-stack img:first-child {
+        aspect-ratio: 4 / 5;
+      }
+
+      .image-stack img:last-child {
+        aspect-ratio: 1 / 1;
+      }
+
+      .program-list,
+      .included-grid {
+        display: grid;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .program,
+      .included {
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .program {
+        display: grid;
+        grid-template-columns: 54px 1fr;
+        gap: 16px;
+        align-items: start;
+      }
+
+      .icon {
+        display: grid;
+        place-items: center;
+        width: 54px;
+        height: 54px;
+        border-radius: 8px;
+        color: var(--navy);
+        background: #e8f7fb;
+        font-size: 1.35rem;
+        font-weight: 950;
+      }
+
+      .included-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .planner {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 22px;
+        align-items: stretch;
+        margin-top: 34px;
+      }
+
+      .panel {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 16px 44px rgba(18, 31, 80, 0.08);
+      }
+
+      .panel-head {
+        padding: 20px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .panel-head h3 {
+        margin: 0 0 6px;
+        font-size: 1.24rem;
+      }
+
+      .panel-head p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.93rem;
+        word-break: keep-all;
+      }
+
+      .panel-body {
+        padding: 20px;
+      }
+
+      .planner-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .estimate-card {
+        min-height: 100%;
+        padding: 24px;
+        border-radius: 8px;
+        color: #fff;
+        background:
+          linear-gradient(145deg, rgba(23, 36, 93, 0.96), rgba(28, 65, 108, 0.9)),
+          url("/consulting-app/media/ican-eduspace-ai-hub.png") center / cover no-repeat;
+      }
+
+      .estimate-label {
+        margin: 0 0 10px;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.8rem;
+        font-weight: 900;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .estimate-price {
+        margin: 0;
+        font-size: clamp(2.1rem, 5vw, 4rem);
+        line-height: 1;
+        font-weight: 950;
+      }
+
+      .estimate-sub {
+        margin: 10px 0 22px;
+        color: rgba(255, 255, 255, 0.76);
+        word-break: keep-all;
+      }
+
+      .estimate-list {
+        display: grid;
+        gap: 10px;
+        margin: 22px 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .estimate-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        color: rgba(255, 255, 255, 0.86);
+        font-size: 0.94rem;
+      }
+
+      .estimate-list li::before {
+        content: "";
+        flex: 0 0 auto;
+        width: 8px;
+        height: 8px;
+        margin-top: 8px;
+        border-radius: 99px;
+        background: var(--gold);
+      }
+
+      .package-grid,
+      .market-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 34px;
+      }
+
+      .package,
+      .market-card,
+      .roadmap-card {
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 14px 38px rgba(18, 31, 80, 0.07);
+      }
+
+      .package.featured {
+        border-color: rgba(62, 183, 217, 0.54);
+        box-shadow: 0 22px 56px rgba(62, 183, 217, 0.16);
+      }
+
+      .package small,
+      .market-card small,
+      .roadmap-card small {
+        display: inline-flex;
+        margin-bottom: 14px;
+        color: var(--coral);
+        font-size: 0.76rem;
+        font-weight: 950;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .package h3,
+      .market-card h3,
+      .roadmap-card h3 {
+        margin: 0 0 8px;
+        font-size: 1.28rem;
+      }
+
+      .package p,
+      .market-card p,
+      .roadmap-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.94rem;
+        word-break: keep-all;
+      }
+
+      .package ul {
+        display: grid;
+        gap: 8px;
+        margin: 18px 0 0;
+        padding: 0;
+        list-style: none;
+        color: #334155;
+        font-size: 0.93rem;
+      }
+
+      .package li::before {
+        content: "+ ";
+        color: var(--coral);
+        font-weight: 950;
+      }
+
+      .roadmap {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        margin-top: 34px;
+      }
+
+      .lead-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+
+      .lead-form .wide {
+        grid-column: 1 / -1;
+      }
+
+      .summary-box {
+        margin-top: 18px;
+        padding: 16px;
+        border: 1px solid rgba(62, 183, 217, 0.3);
+        border-radius: 8px;
+        color: #22304d;
+        background: #eff9fc;
+        font-size: 0.94rem;
+        word-break: keep-all;
+      }
+
+      .included:nth-child(2) {
+        border-top: 4px solid var(--mint);
+      }
+
+      .included:nth-child(3) {
+        border-top: 4px solid var(--gold);
+      }
+
+      .included:nth-child(4) {
+        border-top: 4px solid var(--coral);
+      }
+
+      .service-band {
+        color: #fff;
+        background: var(--navy);
+      }
+
+      .service-band .lead,
+      .service-band .kicker {
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .service-band h2 {
+        color: #fff;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        margin-top: 34px;
+        background: rgba(255, 255, 255, 0.16);
+      }
+
+      .step {
+        min-height: 190px;
+        padding: 22px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .step span {
+        display: block;
+        margin-bottom: 26px;
+        color: #86d9ed;
+        font-weight: 950;
+      }
+
+      .step strong {
+        display: block;
+        margin-bottom: 8px;
+        color: #fff;
+        font-size: 1.08rem;
+      }
+
+      .step p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.92rem;
+        word-break: keep-all;
+      }
+
+      .cta {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        align-items: center;
+        padding: clamp(28px, 5vw, 48px);
+        border-radius: 8px;
+        color: #fff;
+        background:
+          linear-gradient(90deg, rgba(12, 26, 77, 0.95), rgba(12, 26, 77, 0.72)),
+          url("/consulting-app/media/ican-eduspace-ai-hub.png") center / cover no-repeat;
+      }
+
+      .cta h2 {
+        margin-bottom: 10px;
+        font-size: clamp(1.8rem, 3.4vw, 3.1rem);
+      }
+
+      .cta p {
+        max-width: 720px;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.78);
+        word-break: keep-all;
+      }
+
+      footer {
+        padding: 28px clamp(18px, 4vw, 54px);
+        color: var(--muted);
+        background: #fff;
+        border-top: 1px solid var(--line);
+      }
+
+      .footer-inner {
+        width: min(1180px, 100%);
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+        font-size: 0.88rem;
+      }
+
+      @media (max-width: 920px) {
+        .nav-links a:not(.button) {
+          display: none;
+        }
+
+        .hero-strip,
+        .grid-3,
+        .included-grid,
+        .steps,
+        .package-grid,
+        .market-grid,
+        .roadmap {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .booking-panel,
+        .split,
+        .cta,
+        .planner {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .nav {
+          padding: 14px 16px;
+        }
+
+        .brand span {
+          display: none;
+        }
+
+        .hero {
+          min-height: 96vh;
+        }
+
+        .hero-inner {
+          width: min(100% - 28px, 1180px);
+          padding-top: 112px;
+        }
+
+        .hero-strip,
+        .grid-3,
+        .included-grid,
+        .steps,
+        .image-stack,
+        .package-grid,
+        .market-grid,
+        .roadmap,
+        .planner-grid,
+        .lead-form {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-strip {
+          margin-top: 26px;
+        }
+
+        .booking {
+          margin-top: 0;
+          padding-top: 22px;
+        }
+
+        .program {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a class="brand" href="#">
+        <strong>Education Shared Office</strong>
+        <span>교육공유오피스 · ICAN</span>
+      </a>
+      <div class="nav-links">
+        <a href="#spaces">공간</a>
+        <a href="#packages">패키지</a>
+        <a href="#planner">견적</a>
+        <a href="#programs">AI 강의</a>
+        <a href="#service">운영방식</a>
+        <button id="langToggle" class="button lang-toggle" type="button" aria-pressed="false">EN</button>
+        <a class="button light" href="#booking">공간 상담</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">ON/OFF HYBRID EDUCATION SPACE</p>
+        <h1>AI 교육과 사업 컨설팅이 열리는 교육공유오피스</h1>
+        <p class="hero-copy">
+          교육공유오피스에서 장소 이용, AI Native 강의, 개인별 사업 컨설팅, 온라인 송출 환경, 앱 제작 의뢰까지 함께 제공합니다.
+          공간만 빌리는 것이 아니라 교육과 사업이 실제로 시작되는 공유 오피스를 이용합니다.
+        </p>
+        <div class="hero-actions">
+          <a class="button light" href="#booking">예약 상담 시작</a>
+          <a class="button ghost" href="#programs">제공 강의 보기</a>
+        </div>
+      </div>
+      <div class="hero-strip" aria-label="핵심 서비스">
+        <div>
+          <strong>AI Native Class</strong>
+          <span>AI 실전수업, 프롬프트, 발표, 프로젝트 운영</span>
+        </div>
+        <div>
+          <strong>Space & AI Lab</strong>
+          <span>우주·AI 주제 탐구와 팀 기반 문제해결</span>
+        </div>
+        <div>
+          <strong>TESTA Korean</strong>
+          <span>한국어 테스타 기반 직업교육 운영 가능</span>
+        </div>
+        <div>
+          <strong>Coffee Included</strong>
+          <span>커피, 간단한 다과, 현장 운영 지원</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="booking" class="section booking">
+        <div class="section-inner">
+          <form class="booking-panel">
+            <div class="field">
+              <label for="purpose">이용 목적</label>
+              <select id="purpose">
+                <option>AI 강의 / 세미나</option>
+                <option>1:1 멘토링 / 소그룹 수업</option>
+                <option>한국어 TESTA 직업교육</option>
+                <option>오피스 / 교육 워크숍</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="date">희망 날짜</label>
+              <input id="date" type="date" />
+            </div>
+            <div class="field">
+              <label for="people">예상 인원</label>
+              <select id="people">
+                <option>1-4명</option>
+                <option>5-12명</option>
+                <option>13-24명</option>
+                <option>25명 이상</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="format">운영 형태</label>
+              <select id="format">
+                <option>오프라인</option>
+                <option>온라인 송출</option>
+                <option>온오프 통합</option>
+              </select>
+            </div>
+            <a class="button primary" href="mailto:icanacademy@naver.com?subject=교육공유오피스 장소 이용 상담">문의하기</a>
+          </form>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <p class="kicker">Service Strategy</p>
+          <h2>공간을 빌려주는 사업이 아니라 교육이 열리는 플랫폼으로 설계합니다</h2>
+          <p class="lead">
+            아이캔 에듀스페이스는 단순 대관, AI 강의 결합, 한국어 직업교육 운영, 정기 멤버십까지 단계적으로 확장하는
+            교육공간 서비스입니다. 고객은 공간만 예약할 수도 있고, 커리큘럼과 운영 인력을 함께 붙일 수도 있습니다.
+          </p>
+          <div class="market-grid">
+            <article class="market-card">
+              <small>Customer 01</small>
+              <h3>프리랜서 강사·튜터</h3>
+              <p>자기 강의는 있지만 전문 교육공간과 발표 장비가 필요한 강사를 위한 시간제 임대 모델입니다.</p>
+            </article>
+            <article class="market-card">
+              <small>Customer 02</small>
+              <h3>학원·교육 스타트업</h3>
+              <p>AI 수업, 캠프, 설명회, 테스트 수업을 빠르게 열고 싶은 기관을 위한 반일·종일 패키지입니다.</p>
+            </article>
+            <article class="market-card">
+              <small>Customer 03</small>
+              <h3>기업·커뮤니티·교회</h3>
+              <p>워크숍, 직업교육, 리더십 교육, 한국어 TESTA 과정을 안정적으로 운영하는 단체형 모델입니다.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="spaces" class="section">
+        <div class="section-inner">
+          <p class="kicker">Spaces</p>
+          <h2>학습 목적에 따라 선택하는 듀얼 캠퍼스 공간</h2>
+          <p class="lead">
+            11층 에듀스페이스 AI 허브와 16층 초집중 맨투맨 Zone을 목적에 맞게 연결합니다.
+            강의, 발표, 멘토링, 오피스형 스터디, 학원형 워크숍을 하나의 서비스로 제공합니다.
+          </p>
+
+          <div class="grid-3">
+            <article class="space-card">
+              <img src="/consulting-app/media/ican-eduspace-ai-hub.png" alt="AI 교육공간 컨셉 이미지" />
+              <div class="body">
+                <h3>프리미엄 에듀스페이스 AI 허브</h3>
+                <p>AI 실전수업, TED 발표, 우주 주제 프로젝트, 미디어 교육이 가능한 메인 강의 공간입니다.</p>
+                <div class="tags">
+                  <span class="tag">대형 모니터</span>
+                  <span class="tag">프로젝트 수업</span>
+                  <span class="tag">AI 오리엔티어링</span>
+                </div>
+              </div>
+            </article>
+            <article class="space-card">
+              <img src="/images/360-classroom.jpg" alt="아이캔 강의실 360 사진" />
+              <div class="body">
+                <h3>온오프 통합 강의실</h3>
+                <p>현장 강의와 온라인 참여를 동시에 운영할 수 있는 하이브리드 클래스 공간입니다.</p>
+                <div class="tags">
+                  <span class="tag">온라인 송출</span>
+                  <span class="tag">세미나</span>
+                  <span class="tag">팀 활동</span>
+                </div>
+              </div>
+            </article>
+            <article class="space-card">
+              <img src="/images/360-lobby.jpg" alt="아이캔 로비와 학습 공간 360 사진" />
+              <div class="body">
+                <h3>초집중 맨투맨 Zone</h3>
+                <p>선생님의 밀착 지도가 필요한 1:1 수업, 상담, 소그룹 코칭에 적합한 공간입니다.</p>
+                <div class="tags">
+                  <span class="tag">1:1 지도</span>
+                  <span class="tag">소그룹</span>
+                  <span class="tag">학습상담</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="packages" class="section">
+        <div class="section-inner">
+          <p class="kicker">Packages</p>
+          <h2>예약 가능한 상품 구조</h2>
+          <p class="lead">
+            초기 운영은 명확한 세 가지 상품으로 시작합니다. 가격은 실제 운영비와 날짜에 따라 조정할 수 있도록 견적형으로 두고,
+            앱에서는 상담 전에 예상 범위를 확인하게 합니다.
+          </p>
+          <div class="package-grid">
+            <article class="package">
+              <small>Space Only</small>
+              <h3>공간 기본 임대</h3>
+              <p>장소 이용 고객은 ₱200/hr 또는 오전·오후·저녁 각 ₱500 블록으로 이용할 수 있습니다.</p>
+              <ul>
+                <li>시간제 ₱200/hr</li>
+                <li>오전·오후·저녁 블록 각 ₱500</li>
+                <li>모니터와 발표 환경 제공</li>
+              </ul>
+            </article>
+            <article class="package featured">
+              <small>Recommended</small>
+              <h3>AI Class Ready</h3>
+              <p>공간요금에 AI 강의 또는 개인별 사업 컨설팅 ₱500/hr를 붙인 대표 패키지입니다.</p>
+              <ul>
+                <li>AI 실습 주제와 진행안 제공</li>
+                <li>프롬프트·발표 템플릿 포함</li>
+                <li>개인별 사업 컨설팅 선택 가능</li>
+              </ul>
+            </article>
+            <article class="package">
+              <small>Institution</small>
+              <h3>교육기관 파트너</h3>
+              <p>13명 이상 클래스는 ₱1,200/hr, 듀얼 캠퍼스는 ₱1,500/hr 기준으로 운영합니다.</p>
+              <ul>
+                <li>월 단위 슬롯 확보</li>
+                <li>기관 맞춤 운영안 설계</li>
+                <li>결과물·출석·피드백 운영</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <p class="kicker">Rate Guide</p>
+          <h2>마닐라 시장가를 참고한 아이캔 제안 요금</h2>
+          <p class="lead">
+            단순 코워킹 좌석은 저가로 형성되어 있지만, 교육용 회의실과 트레이닝룸은 시간당 ₱690-₱1,500 구간이 일반적입니다.
+            아이캔은 공간에 AI 교육과 컨설팅을 붙이는 구조이므로 기본 공간요금은 경쟁력 있게 두고, 교육 서비스에서 가치를 만듭니다.
+          </p>
+          <div class="included-grid">
+            <article class="included">
+              <h3>장소 이용 고객</h3>
+              <p>₱200/hr · 오픈 스터디, 개인 업무, 가벼운 공간 이용</p>
+            </article>
+            <article class="included">
+              <h3>타임블록 이용</h3>
+              <p>₱500/block · 오전, 오후, 저녁 시간대별 이용</p>
+            </article>
+            <article class="included">
+              <h3>AI 강의·컨설팅</h3>
+              <p>₱500/hr · AI 강의, 개인별 사업 컨설팅, TESTA 운영</p>
+            </article>
+            <article class="included">
+              <h3>기관형 공간대관</h3>
+              <p>₱800-₱1,500/hr · 인원과 공간 구성에 따라 상담 산정</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <p class="kicker">Digital Build Service</p>
+          <h2>공간 이용 고객을 위한 앱 제작 의뢰 요금</h2>
+          <p class="lead">
+            교육기관, 강사, 소상공인이 자기 프로그램을 온라인 신청·상담·데이터 관리로 확장할 수 있도록 기본 제작 서비스를 제공합니다.
+          </p>
+          <div class="included-grid">
+            <article class="included">
+              <h3>프론트엔드 기본</h3>
+              <p>₱2,000 · 랜딩/상담 화면, 반응형 UI, 한영 문구 구성</p>
+            </article>
+            <article class="included">
+              <h3>데이터베이스 설계</h3>
+              <p>₱3,000 · 신청자, 예약, 상담내용, 프로그램 데이터 구조 설계</p>
+            </article>
+            <article class="included">
+              <h3>연동 작업</h3>
+              <p>₱2,000 · 프론트엔드와 데이터베이스 연결, 입력 폼 저장 흐름</p>
+            </article>
+            <article class="included">
+              <h3>기본 앱 패키지</h3>
+              <p>₱7,000 · 프론트엔드, DB 설계, 연동 작업을 묶은 기본 제작안</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="planner" class="section">
+        <div class="section-inner">
+          <p class="kicker">Smart Planner</p>
+          <h2>조건을 넣으면 추천 패키지와 예상 견적이 바로 바뀝니다</h2>
+          <p class="lead">
+            실제 결제 전 상담용 계산기입니다. 사용 목적, 인원, 시간, AI 강의 옵션, 다과 수준을 선택하면 운영팀이 확인할
+            예약 요약이 자동으로 생성됩니다.
+          </p>
+          <div class="planner">
+            <div class="panel">
+              <div class="panel-head">
+                <h3>예약 조건</h3>
+                <p>상담 전에 필요한 정보를 빠르게 정리합니다.</p>
+              </div>
+              <div class="panel-body">
+                <div class="planner-grid">
+                  <div class="field">
+                    <label for="planPurpose">목적</label>
+                    <select id="planPurpose">
+                      <option value="seminar">AI 강의 / 세미나</option>
+                      <option value="mentoring">1:1 멘토링 / 소그룹</option>
+                      <option value="testa">한국어 TESTA 직업교육</option>
+                      <option value="office">오피스 / 교육 워크숍</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="planSpace">공간</label>
+                    <select id="planSpace">
+                      <option value="dayuse">장소 이용 고객</option>
+                      <option value="hub">11F AI 허브</option>
+                      <option value="mentor">16F 맨투맨 Zone</option>
+                      <option value="dual">듀얼 캠퍼스 전체</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="planPeople">예상 인원</label>
+                    <select id="planPeople">
+                      <option value="4">1-4명</option>
+                      <option value="12">5-12명</option>
+                      <option value="24">13-24명</option>
+                      <option value="32">25명 이상</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="planHours">사용 시간</label>
+                    <select id="planHours">
+                      <option value="1">1시간</option>
+                      <option value="2">2시간</option>
+                      <option value="morning">오전 블록</option>
+                      <option value="afternoon">오후 블록</option>
+                      <option value="evening">저녁 블록</option>
+                      <option value="4">반일 4시간</option>
+                      <option value="8">종일 8시간</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="planClass">강의 옵션</label>
+                    <select id="planClass">
+                      <option value="0">공간만 사용</option>
+                      <option value="500">AI 실전수업 추가</option>
+                      <option value="500">우주·AI 프로젝트 추가</option>
+                      <option value="500">TESTA 한국어 직업교육 추가</option>
+                      <option value="500">개인별 사업 컨설팅 추가</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="planRefresh">커피·다과</label>
+                    <select id="planRefresh">
+                      <option value="basic">기본 포함</option>
+                      <option value="plus">프리미엄 다과</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <aside class="estimate-card" aria-live="polite">
+              <p class="estimate-label">Estimated Package</p>
+              <h3 id="estimateName" class="estimate-price">AI Class Ready</h3>
+              <p id="estimatePrice" class="estimate-sub">예상 상담가 PHP 9,800부터</p>
+              <ul id="estimateItems" class="estimate-list">
+                <li>11F AI 허브 2시간 사용</li>
+                <li>AI 실전수업 운영 옵션</li>
+                <li>기본 커피와 다과 포함</li>
+              </ul>
+              <a id="estimateMail" class="button accent" href="mailto:icanacademy@naver.com?subject=교육공유오피스 견적 상담">이 조건으로 상담 요청</a>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="programs" class="section">
+        <div class="section-inner split">
+          <div class="image-stack">
+            <img src="/consulting-app/media/ican-eduspace-ai-hub.png" alt="AI Native 교육 공간" />
+            <img src="/images/pic02.jpg" alt="아이캔 교육 활동 사진" />
+          </div>
+          <div>
+            <p class="kicker">Education Included</p>
+            <h2>공간임대에 AI 강의 운영을 붙일 수 있습니다</h2>
+            <p class="lead">
+              외부 강사나 기관이 공간만 사용하는 방식부터, 아이캔의 AI Native 수업 콘텐츠와 현장 운영을 결합하는 방식까지 선택할 수 있습니다.
+            </p>
+            <div class="program-list">
+              <article class="program">
+                <div class="icon">AI</div>
+                <div>
+                  <h3>AI 실전수업 패키지</h3>
+                  <p>생성형 AI 활용, 프롬프트 설계, 발표자료 제작, 문제해결 프로젝트를 수업으로 운영합니다.</p>
+                </div>
+              </article>
+              <article class="program">
+                <div class="icon">SP</div>
+                <div>
+                  <h3>우주와 AI 프로젝트</h3>
+                  <p>우주 기술, 미래 직업, 데이터 탐구를 연결해 학생들이 발표와 산출물을 만드는 체험형 강의입니다.</p>
+                </div>
+              </article>
+              <article class="program">
+                <div class="icon">KR</div>
+                <div>
+                  <h3>한국어 TESTA 직업교육</h3>
+                  <p>한국어 기반 직업교육, 인터뷰 준비, 실무 표현, 현장 적응형 언어 훈련을 운영할 수 있습니다.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <p class="kicker">Included</p>
+          <h2>공간, 장비, 운영, 리프레시먼트를 한 번에</h2>
+          <div class="included-grid">
+            <article class="included">
+              <h3>교육장 세팅</h3>
+              <p>강의 목적에 맞춰 좌석, 모니터, 발표 동선, 소그룹 테이블을 준비합니다.</p>
+            </article>
+            <article class="included">
+              <h3>AI 수업 옵션</h3>
+              <p>AI Native 강의, 프로젝트 주제, 발표 템플릿, 실습 흐름을 선택형으로 제공합니다.</p>
+            </article>
+            <article class="included">
+              <h3>커피와 다과</h3>
+              <p>간단한 음료와 다과를 포함해 오래 머무를 수 있는 교육 라운지 경험을 제공합니다.</p>
+            </article>
+            <article class="included">
+              <h3>운영 지원</h3>
+              <p>입실 안내, 기본 장비 체크, 온오프 통합 수업 준비를 현장에서 지원합니다.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <p class="kicker">Build-up Roadmap</p>
+          <h2>서비스 빌드업 단계</h2>
+          <p class="lead">
+            처음부터 복잡한 예약 시스템을 만들기보다, 상담형 MVP로 시작해 수요가 확인되는 상품부터 자동화합니다.
+          </p>
+          <div class="roadmap">
+            <article class="roadmap-card">
+              <small>Phase 1</small>
+              <h3>상담형 MVP</h3>
+              <p>공간 소개, 패키지, 견적 계산, 이메일 상담으로 첫 예약 리드를 받습니다.</p>
+            </article>
+            <article class="roadmap-card">
+              <small>Phase 2</small>
+              <h3>운영 캘린더</h3>
+              <p>가능 날짜, 시간 슬롯, 담당자 배정, 장비 체크리스트를 내부 운영표로 연결합니다.</p>
+            </article>
+            <article class="roadmap-card">
+              <small>Phase 3</small>
+              <h3>교육상품 마켓</h3>
+              <p>AI 강의, 우주 프로젝트, TESTA 한국어 과정을 선택형 상품으로 확장합니다.</p>
+            </article>
+            <article class="roadmap-card">
+              <small>Phase 4</small>
+              <h3>정기 멤버십</h3>
+              <p>강사, 기관, 커뮤니티가 월 단위로 슬롯을 확보하는 구독형 모델을 운영합니다.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner split">
+          <div>
+            <p class="kicker">Lead Builder</p>
+            <h2>상담 요청서를 바로 만들 수 있게 했습니다</h2>
+            <p class="lead">
+              이름, 기관, 연락처, 요청 내용을 입력하면 상담 메일에 들어갈 내용이 정리됩니다. 실제 예약 확정 전에는 운영팀이
+              날짜, 공간, 강의 옵션을 확인하는 구조입니다.
+            </p>
+          </div>
+          <div class="panel">
+            <div class="panel-head">
+              <h3>공간 상담 요청</h3>
+              <p>입력 내용은 브라우저 안에서만 요약됩니다.</p>
+            </div>
+            <div class="panel-body">
+              <form class="lead-form">
+                <div class="field">
+                  <label for="leadName">이름</label>
+                  <input id="leadName" type="text" placeholder="홍길동" />
+                </div>
+                <div class="field">
+                  <label for="leadOrg">기관 / 팀</label>
+                  <input id="leadOrg" type="text" placeholder="교육기관, 회사, 커뮤니티" />
+                </div>
+                <div class="field wide">
+                  <label for="leadContact">연락처</label>
+                  <input id="leadContact" type="text" placeholder="이메일 또는 카카오톡 ID" />
+                </div>
+                <div class="field wide">
+                  <label for="leadMemo">요청 내용</label>
+                  <textarea id="leadMemo" placeholder="예: 12명 AI 워크숍, 토요일 오후, 커피와 다과 포함"></textarea>
+                </div>
+              <a id="leadMail" class="button primary wide" href="mailto:icanacademy@naver.com?subject=교육공유오피스 장소 이용 상담">상담 메일 작성</a>
+              </form>
+              <div id="leadSummary" class="summary-box">입력하면 상담 요약이 여기에 표시됩니다.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="service" class="section service-band">
+        <div class="section-inner">
+          <p class="kicker">How It Works</p>
+          <h2>공간을 고르고, 수업 목적을 붙이고, 바로 운영합니다</h2>
+          <p class="lead">
+            학원, 기업, 교회, 교육 스타트업, 프리랜서 강사가 AI 교육을 시작할 수 있도록 공간과 콘텐츠를 함께 패키징합니다.
+          </p>
+          <div class="steps">
+            <article class="step">
+              <span>01</span>
+              <strong>목적 선택</strong>
+              <p>AI 강의, 직업교육, 워크숍, 오피스형 스터디 중 운영 목적을 정합니다.</p>
+            </article>
+            <article class="step">
+              <span>02</span>
+              <strong>공간 매칭</strong>
+              <p>11층 AI 허브와 16층 맨투맨 Zone 중 인원과 동선에 맞는 공간을 배정합니다.</p>
+            </article>
+            <article class="step">
+              <span>03</span>
+              <strong>수업 옵션 설계</strong>
+              <p>필요하면 AI Native 강의, 우주 프로젝트, 한국어 TESTA 모듈을 붙입니다.</p>
+            </article>
+            <article class="step">
+              <span>04</span>
+              <strong>현장 운영</strong>
+              <p>장비, 입실, 커피와 다과, 온라인 참여 환경까지 체크하고 시작합니다.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="cta">
+            <div>
+              <h2>교육공유오피스에서 첫 AI 교육과 사업 상담을 시작하세요</h2>
+              <p>
+                공간임대, 학원형 세미나, AI 강의 운영, 한국어 직업교육까지 하나의 상담으로 설계합니다.
+                희망 날짜와 목적을 보내주시면 가능한 공간과 운영안을 정리해 드립니다.
+              </p>
+            </div>
+            <div class="quick-actions">
+              <a class="button light" href="mailto:icanacademy@naver.com?subject=교육공유오피스 장소 이용 상담">이메일 상담</a>
+              <a class="button ghost" href="https://consultant.icanacademy.work/">상담 앱으로 이동</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <strong>교육공유오피스</strong>
+        <span>ICAN Shared Education Office · icanacademy@naver.com</span>
+      </div>
+    </footer>
+    <script>
+      let activeLang = "en";
+      const money = new Intl.NumberFormat("en-PH", {
+        style: "currency",
+        currency: "PHP",
+        maximumFractionDigits: 0
+      });
+
+      const labelSets = {
+        ko: {
+          seminar: "AI 강의 / 세미나",
+          mentoring: "1:1 멘토링 / 소그룹",
+          testa: "한국어 TESTA 직업교육",
+          office: "오피스 / 교육 워크숍",
+          dayuse: "장소 이용 고객",
+          hub: "11F AI 허브",
+          mentor: "16F 맨투맨 Zone",
+          dual: "듀얼 캠퍼스 전체",
+          basic: "기본 커피와 다과",
+          plus: "프리미엄 다과",
+          spaceOnly: "공간 기본 임대",
+          institution: "교육기관 파트너",
+          estimatePrefix: "예상 상담가",
+          from: "부터",
+          hours: "시간 사용",
+          hour: "시간",
+          blockUse: "블록 이용",
+          peopleScale: "명 규모",
+          included: "포함",
+          estimateRequest: "교육공유오피스 견적 상담 요청",
+          packageLabel: "추천 패키지",
+          estimateLabel: "예상 견적",
+          estimateSubject: "Education Shared Office estimate request / 교육공유오피스 견적 상담",
+          leadRequest: "교육공유오피스 장소 이용 상담 요청",
+          leadSubject: "Education Shared Office consultation / 교육공유오피스 장소 이용 상담",
+          name: "이름",
+          org: "기관/팀",
+          contact: "연락처",
+          memo: "요청 내용",
+          empty: "미입력",
+          memoEmpty: "요청 내용을 입력해 주세요.",
+          leadSummary: "상담 요약",
+          serviceRate: "서비스 요금"
+        },
+        en: {
+          seminar: "AI lecture / seminar",
+          mentoring: "1:1 mentoring / small group",
+          testa: "Korean TESTA vocational training",
+          office: "Office / education workshop",
+          dayuse: "Place-use customer",
+          hub: "11F AI Hub",
+          mentor: "16F Mentoring Zone",
+          dual: "Dual campus access",
+          basic: "Basic coffee and snacks",
+          plus: "Premium refreshments",
+          spaceOnly: "Space Rental",
+          institution: "Institution Partner",
+          estimatePrefix: "Estimated consultation price",
+          from: "and up",
+          hours: "hours",
+          hour: "hour",
+          blockUse: "block use",
+          peopleScale: "participants for",
+          included: "included",
+          estimateRequest: "Education Shared Office estimate request",
+          packageLabel: "Recommended package",
+          estimateLabel: "Estimated price",
+          estimateSubject: "Education Shared Office estimate request / 교육공유오피스 견적 상담",
+          leadRequest: "Education Shared Office place-use consultation request",
+          leadSubject: "Education Shared Office consultation / 교육공유오피스 장소 이용 상담",
+          name: "Name",
+          org: "Organization / team",
+          contact: "Contact",
+          memo: "Request details",
+          empty: "Not entered",
+          memoEmpty: "Please enter your request details.",
+          leadSummary: "Consultation summary",
+          serviceRate: "Service rate"
+        }
+      };
+
+      const staticTranslations = {
+        "공간": "Spaces",
+        "패키지": "Packages",
+        "견적": "Estimate",
+        "AI 강의": "AI Class",
+        "운영방식": "Workflow",
+        "공간 상담": "Consult",
+        "교육공유오피스": "Education Shared Office",
+        "교육공유오피스 · ICAN": "Education Shared Office · ICAN",
+        "예약 상담 시작": "Start Consultation",
+        "제공 강의 보기": "View Class Options",
+        "AI 교육과 사업 컨설팅이 열리는 교육공유오피스": "Education Shared Office for AI Classes and Business Consulting",
+        "교육공유오피스에서 장소 이용, AI Native 강의, 개인별 사업 컨설팅, 온라인 송출 환경, 앱 제작 의뢰까지 함께 제공합니다. 공간만 빌리는 것이 아니라 교육과 사업이 실제로 시작되는 공유 오피스를 이용합니다.": "Education Shared Office provides place use, AI-native classes, personal business consulting, online broadcast setup, and app build requests. You are using a shared office where education and business actually begin.",
+        "AI 교육이 바로 열리는 교육공간 임대 서비스": "Education Space Rental Where AI Classes Start Immediately",
+        "아이캔 에듀스페이스에서 강의실, 멘토링룸, 온라인 송출 환경, AI Native 교육 콘텐츠를 함께 제공합니다. 공간만 빌리는 것이 아니라 수업이 실제로 운영되는 교육 인프라를 빌립니다.": "ICAN EDUSPACE provides classrooms, mentoring rooms, hybrid broadcast setup, and AI-native education content. You are renting a working education infrastructure, not only an empty room.",
+        "AI 실전수업, 프롬프트, 발표, 프로젝트 운영": "Hands-on AI classes, prompting, presentations, and projects",
+        "우주·AI 주제 탐구와 팀 기반 문제해결": "Space and AI exploration with team problem-solving",
+        "한국어 테스타 기반 직업교육 운영 가능": "Korean TESTA-based vocational training available",
+        "커피, 간단한 다과, 현장 운영 지원": "Coffee, light refreshments, and onsite support",
+        "이용 목적": "Purpose",
+        "희망 날짜": "Preferred date",
+        "예상 인원": "Expected participants",
+        "사용 시간": "Usage time",
+        "운영 형태": "Format",
+        "문의하기": "Request",
+        "AI 강의 / 세미나": "AI lecture / seminar",
+        "1:1 멘토링 / 소그룹 수업": "1:1 mentoring / small-group class",
+        "한국어 TESTA 직업교육": "Korean TESTA vocational training",
+        "오피스 / 교육 워크숍": "Office / education workshop",
+        "1-4명": "1-4 people",
+        "5-12명": "5-12 people",
+        "13-24명": "13-24 people",
+        "25명 이상": "25+ people",
+        "오프라인": "Offline",
+        "온라인 송출": "Online broadcast",
+        "온오프 통합": "Hybrid",
+        "공간을 빌려주는 사업이 아니라 교육이 열리는 플랫폼으로 설계합니다": "Designed As a Platform Where Education Happens, Not Just Space Rental",
+        "아이캔 에듀스페이스는 단순 대관, AI 강의 결합, 한국어 직업교육 운영, 정기 멤버십까지 단계적으로 확장하는 교육공간 서비스입니다. 고객은 공간만 예약할 수도 있고, 커리큘럼과 운영 인력을 함께 붙일 수도 있습니다.": "ICAN EDUSPACE is an education-space service that can grow from simple room rental into AI classes, Korean vocational training, and recurring memberships. Customers can book only the space or add curriculum and operations support.",
+        "프리랜서 강사·튜터": "Freelance Instructors and Tutors",
+        "자기 강의는 있지만 전문 교육공간과 발표 장비가 필요한 강사를 위한 시간제 임대 모델입니다.": "Hourly rental for instructors who already have their class but need a professional classroom and presentation setup.",
+        "학원·교육 스타트업": "Academies and Education Startups",
+        "AI 수업, 캠프, 설명회, 테스트 수업을 빠르게 열고 싶은 기관을 위한 반일·종일 패키지입니다.": "Half-day and full-day packages for institutions that need to launch AI classes, camps, briefings, or trial lessons quickly.",
+        "기업·커뮤니티·교회": "Companies, Communities, and Churches",
+        "워크숍, 직업교육, 리더십 교육, 한국어 TESTA 과정을 안정적으로 운영하는 단체형 모델입니다.": "Group model for workshops, vocational education, leadership training, and Korean TESTA programs.",
+        "학습 목적에 따라 선택하는 듀얼 캠퍼스 공간": "Dual Campus Spaces Matched to the Learning Purpose",
+        "11층 에듀스페이스 AI 허브와 16층 초집중 맨투맨 Zone을 목적에 맞게 연결합니다. 강의, 발표, 멘토링, 오피스형 스터디, 학원형 워크숍을 하나의 서비스로 제공합니다.": "The 11F Eduspace AI Hub and 16F focused mentoring zone are matched to your purpose. Lectures, presentations, mentoring, office-style study, and academy workshops can run through one service.",
+        "프리미엄 에듀스페이스 AI 허브": "Premium Eduspace AI Hub",
+        "AI 실전수업, TED 발표, 우주 주제 프로젝트, 미디어 교육이 가능한 메인 강의 공간입니다.": "Main classroom for hands-on AI lessons, TED-style presentations, space-themed projects, and media education.",
+        "대형 모니터": "Large display",
+        "프로젝트 수업": "Project class",
+        "AI 오리엔티어링": "AI orienteering",
+        "온오프 통합 강의실": "Hybrid Classroom",
+        "현장 강의와 온라인 참여를 동시에 운영할 수 있는 하이브리드 클래스 공간입니다.": "A hybrid class space for onsite teaching and online participation at the same time.",
+        "세미나": "Seminar",
+        "팀 활동": "Team activity",
+        "초집중 맨투맨 Zone": "Focused Mentoring Zone",
+        "선생님의 밀착 지도가 필요한 1:1 수업, 상담, 소그룹 코칭에 적합한 공간입니다.": "A space for 1:1 lessons, consultations, and small-group coaching that need close teacher guidance.",
+        "1:1 지도": "1:1 coaching",
+        "소그룹": "Small group",
+        "학습상담": "Learning consultation",
+        "예약 가능한 상품 구조": "Bookable Product Structure",
+        "초기 운영은 명확한 세 가지 상품으로 시작합니다. 가격은 실제 운영비와 날짜에 따라 조정할 수 있도록 견적형으로 두고, 앱에서는 상담 전에 예상 범위를 확인하게 합니다.": "The initial operation starts with three clear products. Pricing remains estimate-based so it can reflect operating cost and date, while the app shows an expected range before consultation.",
+        "공간 기본 임대": "Space Rental",
+        "장소 이용 고객은 ₱200/hr 또는 오전·오후·저녁 각 ₱500 블록으로 이용할 수 있습니다.": "Place-use customers can use the space at ₱200/hr or ₱500 per morning, afternoon, or evening block.",
+        "맨투맨 Zone은 ₱500/hr, AI 허브는 ₱800/hr부터 시작하는 기본 대관 상품입니다.": "Basic rental starts at ₱500/hr for the Mentoring Zone and ₱800/hr for the AI Hub.",
+        "시간제 ₱200/hr": "Hourly use at ₱200/hr",
+        "오전·오후·저녁 블록 각 ₱500": "Morning, afternoon, and evening blocks at ₱500 each",
+        "+ 2시간, 반일, 종일 선택": "+ Choose 2 hours, half-day, or full-day",
+        "2시간, 반일, 종일 선택": "Choose 2 hours, half-day, or full-day",
+        "+ 모니터와 발표 환경 제공": "+ Display and presentation setup",
+        "모니터와 발표 환경 제공": "Display and presentation setup",
+        "+ 기본 현장 안내 포함": "+ Basic onsite guidance",
+        "기본 현장 안내 포함": "Basic onsite guidance",
+        "기본 커피와 다과 포함": "Basic coffee and snacks included",
+        "공간요금에 AI 강의 또는 개인별 사업 컨설팅 ₱500/hr를 붙인 대표 패키지입니다.": "The recommended package adds AI classes or personal business consulting at ₱500/hr to the space rate.",
+        "+ AI 실습 주제와 진행안 제공": "+ AI practice topics and facilitation plan",
+        "AI 실습 주제와 진행안 제공": "AI practice topics and facilitation plan",
+        "+ 프롬프트·발표 템플릿 포함": "+ Prompt and presentation templates",
+        "프롬프트·발표 템플릿 포함": "Prompt and presentation templates",
+        "+ 온오프 통합 수업 세팅": "+ Hybrid class setup",
+        "온오프 통합 수업 세팅": "Hybrid class setup",
+        "개인별 사업 컨설팅 선택 가능": "Personal business consulting available",
+        "교육기관 파트너": "Institution Partner",
+        "13명 이상 클래스는 ₱1,200/hr, 듀얼 캠퍼스는 ₱1,500/hr 기준으로 운영합니다.": "Classes for 13+ participants use ₱1,200/hr as a guide, and dual campus operations use ₱1,500/hr.",
+        "+ 월 단위 슬롯 확보": "+ Monthly slot reservation",
+        "월 단위 슬롯 확보": "Monthly slot reservation",
+        "+ 기관 맞춤 운영안 설계": "+ Institution-specific operation plan",
+        "기관 맞춤 운영안 설계": "Institution-specific operation plan",
+        "+ 결과물·출석·피드백 운영": "+ Outputs, attendance, and feedback operations",
+        "결과물·출석·피드백 운영": "Outputs, attendance, and feedback operations",
+        "조건을 넣으면 추천 패키지와 예상 견적이 바로 바뀝니다": "Recommended Package and Estimate Update as You Choose",
+        "실제 결제 전 상담용 계산기입니다. 사용 목적, 인원, 시간, AI 강의 옵션, 다과 수준을 선택하면 운영팀이 확인할 예약 요약이 자동으로 생성됩니다.": "This is a consultation calculator before payment. Choose purpose, participants, hours, AI class option, and refreshments, and the app creates a booking summary for the operations team.",
+        "예약 조건": "Booking Conditions",
+        "상담 전에 필요한 정보를 빠르게 정리합니다.": "Quickly organize what the team needs before consultation.",
+        "목적": "Purpose",
+        "장소 이용 고객": "Place-use customer",
+        "11F AI 허브": "11F AI Hub",
+        "16F 맨투맨 Zone": "16F Mentoring Zone",
+        "듀얼 캠퍼스 전체": "Dual campus access",
+        "1시간": "1 hour",
+        "2시간": "2 hours",
+        "오전 블록": "Morning block",
+        "오후 블록": "Afternoon block",
+        "저녁 블록": "Evening block",
+        "반일 4시간": "Half-day 4 hours",
+        "종일 8시간": "Full-day 8 hours",
+        "강의 옵션": "Class option",
+        "공간만 사용": "Space only",
+        "AI 실전수업 추가": "Add hands-on AI class",
+        "우주·AI 프로젝트 추가": "Add Space and AI project",
+        "TESTA 한국어 직업교육 추가": "Add TESTA Korean vocational training",
+        "개인별 사업 컨설팅 추가": "Add personal business consulting",
+        "커피·다과": "Coffee and snacks",
+        "기본 포함": "Basic included",
+        "프리미엄 다과": "Premium refreshments",
+        "이 조건으로 상담 요청": "Request with this setup",
+        "공간임대에 AI 강의 운영을 붙일 수 있습니다": "AI Class Operations Can Be Added to the Space Rental",
+        "외부 강사나 기관이 공간만 사용하는 방식부터, 아이캔의 AI Native 수업 콘텐츠와 현장 운영을 결합하는 방식까지 선택할 수 있습니다.": "External instructors and institutions may use only the space, or combine it with ICAN's AI-native class content and onsite operations.",
+        "AI 실전수업 패키지": "Hands-on AI Class Package",
+        "생성형 AI 활용, 프롬프트 설계, 발표자료 제작, 문제해결 프로젝트를 수업으로 운영합니다.": "Runs classes on generative AI use, prompt design, presentation building, and problem-solving projects.",
+        "우주와 AI 프로젝트": "Space and AI Project",
+        "우주 기술, 미래 직업, 데이터 탐구를 연결해 학생들이 발표와 산출물을 만드는 체험형 강의입니다.": "An experiential class connecting space technology, future careers, and data exploration into student presentations and outputs.",
+        "한국어 기반 직업교육, 인터뷰 준비, 실무 표현, 현장 적응형 언어 훈련을 운영할 수 있습니다.": "Korean-based vocational training, interview preparation, workplace expressions, and field-adaptive language training can be operated.",
+        "공간, 장비, 운영, 리프레시먼트를 한 번에": "Space, Equipment, Operations, and Refreshments Together",
+        "교육장 세팅": "Classroom Setup",
+        "강의 목적에 맞춰 좌석, 모니터, 발표 동선, 소그룹 테이블을 준비합니다.": "Seats, displays, presentation flow, and small-group tables are prepared for the class purpose.",
+        "AI 수업 옵션": "AI Class Options",
+        "AI Native 강의, 프로젝트 주제, 발표 템플릿, 실습 흐름을 선택형으로 제공합니다.": "AI-native lectures, project topics, presentation templates, and practice flows are available as options.",
+        "커피와 다과": "Coffee and Snacks",
+        "간단한 음료와 다과를 포함해 오래 머무를 수 있는 교육 라운지 경험을 제공합니다.": "Light drinks and snacks create an education lounge experience where participants can stay longer.",
+        "운영 지원": "Operations Support",
+        "입실 안내, 기본 장비 체크, 온오프 통합 수업 준비를 현장에서 지원합니다.": "Onsite support covers entry guidance, basic equipment checks, and hybrid class preparation.",
+        "서비스 빌드업 단계": "Service Build-up Roadmap",
+        "처음부터 복잡한 예약 시스템을 만들기보다, 상담형 MVP로 시작해 수요가 확인되는 상품부터 자동화합니다.": "Instead of building a complex booking system first, start with a consultation MVP and automate the products with proven demand.",
+        "상담형 MVP": "Consultation MVP",
+        "공간 소개, 패키지, 견적 계산, 이메일 상담으로 첫 예약 리드를 받습니다.": "Receive the first booking leads through space introduction, packages, estimate calculation, and email consultation.",
+        "운영 캘린더": "Operations Calendar",
+        "가능 날짜, 시간 슬롯, 담당자 배정, 장비 체크리스트를 내부 운영표로 연결합니다.": "Connect available dates, time slots, staff assignment, and equipment checklist into an internal operations board.",
+        "교육상품 마켓": "Education Product Market",
+        "AI 강의, 우주 프로젝트, TESTA 한국어 과정을 선택형 상품으로 확장합니다.": "Expand AI classes, space projects, and TESTA Korean programs into selectable education products.",
+        "정기 멤버십": "Recurring Membership",
+        "강사, 기관, 커뮤니티가 월 단위로 슬롯을 확보하는 구독형 모델을 운영합니다.": "Operate a subscription model where instructors, institutions, and communities reserve monthly slots.",
+        "상담 요청서를 바로 만들 수 있게 했습니다": "Create a Consultation Request Immediately",
+        "이름, 기관, 연락처, 요청 내용을 입력하면 상담 메일에 들어갈 내용이 정리됩니다. 실제 예약 확정 전에는 운영팀이 날짜, 공간, 강의 옵션을 확인하는 구조입니다.": "Enter name, organization, contact, and request details, and the app prepares the email content. Before confirmation, the operations team verifies date, space, and class options.",
+        "공간 상담 요청": "Space Consultation Request",
+        "입력 내용은 브라우저 안에서만 요약됩니다.": "Your input is summarized only in the browser.",
+        "이름": "Name",
+        "기관 / 팀": "Organization / Team",
+        "연락처": "Contact",
+        "요청 내용": "Request details",
+        "상담 메일 작성": "Create consultation email",
+        "공간을 고르고, 수업 목적을 붙이고, 바로 운영합니다": "Choose the Space, Add the Class Purpose, and Operate Immediately",
+        "학원, 기업, 교회, 교육 스타트업, 프리랜서 강사가 AI 교육을 시작할 수 있도록 공간과 콘텐츠를 함께 패키징합니다.": "Space and content are packaged together so academies, companies, churches, education startups, and freelance instructors can start AI education.",
+        "목적 선택": "Choose Purpose",
+        "AI 강의, 직업교육, 워크숍, 오피스형 스터디 중 운영 목적을 정합니다.": "Select the purpose: AI class, vocational training, workshop, or office-style study.",
+        "공간 매칭": "Match the Space",
+        "11층 AI 허브와 16층 맨투맨 Zone 중 인원과 동선에 맞는 공간을 배정합니다.": "Assign the 11F AI Hub or 16F Mentoring Zone based on participants and flow.",
+        "수업 옵션 설계": "Design Class Options",
+        "필요하면 AI Native 강의, 우주 프로젝트, 한국어 TESTA 모듈을 붙입니다.": "Add AI-native class, space project, or Korean TESTA module when needed.",
+        "현장 운영": "Onsite Operations",
+        "장비, 입실, 커피와 다과, 온라인 참여 환경까지 체크하고 시작합니다.": "Check equipment, entry, coffee and snacks, and online participation setup before starting.",
+        "아이캔 에듀스페이스에서 첫 AI 교육공간을 시작하세요": "Start Your First AI Education Space at ICAN EDUSPACE",
+        "공간임대, 학원형 세미나, AI 강의 운영, 한국어 직업교육까지 하나의 상담으로 설계합니다. 희망 날짜와 목적을 보내주시면 가능한 공간과 운영안을 정리해 드립니다.": "Space rental, academy-style seminars, AI class operations, and Korean vocational education can be designed through one consultation. Send your preferred date and purpose, and we will prepare the available space and operation plan.",
+        "마닐라 시장가를 참고한 아이캔 제안 요금": "ICAN Proposed Rates Based on Manila Market References",
+        "단순 코워킹 좌석은 저가로 형성되어 있지만, 교육용 회의실과 트레이닝룸은 시간당 ₱690-₱1,500 구간이 일반적입니다. 아이캔은 공간에 AI 교육과 컨설팅을 붙이는 구조이므로 기본 공간요금은 경쟁력 있게 두고, 교육 서비스에서 가치를 만듭니다.": "Simple coworking seats are priced low, but education-ready meeting and training rooms commonly sit around ₱690-₱1,500 per hour. ICAN keeps the base space rate competitive and creates value through AI education and consulting.",
+        "맨투맨 Zone": "Mentoring Zone",
+        "장소 이용 고객": "Place-use customer",
+        "₱200/hr · 오픈 스터디, 개인 업무, 가벼운 공간 이용": "₱200/hr · Open study, personal work, light space use",
+        "타임블록 이용": "Time-block Use",
+        "₱500/block · 오전, 오후, 저녁 시간대별 이용": "₱500/block · Morning, afternoon, or evening use",
+        "AI 강의·컨설팅": "AI Class and Consulting",
+        "₱500/hr · AI 강의, 개인별 사업 컨설팅, TESTA 운영": "₱500/hr · AI class, personal business consulting, TESTA operation",
+        "기관형 공간대관": "Institutional Space Rental",
+        "₱800-₱1,500/hr · 인원과 공간 구성에 따라 상담 산정": "₱800-₱1,500/hr · Quoted by participants and space setup",
+        "₱500/hr · 1:1 수업, 상담, 개인별 사업 컨설팅 준비 공간": "₱500/hr · 1:1 lessons, consultation, and personal business consulting prep space",
+        "AI 허브 기본": "AI Hub Basic",
+        "₱800/hr · 5-12명 세미나, AI 실습, 소그룹 워크숍": "₱800/hr · 5-12 participant seminars, AI practice, small-group workshops",
+        "AI 허브 클래스": "AI Hub Class",
+        "₱1,200/hr · 13-24명 발표수업, TESTA, 기관형 강의": "₱1,200/hr · 13-24 participant presentation classes, TESTA, institutional lectures",
+        "듀얼 캠퍼스": "Dual Campus",
+        "₱1,500/hr · 25명 이상 또는 11F+16F 연계 운영": "₱1,500/hr · 25+ participants or 11F+16F linked operations",
+        "공간 이용 고객을 위한 앱 제작 의뢰 요금": "App Build Service Rates for Space Customers",
+        "교육기관, 강사, 소상공인이 자기 프로그램을 온라인 신청·상담·데이터 관리로 확장할 수 있도록 기본 제작 서비스를 제공합니다.": "Basic build services help institutions, instructors, and small businesses extend their programs into online applications, consultation, and data management.",
+        "프론트엔드 기본": "Frontend Basic",
+        "₱2,000 · 랜딩/상담 화면, 반응형 UI, 한영 문구 구성": "₱2,000 · Landing/consultation screen, responsive UI, Korean-English copy",
+        "데이터베이스 설계": "Database Design",
+        "₱3,000 · 신청자, 예약, 상담내용, 프로그램 데이터 구조 설계": "₱3,000 · Data structure for applicants, bookings, consultation notes, and programs",
+        "연동 작업": "Integration Work",
+        "₱2,000 · 프론트엔드와 데이터베이스 연결, 입력 폼 저장 흐름": "₱2,000 · Connect frontend and database, form saving flow",
+        "기본 앱 패키지": "Basic App Package",
+        "₱7,000 · 프론트엔드, DB 설계, 연동 작업을 묶은 기본 제작안": "₱7,000 · Frontend, database design, and integration bundled",
+        "이메일 상담": "Email consultation",
+        "상담 앱으로 이동": "Open consultation app"
+      };
+
+      const placeholderTranslations = {
+        "홍길동": "Your name",
+        "교육기관, 회사, 커뮤니티": "Academy, company, community",
+        "이메일 또는 카카오톡 ID": "Email or KakaoTalk ID",
+        "예: 12명 AI 워크숍, 토요일 오후, 커피와 다과 포함": "Example: 12-person AI workshop, Saturday afternoon, coffee and snacks included"
+      };
+
+      const plannerIds = ["planPurpose", "planSpace", "planPeople", "planHours", "planClass", "planRefresh"];
+      const estimateName = document.getElementById("estimateName");
+      const estimatePrice = document.getElementById("estimatePrice");
+      const estimateItems = document.getElementById("estimateItems");
+      const estimateMail = document.getElementById("estimateMail");
+      const langToggle = document.getElementById("langToggle");
+      const originalTextNodes = new WeakMap();
+      const originalPlaceholders = new WeakMap();
+      const normalizeText = (text) => text.replace(/\s+/g, " ").trim();
+      const normalizedTranslations = Object.fromEntries(
+        Object.entries(staticTranslations).map(([key, value]) => [normalizeText(key), value])
+      );
+
+      function optionText(select) {
+        return select.options[select.selectedIndex].text;
+      }
+
+      function translateStaticText(lang) {
+        document.documentElement.lang = lang;
+        document.title = lang === "ko" ? "교육공유오피스 | 장소 이용·AI 강의·사업 컨설팅" : "Education Shared Office | Place Use, AI Class, Consulting";
+        document.querySelector("meta[name='description']").setAttribute(
+          "content",
+          lang === "ko"
+            ? "교육공유오피스는 장소 이용, AI 강의, 개인별 사업 컨설팅, 한국어 TESTA 직업교육, 앱 제작 의뢰까지 연결하는 아이캔의 교육 공유공간 서비스입니다."
+            : "Education Shared Office by ICAN connects place-use customers, AI classes, personal business consulting, Korean TESTA vocational training, and app build requests."
+        );
+
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+          acceptNode(node) {
+            const parent = node.parentElement;
+            if (!parent || ["SCRIPT", "STYLE"].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
+            return node.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+          }
+        });
+
+        const nodes = [];
+        while (walker.nextNode()) nodes.push(walker.currentNode);
+
+        nodes.forEach((node) => {
+          if (!originalTextNodes.has(node)) originalTextNodes.set(node, node.nodeValue);
+          const koText = originalTextNodes.get(node);
+          const leading = koText.match(/^\s*/)[0];
+          const trailing = koText.match(/\s*$/)[0];
+          const core = koText.trim();
+          const translated = staticTranslations[core] || normalizedTranslations[normalizeText(core)];
+          node.nodeValue = lang === "en" && translated ? `${leading}${translated}${trailing}` : koText;
+        });
+
+        document.querySelectorAll("[placeholder]").forEach((element) => {
+          if (!originalPlaceholders.has(element)) originalPlaceholders.set(element, element.getAttribute("placeholder"));
+          const original = originalPlaceholders.get(element);
+          element.setAttribute("placeholder", lang === "en" && placeholderTranslations[original] ? placeholderTranslations[original] : original);
+        });
+
+        langToggle.textContent = lang === "ko" ? "EN" : "KO";
+        langToggle.setAttribute("aria-pressed", lang === "en" ? "true" : "false");
+      }
+
+      function updateEstimate() {
+        const labels = labelSets[activeLang];
+        const purpose = document.getElementById("planPurpose").value;
+        const space = document.getElementById("planSpace").value;
+        const people = Number(document.getElementById("planPeople").value);
+        const duration = document.getElementById("planHours").value;
+        const isBlock = ["morning", "afternoon", "evening"].includes(duration);
+        const hours = isBlock ? 1 : Number(duration);
+        const classFee = Number(document.getElementById("planClass").value);
+        const refresh = document.getElementById("planRefresh").value;
+
+        const baseSpaceRate = {
+          dayuse: 200,
+          mentor: 500,
+          hub: people > 12 ? 1200 : 800,
+          dual: 1500
+        }[space];
+        const spaceRate = isBlock && space === "dayuse" ? 500 : people > 24 ? Math.max(baseSpaceRate, 1500) : baseSpaceRate;
+        const refreshFee = refresh === "plus" ? people * 100 : 0;
+        const serviceFee = classFee * hours;
+        const total = (isBlock && space === "dayuse" ? spaceRate : spaceRate * hours) + refreshFee + serviceFee;
+
+        const planClassIndex = document.getElementById("planClass").selectedIndex;
+        const classOptions = {
+          ko: ["공간만 사용", "AI 실전수업 추가", "우주·AI 프로젝트 추가", "TESTA 한국어 직업교육 추가", "개인별 사업 컨설팅 추가"],
+          en: ["Space only", "Add hands-on AI class", "Add Space and AI project", "Add TESTA Korean vocational training", "Add personal business consulting"]
+        };
+        const durationLabels = {
+          ko: { "1": "1시간", "2": "2시간", "4": "반일 4시간", "8": "종일 8시간", morning: "오전 블록", afternoon: "오후 블록", evening: "저녁 블록" },
+          en: { "1": "1 hour", "2": "2 hours", "4": "half-day 4 hours", "8": "full-day 8 hours", morning: "morning block", afternoon: "afternoon block", evening: "evening block" }
+        };
+
+        function getPackageName(lang) {
+          const set = labelSets[lang];
+          if (space === "dual" || hours >= 8 || people > 24) return set.institution;
+          if (classFee > 0) return "AI Class Ready";
+          return set.spaceOnly;
+        }
+
+        function getSummary(lang) {
+          const set = labelSets[lang];
+          const durationText = durationLabels[lang][duration];
+          const selectedClass = classOptions[lang][planClassIndex] || classOptions[lang][0];
+          return lang === "ko"
+            ? [
+                isBlock ? `${set[space]} ${durationText} ${set.blockUse}` : `${set[space]} ${hours}${set.hours}`,
+                `${people}${set.peopleScale} ${set[purpose]}`,
+                selectedClass,
+                `${set[refresh]} ${set.included}`,
+                `${set.serviceRate}: ${isBlock && space === "dayuse" ? `${money.format(spaceRate)}/block` : `${money.format(spaceRate)}/hr`}${classFee ? ` + ${money.format(classFee)}/hr` : ""}`
+              ]
+            : [
+                isBlock ? `${set[space]} ${durationText}` : `${set[space]} for ${hours} ${hours === 1 ? set.hour : set.hours}`,
+                `${people} ${set.peopleScale} ${set[purpose]}`,
+                selectedClass,
+                `${set[refresh]} ${set.included}`,
+                `${set.serviceRate}: ${isBlock && space === "dayuse" ? `${money.format(spaceRate)}/block` : `${money.format(spaceRate)}/hr`}${classFee ? ` + ${money.format(classFee)}/hr` : ""}`
+              ];
+        }
+
+        const packageName = getPackageName(activeLang);
+        const summary = getSummary(activeLang);
+
+        estimateName.textContent = packageName;
+        estimatePrice.textContent = activeLang === "ko"
+          ? `${labels.estimatePrefix} ${money.format(total)}${labels.from}`
+          : `${labels.estimatePrefix}: ${money.format(total)} ${labels.from}`;
+        estimateItems.innerHTML = summary.map((item) => `<li>${item}</li>`).join("");
+
+        const enLabels = labelSets.en;
+        const koLabels = labelSets.ko;
+        const body = [
+          enLabels.estimateRequest,
+          "",
+          `${enLabels.packageLabel}: ${getPackageName("en")}`,
+          `${enLabels.estimateLabel}: ${money.format(total)} ${enLabels.from}`,
+          ...getSummary("en").map((item) => `- ${item}`),
+          "",
+          "----- Korean / 한국어 -----",
+          "",
+          koLabels.estimateRequest,
+          "",
+          `${koLabels.packageLabel}: ${getPackageName("ko")}`,
+          `${koLabels.estimateLabel}: ${money.format(total)} ${koLabels.from}`,
+          ...getSummary("ko").map((item) => `- ${item}`)
+        ].join("\n");
+
+        estimateMail.href = `mailto:icanacademy@naver.com?subject=${encodeURIComponent(labels.estimateSubject)}&body=${encodeURIComponent(body)}`;
+      }
+
+      plannerIds.forEach((id) => document.getElementById(id).addEventListener("change", updateEstimate));
+
+      const leadIds = ["leadName", "leadOrg", "leadContact", "leadMemo"];
+      const leadSummary = document.getElementById("leadSummary");
+      const leadMail = document.getElementById("leadMail");
+
+      function updateLead() {
+        const labels = labelSets[activeLang];
+        const rawName = document.getElementById("leadName").value.trim();
+        const rawOrg = document.getElementById("leadOrg").value.trim();
+        const rawContact = document.getElementById("leadContact").value.trim();
+        const rawMemo = document.getElementById("leadMemo").value.trim();
+        const name = rawName || labels.empty;
+        const org = rawOrg || labels.empty;
+        const contact = rawContact || labels.empty;
+        const memo = rawMemo || labels.memoEmpty;
+        const enLabels = labelSets.en;
+        const koLabels = labelSets.ko;
+        const body = [
+          enLabels.leadRequest,
+          "",
+          `${enLabels.name}: ${rawName || enLabels.empty}`,
+          `${enLabels.org}: ${rawOrg || enLabels.empty}`,
+          `${enLabels.contact}: ${rawContact || enLabels.empty}`,
+          "",
+          `${enLabels.memo}:`,
+          rawMemo || enLabels.memoEmpty,
+          "",
+          "----- Korean / 한국어 -----",
+          "",
+          koLabels.leadRequest,
+          "",
+          `${koLabels.name}: ${rawName || koLabels.empty}`,
+          `${koLabels.org}: ${rawOrg || koLabels.empty}`,
+          `${koLabels.contact}: ${rawContact || koLabels.empty}`,
+          "",
+          `${koLabels.memo}:`,
+          rawMemo || koLabels.memoEmpty
+        ].join("\n");
+
+        leadSummary.textContent = `${labels.leadSummary}: ${name} / ${org} / ${contact} / ${memo}`;
+        leadMail.href = `mailto:icanacademy@naver.com?subject=${encodeURIComponent(labels.leadSubject)}&body=${encodeURIComponent(body)}`;
+      }
+
+      leadIds.forEach((id) => document.getElementById(id).addEventListener("input", updateLead));
+
+      langToggle.addEventListener("click", () => {
+        activeLang = activeLang === "ko" ? "en" : "ko";
+        translateStaticText(activeLang);
+        updateEstimate();
+        updateLead();
+      });
+
+      translateStaticText(activeLang);
+      updateEstimate();
+      updateLead();
+    </script>
   </body>
 </html>
