@@ -8,11 +8,7 @@
       name="description"
       content="초등 저학년 영어 북클럽, 파닉스 플루언씨, 스토리텔링, 학습상담과 레벨테스트가 연결되는 PERS ACADEMY 공식 홈페이지"
     />
-    <link rel="canonical" href="/consulting-app/" />
-    <meta http-equiv="refresh" content="0; url=/consulting-app/" />
-    <script>
-      window.location.replace("/consulting-app/");
-    </script>
+    <link rel="canonical" href="/" />
     <style>
       :root {
         --ink: #243028;
@@ -370,6 +366,113 @@
         align-items: stretch;
       }
 
+      .parent-guide {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 24px;
+        align-items: center;
+        margin-top: 34px;
+        padding: 30px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 250, 241, 0.92);
+        box-shadow: 0 16px 44px rgba(32, 42, 35, 0.1);
+      }
+
+      .parent-guide h3 {
+        font-size: clamp(1.55rem, 3vw, 2.35rem);
+      }
+
+      .guide-points {
+        display: grid;
+        gap: 12px;
+        margin: 22px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .guide-points li {
+        padding: 14px 16px;
+        border-left: 4px solid var(--sage);
+        border-radius: 6px;
+        color: var(--muted);
+        background: #fff;
+      }
+
+      .fluency-map {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .fluency-card,
+      .fluency-result {
+        border-radius: 8px;
+        border: 1px solid rgba(36, 48, 40, 0.14);
+        background: #fff;
+      }
+
+      .fluency-card {
+        min-height: 178px;
+        padding: 18px;
+      }
+
+      .fluency-card span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        margin-bottom: 18px;
+        border-radius: 50%;
+        color: #fff;
+        background: var(--clay);
+        font-weight: 900;
+      }
+
+      .fluency-card h4 {
+        margin: 0 0 8px;
+        font-size: 1.02rem;
+        line-height: 1.28;
+      }
+
+      .fluency-card p,
+      .fluency-result p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .fluency-result {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 18px;
+        align-items: center;
+        padding: 20px;
+        background: #eef4e8;
+      }
+
+      .fluency-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 86px;
+        height: 86px;
+        border-radius: 50%;
+        color: #fff;
+        background: var(--leaf);
+        font-weight: 900;
+        text-align: center;
+        line-height: 1.2;
+      }
+
+      .fluency-result strong {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 1.12rem;
+      }
+
       .app-panel {
         padding: 28px;
       }
@@ -533,8 +636,13 @@
         .feature-grid,
         .process-grid,
         .app-grid,
+        .parent-guide,
         .consult-layout,
         .final-cta .section-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .fluency-map {
           grid-template-columns: 1fr;
         }
 
@@ -575,6 +683,14 @@
         .app-frame {
           height: 620px;
         }
+
+        .parent-guide {
+          padding: 22px;
+        }
+
+        .fluency-result {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -587,6 +703,7 @@
       <div class="nav-links">
         <a href="#bookclub">북클럽</a>
         <a href="#process">상담 프로세스</a>
+        <a href="#parent-guide">부모님 가이드</a>
         <a href="#apps">앱 연결</a>
         <a href="#consult" class="nav-cta">상담 신청</a>
       </div>
@@ -689,6 +806,46 @@
             아래 상담앱은 학생/학부모 기본 정보, 학습상담, 학습유형, 페르소나 유형, 관리자 확인 흐름을 시작할 수 있는 콘솔입니다.
             실제 운영 전에는 Firebase 또는 별도 DB 보안 설정을 확정해야 합니다.
           </p>
+          <div class="parent-guide" id="parent-guide">
+            <div>
+              <p class="section-kicker">Parent Guide</p>
+              <h3>퍼스의 레벨링은 아이가 영어를 얼마나 자연스럽게 꺼내 쓸 수 있는지를 봅니다.</h3>
+              <p class="lead">
+                사이트워드와 파닉스 플루언씨 테스트는 단순히 단어를 맞히는 시험이 아닙니다.
+                아이가 알고 있는 소리를 빠르게 말하고, 그 소리를 그림으로 떠올리고,
+                문자로 다시 써낼 수 있는지 확인합니다.
+              </p>
+              <ul class="guide-points">
+                <li><strong>소리로 꺼내기</strong> 빠르게 말할 수 있는 어휘와 소리 패턴의 양을 확인합니다.</li>
+                <li><strong>그림으로 떠올리기</strong> 퀵드로잉으로 소리와 의미가 머릿속에서 연결되는 속도를 봅니다.</li>
+                <li><strong>문자로 써내기</strong> 들은 소리와 떠올린 의미를 알파벳과 단어로 표현할 수 있는지 확인합니다.</li>
+              </ul>
+            </div>
+            <div class="fluency-map" aria-label="파닉스 플루언씨 레벨링 구조">
+              <article class="fluency-card">
+                <span>1</span>
+                <h4>Sound Vocabulary</h4>
+                <p>아이가 빠르게 소리로 꺼낼 수 있는 사이트워드와 기본 어휘를 측정합니다.</p>
+              </article>
+              <article class="fluency-card">
+                <span>2</span>
+                <h4>Quick Drawing</h4>
+                <p>들은 소리와 단어가 그림, 의미, 장면으로 즉시 연결되는지 봅니다.</p>
+              </article>
+              <article class="fluency-card">
+                <span>3</span>
+                <h4>Quick Writing</h4>
+                <p>소리와 의미를 문자로 다시 써내며 파닉스 적용력을 확인합니다.</p>
+              </article>
+              <div class="fluency-result">
+                <div class="fluency-badge">Native-like<br />Fluency</div>
+                <p>
+                  세 능력이 하나로 엮일 때 아이는 원어민적인 커뮤니케이션의 기초를 갖게 됩니다.
+                  그래서 퍼스에서 배우는 파닉스는 발음 규칙 암기가 아니라, 더 좋은 커뮤니케이션을 시작하게 하는 첫 단초입니다.
+                </p>
+              </div>
+            </div>
+          </div>
           <div class="app-grid">
             <article class="app-panel dark">
               <h3>등원상담 및 학습상담 앱</h3>
