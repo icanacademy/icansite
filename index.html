@@ -369,13 +369,47 @@
         display: grid;
         grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
         gap: 24px;
-        align-items: center;
+        align-items: start;
         margin-top: 34px;
         padding: 30px;
         border: 1px solid var(--line);
         border-radius: 8px;
         background: rgba(255, 250, 241, 0.92);
         box-shadow: 0 16px 44px rgba(32, 42, 35, 0.1);
+      }
+
+      .guide-visual {
+        position: relative;
+        grid-column: 1 / -1;
+        min-height: 330px;
+        margin: 0;
+        overflow: hidden;
+        border-radius: 8px;
+        background: var(--leaf);
+        box-shadow: 0 18px 48px rgba(32, 42, 35, 0.16);
+      }
+
+      .guide-visual img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 16 / 7;
+        object-fit: cover;
+      }
+
+      .guide-visual figcaption {
+        position: absolute;
+        left: 18px;
+        bottom: 18px;
+        max-width: min(520px, calc(100% - 36px));
+        padding: 14px 16px;
+        border-radius: 8px;
+        color: #fff;
+        background: rgba(36, 48, 40, 0.82);
+        backdrop-filter: blur(10px);
+        font-size: 0.94rem;
+        font-weight: 800;
+        line-height: 1.45;
       }
 
       .parent-guide h3 {
@@ -687,6 +721,14 @@
           padding: 22px;
         }
 
+        .guide-visual {
+          min-height: 240px;
+        }
+
+        .guide-visual img {
+          aspect-ratio: 4 / 3;
+        }
+
         .fluency-result {
           grid-template-columns: 1fr;
         }
@@ -835,12 +877,21 @@
             기존 앱 연결 영역은 이제 스토리텔링 활동과 리터러시 앱으로 들어가는 입구 역할을 합니다.
           </p>
           <div class="parent-guide" id="parent-guide">
+            <figure class="guide-visual">
+              <img
+                src="images/phonics-quickdrawing-classroom.png"
+                alt="선생님이 아이에게 소리와 퀵드로잉을 연결해 가르치는 파닉스 플루언씨 수업 장면"
+              />
+              <figcaption>
+                선생님은 소리를 먼저 들려주고, 아이는 그 소리를 빠르게 그림과 문자로 꺼내며 커뮤니케이션의 재료를 만듭니다.
+              </figcaption>
+            </figure>
             <div>
               <p class="section-kicker">Parent Guide</p>
               <h3>퍼스의 레벨링은 아이가 영어를 얼마나 자연스럽게 꺼내 쓸 수 있는지를 봅니다.</h3>
               <p class="lead">
                 사이트워드와 파닉스 플루언씨 테스트는 단순히 단어를 맞히는 시험이 아닙니다.
-                아이가 알고 있는 소리를 빠르게 말하고, 그 소리를 그림으로 떠올리고,
+                선생님이 들려주는 소리를 아이가 빠르게 말하고, 그 소리를 그림으로 떠올리고,
                 문자로 다시 써낼 수 있는지 확인합니다.
               </p>
               <ul class="guide-points">
