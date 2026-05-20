@@ -78,8 +78,16 @@
       }
 
       .brand span,
-      .nav-links a {
+      .nav-links a,
+      .lang-toggle {
         font-size: 0.82rem;
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 14px;
       }
 
       .nav-links {
@@ -110,6 +118,29 @@
       .nav-links a.nav-cta {
         color: var(--ink);
         background: #fff;
+      }
+
+      .lang-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        min-height: 32px;
+        padding: 0 10px;
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        border-radius: 999px;
+        color: #fff;
+        background: rgba(19, 25, 21, 0.36);
+        backdrop-filter: blur(10px);
+        font-weight: 900;
+        cursor: pointer;
+      }
+
+      .lang-toggle span {
+        opacity: 0.56;
+      }
+
+      .lang-toggle span.is-active {
+        opacity: 1;
       }
 
       .hero {
@@ -687,10 +718,21 @@
       @media (max-width: 640px) {
         .site-nav {
           padding: 14px 16px;
+          gap: 10px;
         }
 
         .brand strong {
           font-size: 0.9rem;
+        }
+
+        .brand {
+          min-width: 132px;
+        }
+
+        .lang-toggle {
+          min-height: 30px;
+          padding: 0 9px;
+          font-size: 0.76rem;
         }
 
         .hero {
@@ -741,34 +783,40 @@
         <strong>PERS ACADEMY</strong>
         <span>퍼스 아카데미</span>
       </a>
-      <div class="nav-links">
-        <a href="#sightwords">사이트워즈 플루언씨</a>
-        <a href="#bookclub">북클럽</a>
-        <a href="#process">상담 프로세스</a>
-        <a href="#parent-guide">부모님 가이드</a>
-        <a href="#apps">스토리텔링</a>
-        <a href="#consult" class="nav-cta">상담신청</a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#sightwords" data-ko="사이트워즈 플루언씨" data-en="Sight Words Fluency">사이트워즈 플루언씨</a>
+          <a href="#bookclub" data-ko="북클럽" data-en="Book Club">북클럽</a>
+          <a href="#process" data-ko="상담 프로세스" data-en="Counseling Flow">상담 프로세스</a>
+          <a href="#parent-guide" data-ko="부모님 가이드" data-en="Parent Guide">부모님 가이드</a>
+          <a href="#apps" data-ko="스토리텔링" data-en="Storytelling">스토리텔링</a>
+          <a href="#consult" class="nav-cta" data-ko="상담신청" data-en="Book Consultation">상담신청</a>
+        </div>
+        <button class="lang-toggle" type="button" id="langToggle" aria-label="Switch language" aria-pressed="false">
+          <span class="is-active" data-lang-label="ko">KO</span>
+          <span data-lang-label="en">EN</span>
+        </button>
       </div>
     </nav>
 
     <header class="hero" id="top">
       <div class="hero-inner">
         <span class="eyebrow">Elementary English Book Club</span>
-        <h1>소리와 문자가 만나 이야기가 되는 영어공간</h1>
-        <p class="hero-copy">
+        <h1 data-ko="소리와 문자가 만나 이야기가 되는 영어공간" data-en="Where sound and letters become stories">소리와 문자가 만나 이야기가 되는 영어공간</h1>
+        <p class="hero-copy" data-ko="PERS ACADEMY는 초등 저학년 아이들이 파닉스, 리딩 플루언씨, 스토리텔링을 통해 영어 커뮤니케이션의 기초를 단단히 세우는 북클럽형 영어학원입니다." data-en="PERS ACADEMY is a book-club style English academy where young learners build the foundation for real communication through phonics, reading fluency, and storytelling.">
           PERS ACADEMY는 초등 저학년 아이들이 파닉스, 리딩 플루언씨, 스토리텔링을 통해
           영어 커뮤니케이션의 기초를 단단히 세우는 북클럽형 영어학원입니다.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#consult">등원상담 시작하기</a>
-          <a class="btn btn-secondary" href="#apps">스토리텔링 보기</a>
+          <a class="btn btn-primary" href="#consult" data-ko="등원상담 시작하기" data-en="Start Consultation">등원상담 시작하기</a>
+          <a class="btn btn-secondary" href="#apps" data-ko="스토리텔링 보기" data-en="View Storytelling">스토리텔링 보기</a>
         </div>
       </div>
       <div class="hero-strip" aria-label="핵심 프로그램">
-        <div><strong>Phonics Fluency</strong><span>소리와 문자 연결</span></div>
-        <div><strong>Storytelling</strong><span>이야기로 사고 확장</span></div>
-        <div><strong>AI Speaking</strong><span>말하기와 피드백</span></div>
-        <div><strong>Learning Report</strong><span>상담 분석 리포트</span></div>
+        <div><strong>Phonics Fluency</strong><span data-ko="소리와 문자 연결" data-en="Sound-letter connection">소리와 문자 연결</span></div>
+        <div><strong>Storytelling</strong><span data-ko="이야기로 사고 확장" data-en="Thinking through stories">이야기로 사고 확장</span></div>
+        <div><strong>AI Speaking</strong><span data-ko="말하기와 피드백" data-en="Speaking and feedback">말하기와 피드백</span></div>
+        <div><strong>Learning Report</strong><span data-ko="상담 분석 리포트" data-en="Counseling report">상담 분석 리포트</span></div>
       </div>
     </header>
 
@@ -776,8 +824,8 @@
       <section class="section sightwords" id="sightwords">
         <div class="section-inner">
           <p class="section-kicker">Sight Words Fluency</p>
-          <h2>사이트워즈 플루언씨는 북클럽으로 들어가기 전, 아이가 문장을 빠르고 자신 있게 만나는 입구입니다.</h2>
-          <p class="lead">
+          <h2 data-ko="사이트워즈 플루언씨는 북클럽으로 들어가기 전, 아이가 문장을 빠르고 자신 있게 만나는 입구입니다." data-en="Sight words fluency is the doorway that helps children meet sentences quickly and confidently before book club reading.">사이트워즈 플루언씨는 북클럽으로 들어가기 전, 아이가 문장을 빠르고 자신 있게 만나는 입구입니다.</h2>
+          <p class="lead" data-ko="자주 만나는 단어를 눈으로 알아보고, 소리로 말하고, 짧은 문장 속에서 바로 읽어내는 훈련을 합니다. 단어 암기가 아니라 읽기 속도, 정확도, 자신감을 만드는 플루언씨 루틴입니다." data-en="Children learn to recognize high-frequency words, say them aloud, and read them inside short phrases. This is not memorization; it is a fluency routine for speed, accuracy, and confidence.">
             자주 만나는 단어를 눈으로 알아보고, 소리로 말하고, 짧은 문장 속에서 바로 읽어내는 훈련을 합니다.
             단어 암기가 아니라 읽기 속도, 정확도, 자신감을 만드는 플루언씨 루틴입니다.
           </p>
@@ -785,17 +833,17 @@
             <article class="feature">
               <b>1</b>
               <h3>Look & Say</h3>
-              <p>단어를 오래 해독하지 않고 바로 보고 말하는 반응 속도를 키웁니다.</p>
+              <p data-ko="단어를 오래 해독하지 않고 바로 보고 말하는 반응 속도를 키웁니다." data-en="Children build the response speed to see a word and say it without slow decoding.">단어를 오래 해독하지 않고 바로 보고 말하는 반응 속도를 키웁니다.</p>
             </article>
             <article class="feature">
               <b>2</b>
               <h3>Phrase Reading</h3>
-              <p>the, is, in 같은 핵심 단어를 짧은 구와 문장 안에서 자연스럽게 읽습니다.</p>
+              <p data-ko="the, is, in 같은 핵심 단어를 짧은 구와 문장 안에서 자연스럽게 읽습니다." data-en="Core words such as the, is, and in are practiced naturally inside short phrases and sentences.">the, is, in 같은 핵심 단어를 짧은 구와 문장 안에서 자연스럽게 읽습니다.</p>
             </article>
             <article class="feature">
               <b>3</b>
               <h3>Confidence Loop</h3>
-              <p>반복 읽기, 정확도 체크, 작은 성공 경험을 통해 북클럽 리딩으로 연결합니다.</p>
+              <p data-ko="반복 읽기, 정확도 체크, 작은 성공 경험을 통해 북클럽 리딩으로 연결합니다." data-en="Repeated reading, accuracy checks, and small wins connect the child to book club reading.">반복 읽기, 정확도 체크, 작은 성공 경험을 통해 북클럽 리딩으로 연결합니다.</p>
             </article>
           </div>
         </div>
@@ -804,8 +852,8 @@
       <section class="section" id="bookclub">
         <div class="section-inner">
           <p class="section-kicker">Book Club Foundation</p>
-          <h2>초등 저학년에게 필요한 것은 더 많은 문제풀이가 아니라, 영어가 입과 눈과 생각으로 연결되는 경험입니다.</h2>
-          <p class="lead">
+          <h2 data-ko="초등 저학년에게 필요한 것은 더 많은 문제풀이가 아니라, 영어가 입과 눈과 생각으로 연결되는 경험입니다." data-en="Young learners need English that connects the mouth, eyes, and thinking, not just more worksheets.">초등 저학년에게 필요한 것은 더 많은 문제풀이가 아니라, 영어가 입과 눈과 생각으로 연결되는 경험입니다.</h2>
+          <p class="lead" data-ko="퍼스 아카데미는 북클럽을 중심으로 듣기, 따라 읽기, 소리 인식, 짧은 말하기, 그림 읽기, 역할극을 한 흐름으로 묶습니다. 아이는 책을 통해 영어를 만나고, 선생님은 상담 데이터를 통해 아이에게 맞는 시작점을 찾습니다." data-en="PERS connects listening, echo reading, sound awareness, short speaking, picture reading, and role play through book club lessons. Children meet English through books, while teachers find the right starting point through counseling data.">
             퍼스 아카데미는 북클럽을 중심으로 듣기, 따라 읽기, 소리 인식, 짧은 말하기, 그림 읽기,
             역할극을 한 흐름으로 묶습니다. 아이는 책을 통해 영어를 만나고, 선생님은 상담 데이터를 통해
             아이에게 맞는 시작점을 찾습니다.
@@ -813,18 +861,18 @@
           <div class="feature-grid">
             <article class="feature">
               <b>1</b>
-              <h3>소리와 문자</h3>
-              <p>파닉스와 사이트워드를 읽기 전 단계가 아니라 fluency의 출발점으로 다룹니다.</p>
+              <h3 data-ko="소리와 문자" data-en="Sound and Letters">소리와 문자</h3>
+              <p data-ko="파닉스와 사이트워드를 읽기 전 단계가 아니라 fluency의 출발점으로 다룹니다." data-en="Phonics and sight words are treated as the starting point of fluency, not just a pre-reading step.">파닉스와 사이트워드를 읽기 전 단계가 아니라 fluency의 출발점으로 다룹니다.</p>
             </article>
             <article class="feature">
               <b>2</b>
-              <h3>이야기와 표현</h3>
-              <p>그림책, picture talk, one-minute speaking으로 말할 이유가 있는 영어를 만듭니다.</p>
+              <h3 data-ko="이야기와 표현" data-en="Story and Expression">이야기와 표현</h3>
+              <p data-ko="그림책, picture talk, one-minute speaking으로 말할 이유가 있는 영어를 만듭니다." data-en="Picture books, picture talk, and one-minute speaking give children a real reason to speak.">그림책, picture talk, one-minute speaking으로 말할 이유가 있는 영어를 만듭니다.</p>
             </article>
             <article class="feature">
               <b>3</b>
-              <h3>상담과 분석</h3>
-              <p>학습유형, 페르소나, 레벨테스트를 합쳐 학부모가 이해할 수 있는 리포트로 제공합니다.</p>
+              <h3 data-ko="상담과 분석" data-en="Counseling and Analysis">상담과 분석</h3>
+              <p data-ko="학습유형, 페르소나, 레벨테스트를 합쳐 학부모가 이해할 수 있는 리포트로 제공합니다." data-en="Learning type, student persona, and level testing are combined into a parent-friendly report.">학습유형, 페르소나, 레벨테스트를 합쳐 학부모가 이해할 수 있는 리포트로 제공합니다.</p>
             </article>
           </div>
         </div>
@@ -833,36 +881,36 @@
       <section class="section flow" id="process">
         <div class="section-inner">
           <p class="section-kicker">Admission Counseling Flow</p>
-          <h2>상담 신청부터 등원 결정까지, 홈페이지 안에서 하나의 흐름으로 이어집니다.</h2>
-          <p class="lead">
+          <h2 data-ko="상담 신청부터 등원 결정까지, 홈페이지 안에서 하나의 흐름으로 이어집니다." data-en="From consultation request to enrollment decision, the whole flow connects inside the website.">상담 신청부터 등원 결정까지, 홈페이지 안에서 하나의 흐름으로 이어집니다.</h2>
+          <p class="lead" data-ko="1차 상담은 학부모 설문, 학습유형 설문, 페르소나 설문을 바탕으로 진행하고, 학생은 별도 레벨테스트를 통해 현재 영어 사용 레벨을 확인합니다." data-en="The first consultation uses parent, learning type, and persona surveys. The student then completes a separate level test to check current English use.">
             1차 상담은 학부모 설문, 학습유형 설문, 페르소나 설문을 바탕으로 진행하고,
             학생은 별도 레벨테스트를 통해 현재 영어 사용 레벨을 확인합니다.
           </p>
           <div class="process-grid">
             <article class="process-card">
               <span class="step">01</span>
-              <h3>상담 신청</h3>
-              <p>학부모가 홈페이지에서 등원상담을 신청하고 기본 정보를 제출합니다.</p>
+              <h3 data-ko="상담 신청" data-en="Consultation Request">상담 신청</h3>
+              <p data-ko="학부모가 홈페이지에서 등원상담을 신청하고 기본 정보를 제출합니다." data-en="Parents request a consultation and submit basic information through the website.">학부모가 홈페이지에서 등원상담을 신청하고 기본 정보를 제출합니다.</p>
             </article>
             <article class="process-card">
               <span class="step">02</span>
-              <h3>설문 세트</h3>
-              <p>기본 설문, 학습유형, 페르소나 유형 조사가 하나의 세트로 이어집니다.</p>
+              <h3 data-ko="설문 세트" data-en="Survey Set">설문 세트</h3>
+              <p data-ko="기본 설문, 학습유형, 페르소나 유형 조사가 하나의 세트로 이어집니다." data-en="Basic information, learning type, and persona surveys are connected as one set.">기본 설문, 학습유형, 페르소나 유형 조사가 하나의 세트로 이어집니다.</p>
             </article>
             <article class="process-card">
               <span class="step">03</span>
-              <h3>원장 상담</h3>
-              <p>원장님이 1차 분석을 바탕으로 아이의 학습 방향과 등원 적합성을 상담합니다.</p>
+              <h3 data-ko="원장 상담" data-en="Director Consultation">원장 상담</h3>
+              <p data-ko="원장님이 1차 분석을 바탕으로 아이의 학습 방향과 등원 적합성을 상담합니다." data-en="The director discusses the child's learning direction based on the first analysis.">원장님이 1차 분석을 바탕으로 아이의 학습 방향과 등원 적합성을 상담합니다.</p>
             </article>
             <article class="process-card">
               <span class="step">04</span>
-              <h3>레벨테스트</h3>
-              <p>학생은 별도로 파닉스, 리딩, 말하기 중심의 레벨테스트를 진행합니다.</p>
+              <h3 data-ko="레벨테스트" data-en="Level Test">레벨테스트</h3>
+              <p data-ko="학생은 별도로 파닉스, 리딩, 말하기 중심의 레벨테스트를 진행합니다." data-en="The student completes a separate level test focused on phonics, reading, and speaking.">학생은 별도로 파닉스, 리딩, 말하기 중심의 레벨테스트를 진행합니다.</p>
             </article>
             <article class="process-card">
               <span class="step">05</span>
-              <h3>통합 리포트</h3>
-              <p>학습유형, 성격유형, 영어 레벨을 합쳐 학부모용 상담 리포트를 제공합니다.</p>
+              <h3 data-ko="통합 리포트" data-en="Integrated Report">통합 리포트</h3>
+              <p data-ko="학습유형, 성격유형, 영어 레벨을 합쳐 학부모용 상담 리포트를 제공합니다." data-en="Learning type, persona, and English level are combined into a parent consultation report.">학습유형, 성격유형, 영어 레벨을 합쳐 학부모용 상담 리포트를 제공합니다.</p>
             </article>
           </div>
         </div>
@@ -871,8 +919,8 @@
       <section class="section apps" id="apps">
         <div class="section-inner">
           <p class="section-kicker">Somi Story Circle</p>
-          <h2>스토리텔링은 북클럽에서 읽은 이야기를 아이의 말과 장면으로 다시 만드는 공간입니다.</h2>
-          <p class="lead">
+          <h2 data-ko="스토리텔링은 북클럽에서 읽은 이야기를 아이의 말과 장면으로 다시 만드는 공간입니다." data-en="Storytelling turns book club reading back into the child's own words and scenes.">스토리텔링은 북클럽에서 읽은 이야기를 아이의 말과 장면으로 다시 만드는 공간입니다.</h2>
+          <p class="lead" data-ko="소미샘이 들려주는 이야기와 설명을 듣고, 학생들이 직접 스토리를 만들고 들려주는 활동이 이곳에 쌓입니다. 기존 앱 연결 영역은 이제 스토리텔링 활동과 리터러시 앱으로 들어가는 입구 역할을 합니다." data-en="Students listen to Somi teacher's story guidance, then create and tell their own stories. This area now serves as the entry point for storytelling activities and the literacy app.">
             소미샘이 들려주는 이야기와 설명을 듣고, 학생들이 직접 스토리를 만들고 들려주는 활동이 이곳에 쌓입니다.
             기존 앱 연결 영역은 이제 스토리텔링 활동과 리터러시 앱으로 들어가는 입구 역할을 합니다.
           </p>
@@ -883,42 +931,42 @@
                 alt="선생님이 아이에게 소리와 퀵드로잉을 연결해 가르치는 파닉스 플루언씨 수업 장면"
               />
               <figcaption>
-                선생님은 소리를 먼저 들려주고, 아이는 그 소리를 빠르게 그림과 문자로 꺼내며 커뮤니케이션의 재료를 만듭니다.
+                <span data-ko="선생님은 소리를 먼저 들려주고, 아이는 그 소리를 빠르게 그림과 문자로 꺼내며 커뮤니케이션의 재료를 만듭니다." data-en="The teacher begins with sound, and the child quickly brings that sound out as a drawing and written letters, building the raw material for communication.">선생님은 소리를 먼저 들려주고, 아이는 그 소리를 빠르게 그림과 문자로 꺼내며 커뮤니케이션의 재료를 만듭니다.</span>
               </figcaption>
             </figure>
             <div>
               <p class="section-kicker">Parent Guide</p>
-              <h3>퍼스의 레벨링은 아이가 영어를 얼마나 자연스럽게 꺼내 쓸 수 있는지를 봅니다.</h3>
-              <p class="lead">
+              <h3 data-ko="퍼스의 레벨링은 아이가 영어를 얼마나 자연스럽게 꺼내 쓸 수 있는지를 봅니다." data-en="PERS leveling looks at how naturally a child can bring English out and use it.">퍼스의 레벨링은 아이가 영어를 얼마나 자연스럽게 꺼내 쓸 수 있는지를 봅니다.</h3>
+              <p class="lead" data-ko="사이트워드와 파닉스 플루언씨 테스트는 단순히 단어를 맞히는 시험이 아닙니다. 선생님이 들려주는 소리를 아이가 빠르게 말하고, 그 소리를 그림으로 떠올리고, 문자로 다시 써낼 수 있는지 확인합니다." data-en="The sight words and phonics fluency test is not just about getting words right. It checks whether a child can quickly say the sound the teacher gives, picture it through quick drawing, and write it back as letters.">
                 사이트워드와 파닉스 플루언씨 테스트는 단순히 단어를 맞히는 시험이 아닙니다.
                 선생님이 들려주는 소리를 아이가 빠르게 말하고, 그 소리를 그림으로 떠올리고,
                 문자로 다시 써낼 수 있는지 확인합니다.
               </p>
               <ul class="guide-points">
-                <li><strong>소리로 꺼내기</strong> 빠르게 말할 수 있는 어휘와 소리 패턴의 양을 확인합니다.</li>
-                <li><strong>그림으로 떠올리기</strong> 퀵드로잉으로 소리와 의미가 머릿속에서 연결되는 속도를 봅니다.</li>
-                <li><strong>문자로 써내기</strong> 들은 소리와 떠올린 의미를 알파벳과 단어로 표현할 수 있는지 확인합니다.</li>
+                <li data-ko="소리로 꺼내기: 빠르게 말할 수 있는 어휘와 소리 패턴의 양을 확인합니다." data-en="Say the sound: We check how many words and sound patterns the child can say quickly."><strong>소리로 꺼내기</strong> 빠르게 말할 수 있는 어휘와 소리 패턴의 양을 확인합니다.</li>
+                <li data-ko="그림으로 떠올리기: 퀵드로잉으로 소리와 의미가 머릿속에서 연결되는 속도를 봅니다." data-en="Picture the sound: Quick drawing shows how quickly sound and meaning connect in the child's mind."><strong>그림으로 떠올리기</strong> 퀵드로잉으로 소리와 의미가 머릿속에서 연결되는 속도를 봅니다.</li>
+                <li data-ko="문자로 써내기: 들은 소리와 떠올린 의미를 알파벳과 단어로 표현할 수 있는지 확인합니다." data-en="Write the sound: We check whether the child can express heard sound and pictured meaning as letters and words."><strong>문자로 써내기</strong> 들은 소리와 떠올린 의미를 알파벳과 단어로 표현할 수 있는지 확인합니다.</li>
               </ul>
             </div>
             <div class="fluency-map" aria-label="파닉스 플루언씨 레벨링 구조">
               <article class="fluency-card">
                 <span>1</span>
                 <h4>Sound Vocabulary</h4>
-                <p>아이가 빠르게 소리로 꺼낼 수 있는 사이트워드와 기본 어휘를 측정합니다.</p>
+                <p data-ko="아이가 빠르게 소리로 꺼낼 수 있는 사이트워드와 기본 어휘를 측정합니다." data-en="Measures the sight words and basic vocabulary a child can quickly produce as sound.">아이가 빠르게 소리로 꺼낼 수 있는 사이트워드와 기본 어휘를 측정합니다.</p>
               </article>
               <article class="fluency-card">
                 <span>2</span>
                 <h4>Quick Drawing</h4>
-                <p>들은 소리와 단어가 그림, 의미, 장면으로 즉시 연결되는지 봅니다.</p>
+                <p data-ko="들은 소리와 단어가 그림, 의미, 장면으로 즉시 연결되는지 봅니다." data-en="Checks whether heard sounds and words connect immediately to pictures, meaning, and scenes.">들은 소리와 단어가 그림, 의미, 장면으로 즉시 연결되는지 봅니다.</p>
               </article>
               <article class="fluency-card">
                 <span>3</span>
                 <h4>Quick Writing</h4>
-                <p>소리와 의미를 문자로 다시 써내며 파닉스 적용력을 확인합니다.</p>
+                <p data-ko="소리와 의미를 문자로 다시 써내며 파닉스 적용력을 확인합니다." data-en="Checks phonics application by turning sound and meaning back into written letters.">소리와 의미를 문자로 다시 써내며 파닉스 적용력을 확인합니다.</p>
               </article>
               <div class="fluency-result">
                 <div class="fluency-badge">Native-like<br />Fluency</div>
-                <p>
+                <p data-ko="세 능력이 하나로 엮일 때 아이는 원어민적인 커뮤니케이션의 기초를 갖게 됩니다. 그래서 퍼스에서 배우는 파닉스는 발음 규칙 암기가 아니라, 더 좋은 커뮤니케이션을 시작하게 하는 첫 단초입니다." data-en="When these three abilities work together, the child builds the foundation for native-like communication. That is why phonics at PERS is not memorizing pronunciation rules; it is the first step toward better communication.">
                   세 능력이 하나로 엮일 때 아이는 원어민적인 커뮤니케이션의 기초를 갖게 됩니다.
                   그래서 퍼스에서 배우는 파닉스는 발음 규칙 암기가 아니라, 더 좋은 커뮤니케이션을 시작하게 하는 첫 단초입니다.
                 </p>
@@ -927,20 +975,20 @@
           </div>
           <div class="app-grid">
             <article class="app-panel dark">
-              <h3>소미샘이 들려주는 스토리</h3>
-              <p>
+              <h3 data-ko="소미샘이 들려주는 스토리" data-en="Stories Guided by Somi Teacher">소미샘이 들려주는 스토리</h3>
+              <p data-ko="도입 질문, 장면 상상, 캐릭터 말하기, 발표 순서를 소미샘의 설명으로 안내합니다. 아이들은 듣고, 따라 말하고, 자기 장면을 만들어 이야기합니다." data-en="Somi teacher guides warm-up questions, scene imagination, character talk, and presentation steps. Children listen, echo, create their own scenes, and tell them.">
                 도입 질문, 장면 상상, 캐릭터 말하기, 발표 순서를 소미샘의 설명으로 안내합니다.
                 아이들은 듣고, 따라 말하고, 자기 장면을 만들어 이야기합니다.
               </p>
               <div class="app-actions" style="margin-top: 18px">
-                <a class="btn btn-secondary" href="https://pers-academy-literacy-app.vercel.app/" target="_blank" rel="noreferrer">리터러시 앱 열기</a>
-                <a class="btn btn-line" style="color: #fff; border-color: rgba(255,255,255,.38)" href="#consult">상담과 연결</a>
+                <a class="btn btn-secondary" href="https://pers-academy-literacy-app.vercel.app/" target="_blank" rel="noreferrer" data-ko="리터러시 앱 열기" data-en="Open Literacy App">리터러시 앱 열기</a>
+                <a class="btn btn-line" style="color: #fff; border-color: rgba(255,255,255,.38)" href="#consult" data-ko="상담과 연결" data-en="Connect to Consultation">상담과 연결</a>
               </div>
               <iframe class="app-frame" src="https://pers-academy-literacy-app.vercel.app/" title="PERS ACADEMY 리터러시 앱 미리보기"></iframe>
             </article>
             <article class="app-panel">
-              <h3>학생들이 만들고 함께 들려주는 활동</h3>
-              <p>
+              <h3 data-ko="학생들이 만들고 함께 들려주는 활동" data-en="Activities Children Create and Tell Together">학생들이 만들고 함께 들려주는 활동</h3>
+              <p data-ko="스토리메이커와 스토리텔러 활동은 북클럽과 연결됩니다. 읽은 책을 다시 말하고, 새 장면을 만들고, 친구에게 들려주는 과정이 누적됩니다." data-en="Story maker and storyteller activities connect with book club reading. Children retell books, create new scenes, and share them with friends.">
                 스토리메이커와 스토리텔러 활동은 북클럽과 연결됩니다. 읽은 책을 다시 말하고,
                 새 장면을 만들고, 친구에게 들려주는 과정이 누적됩니다.
               </p>
@@ -950,8 +998,8 @@
                 <div><strong>Activity Archive</strong><br />소미샘 예시, 학생 작품, 발표 피드백이 차곡차곡 쌓입니다.</div>
               </div>
               <div class="app-actions" style="margin-top: 18px">
-                <a class="btn btn-primary" href="bookclub.html">북클럽 자세히 보기</a>
-                <a class="btn btn-line" href="https://www.tongbangbooks.com/?utm_source=google&utm_medium=cpc&utm_campaign=231003_sa_basic&gad_source=1&gad_campaignid=11482536878&gbraid=0AAAAACB9UZJia5q-oOkmajf7JzI_lxDrD&gclid=CjwKCAjw5ZXQBhBdEiwAI5XVWdh8FPKnFhPWHQhPQw5LZeiofXeIK93y26WA1zJCX-Ixqex8PcQNDRoCbTUQAvD_BwE" target="_blank" rel="noreferrer">동방북스 보기</a>
+                <a class="btn btn-primary" href="bookclub.html" data-ko="북클럽 자세히 보기" data-en="View Book Club">북클럽 자세히 보기</a>
+                <a class="btn btn-line" href="https://www.tongbangbooks.com/?utm_source=google&utm_medium=cpc&utm_campaign=231003_sa_basic&gad_source=1&gad_campaignid=11482536878&gbraid=0AAAAACB9UZJia5q-oOkmajf7JzI_lxDrD&gclid=CjwKCAjw5ZXQBhBdEiwAI5XVWdh8FPKnFhPWHQhPQw5LZeiofXeIK93y26WA1zJCX-Ixqex8PcQNDRoCbTUQAvD_BwE" target="_blank" rel="noreferrer" data-ko="동방북스 보기" data-en="View Tongbang Books">동방북스 보기</a>
               </div>
             </article>
           </div>
@@ -961,8 +1009,8 @@
       <section class="section consult" id="consult">
         <div class="section-inner">
           <p class="section-kicker">Counseling Request</p>
-          <h2>학부모가 홈페이지에서 상담을 신청하면, 설문 세트와 레벨테스트로 이어집니다.</h2>
-          <p class="lead">
+          <h2 data-ko="학부모가 홈페이지에서 상담을 신청하면, 설문 세트와 레벨테스트로 이어집니다." data-en="When parents request a consultation, the flow continues into surveys and level testing.">학부모가 홈페이지에서 상담을 신청하면, 설문 세트와 레벨테스트로 이어집니다.</h2>
+          <p class="lead" data-ko="이 첫 버전은 홈페이지 안에서 상담 신청 흐름을 보여주는 프론트엔드 시작점입니다. 제출 내용은 현재 브라우저에만 임시 저장됩니다." data-en="This first version demonstrates the consultation request flow inside the homepage. Submitted information is temporarily saved only in this browser.">
             이 첫 버전은 홈페이지 안에서 상담 신청 흐름을 보여주는 프론트엔드 시작점입니다.
             제출 내용은 현재 브라우저에만 임시 저장됩니다.
           </p>
@@ -971,22 +1019,22 @@
               <article>
                 <strong>0~5분</strong>
                 <div>
-                  <h3>상담 신청</h3>
-                  <p>학부모 연락처와 아이의 현재 영어 경험을 확인합니다.</p>
+                  <h3 data-ko="상담 신청" data-en="Consultation Request">상담 신청</h3>
+                  <p data-ko="학부모 연락처와 아이의 현재 영어 경험을 확인합니다." data-en="We check parent contact information and the child's current English experience.">학부모 연락처와 아이의 현재 영어 경험을 확인합니다.</p>
                 </div>
               </article>
               <article>
                 <strong>1차</strong>
                 <div>
-                  <h3>학습유형 + 페르소나 분석</h3>
-                  <p>원장 상담 전에 아이의 학습 반응과 성향을 먼저 읽습니다.</p>
+                  <h3 data-ko="학습유형 + 페르소나 분석" data-en="Learning Type + Persona Analysis">학습유형 + 페르소나 분석</h3>
+                  <p data-ko="원장 상담 전에 아이의 학습 반응과 성향을 먼저 읽습니다." data-en="Before the director consultation, we read the child's learning response and tendencies.">원장 상담 전에 아이의 학습 반응과 성향을 먼저 읽습니다.</p>
                 </div>
               </article>
               <article>
                 <strong>2차</strong>
                 <div>
-                  <h3>레벨테스트</h3>
-                  <p>학생의 실제 영어 사용 수준을 Beginner, Foundation, Developing 단계로 확인합니다.</p>
+                  <h3 data-ko="레벨테스트" data-en="Level Test">레벨테스트</h3>
+                  <p data-ko="학생의 실제 영어 사용 수준을 Beginner, Foundation, Developing 단계로 확인합니다." data-en="We check the student's real English use across Beginner, Foundation, and Developing stages.">학생의 실제 영어 사용 수준을 Beginner, Foundation, Developing 단계로 확인합니다.</p>
                 </div>
               </article>
             </div>
@@ -994,19 +1042,19 @@
             <form class="form-panel" id="consultForm">
               <div class="fields">
                 <label>
-                  학부모 이름
+                  <span data-ko="학부모 이름" data-en="Parent Name">학부모 이름</span>
                   <input name="parentName" autocomplete="name" required />
                 </label>
                 <label>
-                  연락처
+                  <span data-ko="연락처" data-en="Phone">연락처</span>
                   <input name="phone" autocomplete="tel" required />
                 </label>
                 <label>
-                  학생 이름
+                  <span data-ko="학생 이름" data-en="Student Name">학생 이름</span>
                   <input name="studentName" required />
                 </label>
                 <label>
-                  학년
+                  <span data-ko="학년" data-en="Grade">학년</span>
                   <select name="grade" required>
                     <option value="">선택</option>
                     <option>예비초</option>
@@ -1017,7 +1065,7 @@
                   </select>
                 </label>
                 <label>
-                  현재 영어 경험
+                  <span data-ko="현재 영어 경험" data-en="Current English Experience">현재 영어 경험</span>
                   <select name="experience" required>
                     <option value="">선택</option>
                     <option>처음 시작</option>
@@ -1027,7 +1075,7 @@
                   </select>
                 </label>
                 <label>
-                  상담 희망 시간
+                  <span data-ko="상담 희망 시간" data-en="Preferred Consultation Time">상담 희망 시간</span>
                   <select name="time" required>
                     <option value="">선택</option>
                     <option>평일 오후</option>
@@ -1037,15 +1085,15 @@
                   </select>
                 </label>
                 <label class="span-2">
-                  상담에서 꼭 알고 싶은 점
-                  <textarea name="message" placeholder="예: 파닉스가 약해요, 영어 말하기를 부끄러워해요, 책 읽는 습관을 만들고 싶어요."></textarea>
+                  <span data-ko="상담에서 꼭 알고 싶은 점" data-en="What You Want to Discuss">상담에서 꼭 알고 싶은 점</span>
+                  <textarea name="message" placeholder="예: 파닉스가 약해요, 영어 말하기를 부끄러워해요, 책 읽는 습관을 만들고 싶어요." data-ko-placeholder="예: 파닉스가 약해요, 영어 말하기를 부끄러워해요, 책 읽는 습관을 만들고 싶어요." data-en-placeholder="Example: Phonics is difficult, speaking feels shy, or we want to build a reading habit."></textarea>
                 </label>
               </div>
-              <p class="privacy-note">
+              <p class="privacy-note" data-ko="학생과 학부모 정보는 상담 목적의 보호 데이터입니다. 실제 운영 DB 연결 전에는 접근 권한, 보관 기간, 삭제 요청 절차를 먼저 확정해야 합니다." data-en="Student and parent information is protected data for consultation purposes. Before connecting a live database, access control, retention period, and deletion request procedures must be finalized.">
                 학생과 학부모 정보는 상담 목적의 보호 데이터입니다. 실제 운영 DB 연결 전에는 접근 권한, 보관 기간, 삭제 요청 절차를 먼저 확정해야 합니다.
               </p>
-              <button class="btn btn-primary" type="submit">상담 신청 임시 저장</button>
-              <a class="btn btn-line" href="consulting-app/" target="_blank" rel="noreferrer">전체 설문 세트로 이동</a>
+              <button class="btn btn-primary" type="submit" data-ko="상담 신청 임시 저장" data-en="Save Consultation Request">상담 신청 임시 저장</button>
+              <a class="btn btn-line" href="consulting-app/" target="_blank" rel="noreferrer" data-ko="전체 설문 세트로 이동" data-en="Go to Full Survey Set">전체 설문 세트로 이동</a>
               <div class="result-box" id="resultBox"></div>
             </form>
           </div>
@@ -1056,13 +1104,13 @@
         <div class="section-inner">
           <div>
             <p class="section-kicker">PERS ACADEMY Begins</p>
-            <h2>소미샘의 학원 홈페이지는 상담, 분석, 수업, 리포트가 연결되는 운영 시스템으로 시작합니다.</h2>
-            <p>
+            <h2 data-ko="소미샘의 학원 홈페이지는 상담, 분석, 수업, 리포트가 연결되는 운영 시스템으로 시작합니다." data-en="Somi teacher's academy homepage begins as an operating system connecting counseling, analysis, lessons, and reports.">소미샘의 학원 홈페이지는 상담, 분석, 수업, 리포트가 연결되는 운영 시스템으로 시작합니다.</h2>
+            <p data-ko="다음 단계는 실제 DB 연결, 설문 문항 확정, 파닉스 플루언씨 앱 본 기능 연결, 학부모 리포트 자동 생성입니다." data-en="Next steps include live database connection, survey finalization, phonics fluency app functions, and automatic parent report generation.">
               다음 단계는 실제 DB 연결, 설문 문항 확정, 파닉스 플루언씨 앱 본 기능 연결,
               학부모 리포트 자동 생성입니다.
             </p>
           </div>
-          <a class="btn btn-secondary" href="#consult">첫 상담 흐름 테스트</a>
+          <a class="btn btn-secondary" href="#consult" data-ko="첫 상담 흐름 테스트" data-en="Test the First Consultation Flow">첫 상담 흐름 테스트</a>
         </div>
       </section>
     </main>
@@ -1075,8 +1123,34 @@
     </footer>
 
     <script>
+      const langToggle = document.getElementById("langToggle");
       const form = document.getElementById("consultForm");
       const resultBox = document.getElementById("resultBox");
+      const translatable = document.querySelectorAll("[data-ko][data-en]");
+      const placeholderTargets = document.querySelectorAll("[data-ko-placeholder][data-en-placeholder]");
+      let currentLang = localStorage.getItem("pers.homepage.lang") || "ko";
+
+      const applyLanguage = (lang) => {
+        currentLang = lang;
+        document.documentElement.lang = lang;
+        translatable.forEach((element) => {
+          element.textContent = element.dataset[lang];
+        });
+        placeholderTargets.forEach((element) => {
+          element.setAttribute("placeholder", element.dataset[`${lang}Placeholder`]);
+        });
+        document.querySelectorAll("[data-lang-label]").forEach((label) => {
+          label.classList.toggle("is-active", label.dataset.langLabel === lang);
+        });
+        langToggle.setAttribute("aria-pressed", lang === "en" ? "true" : "false");
+        localStorage.setItem("pers.homepage.lang", lang);
+      };
+
+      langToggle.addEventListener("click", () => {
+        applyLanguage(currentLang === "ko" ? "en" : "ko");
+      });
+
+      applyLanguage(currentLang);
 
       form.addEventListener("submit", (event) => {
         event.preventDefault();
