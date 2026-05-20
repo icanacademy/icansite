@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PERS TED Kids App</title>
+    <style>
+      :root { --ink:#243028; --muted:#647064; --leaf:#425843; --sage:#6f8569; --cream:#f7f3eb; --clay:#a95d3b; --line:rgba(36,48,40,.14); }
+      * { box-sizing:border-box; }
+      body { margin:0; color:var(--ink); font-family:Inter,Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:linear-gradient(180deg,var(--cream),#fff); line-height:1.6; }
+      a { color:inherit; text-decoration:none; }
+      main { width:min(1080px,calc(100% - 32px)); margin:0 auto; padding:38px 0 66px; }
+      .top { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:44px; }
+      .brand { font-weight:900; letter-spacing:.12em; }
+      .back { display:inline-flex; align-items:center; min-height:40px; padding:0 14px; border-radius:6px; color:#fff; background:var(--leaf); font-weight:800; }
+      h1 { max-width:800px; margin:0; font-size:clamp(2.3rem,7vw,5.2rem); line-height:1; }
+      .lead { max-width:760px; margin:22px 0 30px; color:var(--muted); font-size:1.08rem; word-break:keep-all; }
+      .stage { display:grid; grid-template-columns:.85fr 1.15fr; gap:18px; }
+      .timer, .cue { padding:24px; border:1px solid var(--line); border-radius:8px; background:rgba(255,255,255,.84); box-shadow:0 16px 42px rgba(36,48,40,.08); }
+      .time { display:grid; place-items:center; min-height:230px; border-radius:8px; color:#fff; background:var(--leaf); font-size:clamp(4rem,12vw,8rem); font-weight:900; line-height:1; }
+      .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+      button { min-height:42px; padding:0 14px; border:0; border-radius:6px; color:#fff; background:var(--leaf); font-weight:900; cursor:pointer; }
+      .ghost { color:var(--leaf); background:#eef4e8; }
+      .cue-list { display:grid; gap:12px; margin-top:18px; }
+      .cue-card { padding:16px; border-radius:8px; background:#eef4e8; border:1px solid rgba(66,88,67,.16); }
+      .cue-card strong { display:block; color:var(--clay); margin-bottom:5px; }
+      @media (max-width:860px) { .stage { grid-template-columns:1fr; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="top">
+        <a class="brand" href="../../">PERS ACADEMY</a>
+        <a class="back" href="../">학습앱 목록</a>
+      </div>
+      <h1>스토리를 발표하는 TED Kids 앱</h1>
+      <p class="lead">아이의 스토리 스크립트를 발표 흐름으로 바꾸고, 목소리와 자신감을 연습하는 앱 슬롯입니다.</p>
+      <section class="stage">
+        <article class="timer">
+          <div class="time" id="time">60</div>
+          <div class="actions">
+            <button type="button" id="start">시작</button>
+            <button type="button" class="ghost" id="reset">초기화</button>
+          </div>
+        </article>
+        <article class="cue">
+          <h2>오늘의 발표 큐카드</h2>
+          <div class="cue-list">
+            <div class="cue-card"><strong>Opening</strong>Hello, everyone. Today I want to tell you a story.</div>
+            <div class="cue-card"><strong>Body</strong>My character has a problem, tries an idea, and learns something.</div>
+            <div class="cue-card"><strong>Closing</strong>Thank you for listening. My favorite part is...</div>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script>
+      let seconds = 60;
+      let timer = null;
+      const time = document.getElementById("time");
+      document.getElementById("start").addEventListener("click", () => {
+        if (timer) return;
+        timer = setInterval(() => {
+          seconds -= 1;
+          time.textContent = seconds;
+          if (seconds <= 0) {
+            clearInterval(timer);
+            timer = null;
+          }
+        }, 1000);
+      });
+      document.getElementById("reset").addEventListener("click", () => {
+        clearInterval(timer);
+        timer = null;
+        seconds = 60;
+        time.textContent = seconds;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PERS Phonics Learning App</title>
+    <style>
+      :root {
+        --ink: #243028;
+        --muted: #647064;
+        --leaf: #425843;
+        --sage: #6f8569;
+        --cream: #f7f3eb;
+        --clay: #a95d3b;
+        --line: rgba(36, 48, 40, 0.14);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: Inter, Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: linear-gradient(180deg, var(--cream), #fff);
+        line-height: 1.6;
+      }
+      a { color: inherit; text-decoration: none; }
+      main { width: min(1080px, calc(100% - 32px)); margin: 0 auto; padding: 38px 0 66px; }
+      .top { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 44px; }
+      .brand { font-weight: 900; letter-spacing: 0.12em; }
+      .back { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 6px; color: #fff; background: var(--leaf); font-weight: 800; }
+      h1 { max-width: 780px; margin: 0; font-size: clamp(2.3rem, 7vw, 5.2rem); line-height: 1; }
+      .lead { max-width: 760px; margin: 22px 0 30px; color: var(--muted); font-size: 1.08rem; word-break: keep-all; }
+      .panel { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 18px; align-items: stretch; }
+      .sound-card, .mission-card { padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.84); box-shadow: 0 16px 42px rgba(36,48,40,.08); }
+      .sound-symbol { display: grid; place-items: center; min-height: 220px; border-radius: 8px; color: #fff; background: var(--leaf); font-size: clamp(5rem, 14vw, 9rem); font-weight: 900; }
+      .sound-card p { margin: 16px 0 0; color: var(--muted); }
+      .mission-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
+      .mission { padding: 16px; border-radius: 8px; background: #eef4e8; border: 1px solid rgba(66,88,67,.16); }
+      .mission strong { display: block; margin-bottom: 6px; color: var(--clay); }
+      .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+      button { min-height: 42px; padding: 0 14px; border: 0; border-radius: 6px; color: #fff; background: var(--leaf); font-weight: 900; cursor: pointer; }
+      .ghost { color: var(--leaf); background: #eef4e8; }
+      .status { margin-top: 18px; color: var(--leaf); font-weight: 800; }
+      @media (max-width: 860px) { .panel, .mission-grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="top">
+        <a class="brand" href="../../">PERS ACADEMY</a>
+        <a class="back" href="../">학습앱 목록</a>
+      </div>
+      <h1>파닉스를 학습하는 앱</h1>
+      <p class="lead">소리를 듣고 말한 뒤, 그림과 문자로 연결하는 파닉스 플루언씨 수업용 앱 슬롯입니다.</p>
+      <section class="panel">
+        <article class="sound-card">
+          <div class="sound-symbol" id="soundSymbol">A</div>
+          <p id="soundHint">/a/ sound - apple, ant, astronaut</p>
+        </article>
+        <article class="mission-card">
+          <h2>오늘의 3단계 미션</h2>
+          <div class="mission-grid">
+            <div class="mission"><strong>Say</strong>소리를 듣고 빠르게 말합니다.</div>
+            <div class="mission"><strong>Draw</strong>떠오르는 뜻을 20초 안에 그립니다.</div>
+            <div class="mission"><strong>Write</strong>소리와 그림을 문자로 연결합니다.</div>
+          </div>
+          <div class="actions">
+            <button type="button" id="nextSound">다음 소리</button>
+            <button type="button" class="ghost" id="markDone">미션 완료</button>
+          </div>
+          <div class="status" id="status">완료한 미션: 0</div>
+        </article>
+      </section>
+    </main>
+    <script>
+      const cards = [
+        ["A", "/a/ sound - apple, ant, astronaut"],
+        ["B", "/b/ sound - book, ball, bear"],
+        ["C", "/k/ sound - cat, cake, camera"],
+        ["S", "/s/ sound - sun, snake, story"]
+      ];
+      let index = 0;
+      let done = 0;
+      const symbol = document.getElementById("soundSymbol");
+      const hint = document.getElementById("soundHint");
+      const status = document.getElementById("status");
+      document.getElementById("nextSound").addEventListener("click", () => {
+        index = (index + 1) % cards.length;
+        symbol.textContent = cards[index][0];
+        hint.textContent = cards[index][1];
+      });
+      document.getElementById("markDone").addEventListener("click", () => {
+        done += 1;
+        status.textContent = `완료한 미션: ${done}`;
+      });
+    </script>
+  </body>
+</html>
