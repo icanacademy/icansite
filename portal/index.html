@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PERS ACADEMY Member Portal</title>
+    <style>
+      :root {
+        --ink: #243028;
+        --muted: #657164;
+        --leaf: #425843;
+        --sage: #6f8569;
+        --cream: #f7f3eb;
+        --paper: #fffaf1;
+        --line: rgba(36, 48, 40, 0.16);
+        --gold: #c69b69;
+        --clay: #a95d3b;
+        --shadow: 0 18px 50px rgba(32, 42, 35, 0.16);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: Inter, Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: linear-gradient(180deg, #f7f3eb 0%, #fff 45%, #eef4e8 100%);
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+      }
+
+      .shell {
+        min-height: 100vh;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 16px clamp(18px, 4vw, 56px);
+        border-bottom: 1px solid rgba(36, 48, 40, 0.08);
+        background: rgba(247, 243, 235, 0.88);
+        backdrop-filter: blur(14px);
+      }
+
+      .brand {
+        display: grid;
+        gap: 2px;
+        font-weight: 900;
+      }
+
+      .brand small {
+        color: var(--muted);
+        font-size: 0.76rem;
+        font-weight: 800;
+      }
+
+      .top-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .pill,
+      .role-tab,
+      .primary,
+      .ghost {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 34px;
+        padding: 0 14px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #fff;
+        color: var(--ink);
+        font-weight: 900;
+        cursor: pointer;
+      }
+
+      .primary {
+        min-height: 42px;
+        border-color: transparent;
+        background: var(--leaf);
+        color: #fff;
+      }
+
+      .ghost {
+        min-height: 42px;
+        background: transparent;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 34px;
+        width: min(1180px, calc(100% - 36px));
+        margin: 0 auto;
+        padding: clamp(34px, 7vw, 78px) 0 36px;
+      }
+
+      .hero-copy {
+        align-self: center;
+      }
+
+      .kicker {
+        margin: 0 0 10px;
+        color: var(--clay);
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 620px;
+        font-size: clamp(2.35rem, 6vw, 4.8rem);
+        line-height: 1.02;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        max-width: 620px;
+        margin: 20px 0 0;
+        color: var(--muted);
+        font-size: 1.08rem;
+        word-break: keep-all;
+      }
+
+      .login-panel,
+      .panel,
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.82);
+        box-shadow: var(--shadow);
+      }
+
+      .login-panel {
+        padding: 24px;
+      }
+
+      .panel,
+      .card {
+        box-shadow: 0 10px 32px rgba(32, 42, 35, 0.08);
+      }
+
+      .panel {
+        padding: 24px;
+      }
+
+      .login-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 20px;
+      }
+
+      .login-head h2,
+      .section-head h2 {
+        margin: 0;
+        font-size: 1.42rem;
+        line-height: 1.2;
+      }
+
+      .status {
+        display: inline-flex;
+        min-height: 28px;
+        align-items: center;
+        border-radius: 999px;
+        padding: 0 10px;
+        background: #eef4e8;
+        color: var(--leaf);
+        font-size: 0.74rem;
+        font-weight: 900;
+        white-space: nowrap;
+      }
+
+      .fields {
+        display: grid;
+        gap: 12px;
+      }
+
+      label {
+        display: grid;
+        gap: 6px;
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 900;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        min-height: 44px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 0 12px;
+        color: var(--ink);
+        background: #fff;
+      }
+
+      textarea {
+        min-height: 110px;
+        padding: 12px;
+        resize: vertical;
+      }
+
+      .form-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .helper {
+        margin: 14px 0 0;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      .role-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .role-tab.is-active {
+        border-color: transparent;
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .dashboard {
+        width: min(1180px, calc(100% - 36px));
+        margin: 0 auto;
+        padding: 18px 0 clamp(50px, 8vw, 90px);
+      }
+
+      .section-head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 18px;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
+      .card {
+        padding: 18px;
+      }
+
+      .card b {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .card p,
+      .panel p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .report {
+        display: grid;
+        gap: 12px;
+      }
+
+      .report-row {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 12px;
+        padding: 12px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .report-row:first-child {
+        border-top: 0;
+      }
+
+      .report-row strong {
+        color: var(--leaf);
+      }
+
+      .notice {
+        margin-top: 18px;
+        padding: 16px;
+        border: 1px solid rgba(169, 93, 59, 0.24);
+        border-radius: 8px;
+        background: #fff8ee;
+        color: #604230;
+        font-size: 0.9rem;
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      footer {
+        padding: 28px clamp(18px, 4vw, 56px);
+        color: rgba(255, 255, 255, 0.72);
+        background: #151d18;
+      }
+
+      footer div {
+        display: flex;
+        width: min(1180px, 100%);
+        margin: 0 auto;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 900px) {
+        .hero,
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .cards {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .topbar,
+        .section-head,
+        .login-head {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .top-actions {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .report-row {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <a class="brand" href="../">
+          <span>PERS ACADEMY</span>
+          <small>Member Portal</small>
+        </a>
+        <div class="top-actions">
+          <a class="pill" href="../consulting-app/">가입설문</a>
+          <a class="pill" href="../">홈</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="kicker">OpenAI-centered Learning OS</p>
+            <h1>학생, 부모님, 선생님이 같은 학습 기록을 역할별로 봅니다.</h1>
+            <p class="lead">
+              Firebase는 로그인과 권한을 관리하고, OpenAI는 수업 기록을 데일리 모니터링 리포트와 다음 수업 제안으로 바꿉니다.
+            </p>
+            <div class="role-tabs" aria-label="대시보드 미리보기 선택">
+              <button class="role-tab is-active" type="button" data-role="parent">부모님</button>
+              <button class="role-tab" type="button" data-role="student">학생</button>
+              <button class="role-tab" type="button" data-role="teacher">선생님</button>
+              <button class="role-tab" type="button" data-role="admin">관리자</button>
+            </div>
+          </div>
+
+          <form class="login-panel" id="loginForm">
+            <div class="login-head">
+              <div>
+                <p class="kicker">Secure sign in</p>
+                <h2>회원 로그인</h2>
+              </div>
+              <span class="status">Firebase 연결 준비</span>
+            </div>
+            <div class="fields">
+              <label>
+                회원 유형
+                <select name="role" id="roleSelect">
+                  <option value="parent">부모님 회원</option>
+                  <option value="student">학생 회원</option>
+                  <option value="teacher">선생님</option>
+                  <option value="admin">관리자</option>
+                </select>
+              </label>
+              <label>
+                아이디 또는 이메일
+                <input name="email" type="email" autocomplete="email" placeholder="parent@example.com" />
+              </label>
+              <label>
+                패스워드
+                <input name="password" type="password" autocomplete="current-password" placeholder="Firebase Auth 연결 후 사용" />
+              </label>
+            </div>
+            <div class="form-actions">
+              <button class="primary" type="submit">대시보드 보기</button>
+              <a class="ghost" href="../consulting-app/">가입설문으로 시작</a>
+            </div>
+            <p class="helper">
+              현재는 포털 화면 확인 단계입니다. 실제 비밀번호 인증은 Firebase 프로젝트 설정값과 보안 규칙 연결 후 활성화합니다.
+            </p>
+          </form>
+        </section>
+
+        <section class="dashboard" id="dashboard">
+          <div class="section-head">
+            <div>
+              <p class="kicker" id="roleKicker">Parent dashboard</p>
+              <h2 id="roleTitle">부모님 대시보드</h2>
+            </div>
+            <span class="status" id="roleStatus">자녀 리포트만 조회</span>
+          </div>
+
+          <div class="cards" id="summaryCards"></div>
+
+          <div class="grid" style="margin-top: 18px">
+            <article class="panel">
+              <p class="kicker">Daily monitoring</p>
+              <h2 style="font-size: 1.35rem; margin: 0 0 14px">오늘의 데일리 리포트</h2>
+              <div class="report" id="reportRows"></div>
+            </article>
+
+            <aside class="panel">
+              <p class="kicker">OpenAI workflow</p>
+              <h2 style="font-size: 1.35rem; margin: 0 0 14px">AI 처리 흐름</h2>
+              <div class="report">
+                <div class="report-row">
+                  <strong>입력</strong>
+                  <span>선생님 수업 메모, 출결, 과제 상태, 리딩/스토리텔링 활동</span>
+                </div>
+                <div class="report-row">
+                  <strong>보호</strong>
+                  <span>서버에서 학생 이름과 연락처를 분리하고 최소 학습 데이터만 OpenAI로 전송</span>
+                </div>
+                <div class="report-row">
+                  <strong>출력</strong>
+                  <span>부모님용 요약, 학생용 복습 안내, 선생님용 다음 수업 제안</span>
+                </div>
+              </div>
+              <div class="notice">
+                학생 정보는 Class A 개인정보입니다. OpenAI API 키는 브라우저에 노출하지 않고 서버 함수에서만 사용해야 합니다.
+              </div>
+            </aside>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <div>
+        <span>PERS ACADEMY / 퍼스 아카데미</span>
+        <span>Firebase Auth + Firestore + OpenAI Responses API</span>
+      </div>
+    </footer>
+
+    <script>
+      const roleData = {
+        parent: {
+          kicker: "Parent dashboard",
+          title: "부모님 대시보드",
+          status: "자녀 리포트만 조회",
+          cards: [
+            ["오늘의 집중도", "수업 참여도 높음. 짧은 말하기에서 자신감이 보입니다."],
+            ["숙제 상태", "사이트워즈 복습 1회 필요. 북클럽 리딩은 다음 수업 전 10분 권장."],
+            ["상담 메모", "파닉스 정확도보다 문장으로 읽는 흐름을 먼저 안정화합니다."],
+          ],
+          rows: [
+            ["오늘 수업", "Sight Words Fluency + Book Club echo reading"],
+            ["관찰", "반복 읽기에서는 안정적이고, 처음 보는 문장에서는 속도가 느려집니다."],
+            ["가정 복습", "단어 암기보다 짧은 문장을 소리 내어 2번 읽는 방식이 좋습니다."],
+          ],
+        },
+        student: {
+          kicker: "Student dashboard",
+          title: "학생 대시보드",
+          status: "내 수업 자료만 보기",
+          cards: [
+            ["오늘의 할 일", "Book Club 문장 3개 따라 읽기"],
+            ["스토리텔링", "읽은 장면을 그림 1개와 문장 1개로 다시 말하기"],
+            ["칭찬 기록", "목소리가 작아지지 않고 끝까지 읽었습니다."],
+          ],
+          rows: [
+            ["복습 자료", "Short vowel word cards, sentence strip"],
+            ["다음 목표", "문장 끝까지 눈으로 따라가며 읽기"],
+            ["AI 코치", "천천히 읽어도 괜찮습니다. 정확하게 끝까지 읽는 것이 오늘의 목표입니다."],
+          ],
+        },
+        teacher: {
+          kicker: "Teacher dashboard",
+          title: "선생님 대시보드",
+          status: "담당 학생만 관리",
+          cards: [
+            ["수업 메모 입력", "수업 후 3분 안에 관찰 기록을 남깁니다."],
+            ["AI 리포트 초안", "학부모용 문장으로 자동 정리합니다."],
+            ["다음 수업 제안", "약점 태그를 기준으로 루틴을 추천합니다."],
+          ],
+          rows: [
+            ["입력 항목", "참여도, 읽기 정확도, 말하기 자신감, 과제 상태"],
+            ["AI 도움", "부정적 라벨 없이 성장 중심 문장으로 변환"],
+            ["승인", "선생님 확인 후 부모님 대시보드에 발행"],
+          ],
+        },
+        admin: {
+          kicker: "Admin dashboard",
+          title: "관리자 대시보드",
+          status: "전체 회원 승인/권한 관리",
+          cards: [
+            ["회원 승인", "가입설문 제출자를 정식 부모님/학생 회원으로 전환"],
+            ["계정 연결", "부모 계정과 학생 계정을 안전하게 연결"],
+            ["자료 관리", "커리큘럼과 루브릭을 OpenAI 검색 자료로 업로드"],
+          ],
+          rows: [
+            ["권한", "parent, student, teacher, admin 역할별 접근 제한"],
+            ["데이터", "Firestore 원본 저장, OpenAI에는 최소 학습 데이터만 전달"],
+            ["감사", "리포트 생성, 조회, 수정 이력을 관리자만 확인"],
+          ],
+        },
+      };
+
+      const tabs = document.querySelectorAll(".role-tab");
+      const roleSelect = document.getElementById("roleSelect");
+      const roleKicker = document.getElementById("roleKicker");
+      const roleTitle = document.getElementById("roleTitle");
+      const roleStatus = document.getElementById("roleStatus");
+      const summaryCards = document.getElementById("summaryCards");
+      const reportRows = document.getElementById("reportRows");
+
+      const renderRole = (role) => {
+        const data = roleData[role] || roleData.parent;
+        roleKicker.textContent = data.kicker;
+        roleTitle.textContent = data.title;
+        roleStatus.textContent = data.status;
+        roleSelect.value = role;
+        tabs.forEach((tab) => tab.classList.toggle("is-active", tab.dataset.role === role));
+        summaryCards.innerHTML = data.cards
+          .map(([title, body]) => `<article class="card"><b>${title}</b><p>${body}</p></article>`)
+          .join("");
+        reportRows.innerHTML = data.rows
+          .map(([title, body]) => `<div class="report-row"><strong>${title}</strong><span>${body}</span></div>`)
+          .join("");
+      };
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => renderRole(tab.dataset.role));
+      });
+
+      roleSelect.addEventListener("change", () => renderRole(roleSelect.value));
+
+      document.getElementById("loginForm").addEventListener("submit", (event) => {
+        event.preventDefault();
+        renderRole(roleSelect.value);
+        document.getElementById("dashboard").scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      renderRole("parent");
+    </script>
+  </body>
+</html>
