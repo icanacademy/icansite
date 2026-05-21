@@ -4,6 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Education Shared Office | 교육공유오피스</title>
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const startedFromPortal = params.get("signup") === "1" || sessionStorage.getItem("pers.signup.flow") === "started";
+        if (!startedFromPortal) {
+          window.location.replace("/portal/?signupRequired=1");
+          return;
+        }
+        sessionStorage.setItem("pers.signup.flow", "started");
+        if (params.has("signup")) {
+          window.history.replaceState({}, "", "/consulting-app/");
+        }
+      })();
+    </script>
     <meta
       name="description"
       content="Education Shared Office by ICAN connects place-use customers, AI classes, personal business consulting, Korean TESTA vocational training, and app build requests."

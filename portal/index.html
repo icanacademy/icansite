@@ -381,7 +381,7 @@
           <small>Member Portal</small>
         </a>
         <div class="top-actions">
-          <a class="pill" href="../consulting-app/">회원가입</a>
+          <a class="pill" href="../consulting-app/?signup=1" data-signup-start>회원가입</a>
           <a class="pill" href="../">홈</a>
         </div>
       </header>
@@ -431,7 +431,7 @@
             </div>
             <div class="form-actions">
               <button class="primary" type="submit">대시보드 보기</button>
-              <a class="ghost" href="../consulting-app/">가입설문으로 회원가입 시작</a>
+              <a class="ghost" href="../consulting-app/?signup=1" data-signup-start>가입설문으로 회원가입 시작</a>
             </div>
             <p class="helper">
               처음 오신 학부모님은 가입설문으로 회원가입 시작 버튼을 눌러 설문을 제출합니다. 관리자가 승인하면 부모님/학생 계정이 발급됩니다.
@@ -597,6 +597,12 @@
       });
 
       roleSelect.addEventListener("change", () => renderRole(roleSelect.value));
+
+      document.querySelectorAll("[data-signup-start]").forEach((link) => {
+        link.addEventListener("click", () => {
+          sessionStorage.setItem("pers.signup.flow", "started");
+        });
+      });
 
       document.getElementById("loginForm").addEventListener("submit", (event) => {
         event.preventDefault();
