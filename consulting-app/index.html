@@ -9,9 +9,10 @@
     <script>
       (() => {
         const isLocalDev = ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
+        const isAdminPath = window.location.pathname.startsWith("/consulting-app/admin");
         const params = new URLSearchParams(window.location.search);
         const startedFromPortal = params.get("signup") === "1" || sessionStorage.getItem("pers.signup.flow") === "started";
-        if (!isLocalDev && !startedFromPortal) {
+        if (!isLocalDev && !isAdminPath && !startedFromPortal) {
           window.location.replace("/portal/?signupRequired=1");
           return;
         }
@@ -21,7 +22,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/consulting-app/assets/index-CcfkdN-p.js"></script>
+    <script type="module" crossorigin src="/consulting-app/assets/index-BWhlrTO-.js"></script>
     <link rel="stylesheet" crossorigin href="/consulting-app/assets/index-CCjRsW-p.css">
   </head>
   <body>

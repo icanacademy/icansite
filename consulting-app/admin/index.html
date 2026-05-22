@@ -3,10 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/consulting-app/favicon.svg" />
+    <link rel="manifest" href="/consulting-app/manifest.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>pers-app</title>
-    <script type="module" crossorigin src="/consulting-app/assets/index-5mAKnxX1.js"></script>
-    <link rel="stylesheet" crossorigin href="/consulting-app/assets/index-CjDi_Zj5.css">
+    <script>
+      (() => {
+        const isLocalDev = ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
+        const isAdminPath = window.location.pathname.startsWith("/consulting-app/admin");
+        const params = new URLSearchParams(window.location.search);
+        const startedFromPortal = params.get("signup") === "1" || sessionStorage.getItem("pers.signup.flow") === "started";
+        if (!isLocalDev && !isAdminPath && !startedFromPortal) {
+          window.location.replace("/portal/?signupRequired=1");
+          return;
+        }
+        if (params.get("signup") === "1") {
+          sessionStorage.setItem("pers.signup.flow", "started");
+          window.history.replaceState({}, "", "/consulting-app/");
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/consulting-app/assets/index-BWhlrTO-.js"></script>
+    <link rel="stylesheet" crossorigin href="/consulting-app/assets/index-CCjRsW-p.css">
   </head>
   <body>
     <div id="root"></div>
